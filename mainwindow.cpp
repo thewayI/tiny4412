@@ -106,7 +106,7 @@ void mainWindow::onTimeOut()
     str = strsms.right(10);
     testData = str.toDouble();
     testData = testData * pUnit->conversiontoPSI;
-    str = QString::number(testData, 'f', 3);
+    str = QString::number(testData, 'f', 4);
     testData = str.toDouble();
     // display data
 

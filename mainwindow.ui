@@ -62,7 +62,7 @@
      <enum>Qt::ClickFocus</enum>
     </property>
     <property name="text">
-     <string>大气压力</string>
+     <string>大气压力 123</string>
     </property>
    </widget>
    <widget class="QLCDNumber" name="lcdNumber">

@@ -1,20 +1,28 @@
 #include "adjust.h"
 #include "ui_adjust.h"
+#include "commandList.h"
 
 adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     QWidget(parent),
     ui(new Ui::adjust)
 {
     ui->setupUi(this);
+    QString str;
     pSerial = serial;
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
     ui->tblwidget_adjustTitle->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("校准日期表")));
     ui->tblwidget_adjustItem->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("序列号")));
-    ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem(QString::fromUtf8("612095")));
+    //get id
+    sendSerialCommand(pSerial, CMD_GET_ID, &str);
+    ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem(str));
     ui->tblwidget_adjustItem->setItem(1,0,new QTableWidgetItem(QString::fromUtf8("DOC")));
-    ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(QString::fromUtf8("2012-09-17")));
+    //get the date of calibration
+    sendSerialCommand(pSerial, CMD_GET_CALIBRATION_DATE, &str);
+    ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(str));
     ui->tblwidget_adjustItem->setItem(2,0,new QTableWidgetItem(QString::fromUtf8("零点")));
-    ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem(QString::fromUtf8("0.000")));
+    //get zero correction value
+    sendSerialCommand(pSerial, CMD_GET_ZERO_CORRECTION, &str);
+    ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem(str));
     ui->tblwidget_adjustItem->setItem(3,0,new QTableWidgetItem(QString::fromUtf8("满量程")));
     ui->tblwidget_adjustItem->setItem(3,1,new QTableWidgetItem(QString::fromUtf8("1.000000")));
     ui->tblwidget_adjustItem->setItem(4,0,new QTableWidgetItem(QString::fromUtf8("高程修正")));

@@ -1,5 +1,6 @@
 #include "about.h"
 #include "ui_about.h"
+#include "commandList.h"
 
 about::about(QWidget *parent, Posix_QextSerialPort *serial) :
     QWidget(parent),

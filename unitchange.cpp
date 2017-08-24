@@ -125,13 +125,6 @@ void unitChange::on_pushButton_6_clicked()
     unitName = gSconver[m32UnitState].name;
 }
 
-void unitChange::on_pushButton_22_clicked()
-{
-
-
-
-}
-
 void unitChange::on_pushButton_21_clicked()
 {
     m32UnitState= 9;

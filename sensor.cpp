@@ -7,7 +7,7 @@ sensor::sensor(QWidget *parent, Posix_QextSerialPort *serial) :
 {
     ui->setupUi(this);
     pSerial = serial;
-    pAdjust = new adjust;
+    pAdjust = new adjust(this, pSerial);
 
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
 }

@@ -41,15 +41,18 @@ QString getCommandString(unsigned char cmdIdx)
 
 void sendSerialCommand(Posix_QextSerialPort *pSerial, unsigned char index, QString *result)
 {
-    pSerial->write(getCommandString((unsigned char)(index)).toAscii());
-
-    QByteArray temp = pSerial->readAll();
-
-    while(temp.size() == 0)
+    if(pSerial != NULL)
     {
-        temp = pSerial->readAll();
+        pSerial->write(getCommandString((unsigned char)(index)).toAscii());
+
+        QByteArray temp = pSerial->readAll();
+
+        while(temp.size() == 0)
+        {
+            temp = pSerial->readAll();
+        }
+        *result = QString(temp);
     }
-    *result = QString(temp);
 }
 
 
