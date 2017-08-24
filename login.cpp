@@ -16,6 +16,7 @@ login::~login()
     delete ui;
 }
 
+//zdren for git test
 bool login::eventFilter(QObject *obj, QEvent *event)
 {
     if(obj == ui->lineEdit)
