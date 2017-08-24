@@ -99,6 +99,8 @@ private slots:
 
     void on_pushButton_35_clicked();
 
+    void setAllbuttonEnable();
+
 private:
     Ui::unitChange *ui;
 

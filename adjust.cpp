@@ -14,11 +14,26 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     ui->tblwidget_adjustItem->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("序列号")));
     //get id
     sendSerialCommand(pSerial, CMD_GET_ID, &str);
-    ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem(str));
+    if(str.length() == 0)
+    {
+        ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem(QString::fromUtf8("6012095")));
+    }
+    else
+    {
+        ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem(str));
+    }
     ui->tblwidget_adjustItem->setItem(1,0,new QTableWidgetItem(QString::fromUtf8("DOC")));
     //get the date of calibration
     sendSerialCommand(pSerial, CMD_GET_CALIBRATION_DATE, &str);
-    ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(str));
+
+    if(str.length() == 0)
+    {
+        ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(QString::fromUtf8("2017-08-24")));
+    }
+    else
+    {
+        ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(str));
+    }
     ui->tblwidget_adjustItem->setItem(2,0,new QTableWidgetItem(QString::fromUtf8("零点")));
     //get zero correction value
     sendSerialCommand(pSerial, CMD_GET_ZERO_CORRECTION, &str);
@@ -132,6 +147,8 @@ void adjust::on_btn_adjustOk_clicked()
         pSimple->move((QApplication::desktop()->width() - pSimple->width())/2,(QApplication::desktop()->height() - pSimple->height())/2);
         break;
     case 1:
+        spanAdjust();
+        break;
     case 2:
         break;
     case 3:
@@ -263,4 +280,74 @@ void adjust::on_btn_num_10_clicked()
     this->btn_close();
     badjust = false;
     btime = false;
+}
+
+void adjust::on_btn_adjustAuto_clicked()
+{
+    QString str;
+    double zero = 0.0;
+    double zeroTemp = 0.0;
+    QString strTemp = QString("1 ZC ");
+    //1. send #*ZC?   get current zero
+    sendSerialCommand(pSerial, CMD_GET_ZERO_CORRECTION, &str);
+    str = str.right(str.length() - strTemp.length());
+    zero = str.toDouble();
+    //2. send #*PW    disable password
+    sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+    //3. send #*ZC 0  send a new zero
+    strTemp = QString(" 0");
+    sendSerialCommandArg(pSerial, CMD_SET_ZERO_CORRECTION, strTemp, &str);
+    //4. send #*?     get current pressure
+    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
+    str = str.right(10);
+    ui->edit_adjustView->setText(str);
+    zeroTemp = str.toDouble();
+    //5. send #*PW    disbale passwd
+    sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+    //6. send #*ZC ... send a new zero
+    strTemp = QString(" ");
+    strTemp.append(QString::number(zero - zeroTemp, 'f', 6));
+    sendSerialCommandArg(pSerial, CMD_SET_ZERO_CORRECTION, strTemp, &str);
+    //7. send #*SAVE  save enviment
+    sendSerialCommand(pSerial, CMD_SAVE_ALL_DATA, &str);
+    ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem(QString::number(zero - zeroTemp, 'f', 6)));
+    //8. send #*?
+    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
+    str = str.right(10);
+    ui->edit_adjustView->setText(str);
+}
+
+void adjust::spanAdjust(void)
+{
+    QString str;
+    double zero = 0.0;
+    double zeroTemp = 0.0;
+    QString strTemp = QString("1 SC ");
+    //1. send #*SC?   get current zero
+    sendSerialCommand(pSerial, CMD_GET_CORRECTION_MULTIPLIER, &str);
+    str = str.right(str.length() - strTemp.length());
+    zero = str.toDouble();
+    //2. send #*PW    disable password
+    sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+    //3. send #*SC 1  send a new zero
+    strTemp = QString(" 1");
+    sendSerialCommandArg(pSerial, CMD_LOAD_CORRECTION_MULTIPLIER, strTemp, &str);
+    //4. send #*?     get current pressure
+    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
+    str = str.right(10);
+    ui->edit_adjustView->setText(str);
+    zeroTemp = str.toDouble();
+    //5. send #*PW    disbale passwd
+    sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+    //6. send #*SC ... send a new zero
+    strTemp = QString(" ");
+    strTemp.append(QString::number(zero - zeroTemp, 'f', 6));
+    sendSerialCommandArg(pSerial, CMD_LOAD_CORRECTION_MULTIPLIER, strTemp, &str);
+    //7. send #*SAVE  save enviment
+    sendSerialCommand(pSerial, CMD_SAVE_ALL_DATA, &str);
+    ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem(QString::number(zero - zeroTemp, 'f', 6)));
+    //8. send #*?
+    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
+    str = str.right(10);
+    ui->edit_adjustView->setText(str);
 }

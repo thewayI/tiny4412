@@ -62,7 +62,7 @@
      <enum>Qt::ClickFocus</enum>
     </property>
     <property name="text">
-     <string>大气压力 123</string>
+     <string>大气压力</string>
     </property>
    </widget>
    <widget class="QLCDNumber" name="lcdNumber">
@@ -77,7 +77,7 @@
     <property name="focusPolicy">
      <enum>Qt::ClickFocus</enum>
     </property>
-    <property name="numDigits">
+    <property name="digitCount">
      <number>10</number>
     </property>
    </widget>
@@ -100,7 +100,7 @@
     <property name="focusPolicy">
      <enum>Qt::ClickFocus</enum>
     </property>
-    <property name="numDigits">
+    <property name="digitCount">
      <number>10</number>
     </property>
    </widget>

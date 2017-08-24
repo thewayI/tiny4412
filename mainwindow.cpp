@@ -91,7 +91,7 @@ mainWindow::~mainWindow()
 
 void mainWindow::onTimeOut()
 {
-    //double data = 10.10403;
+    double data = 10.10403;
     QString strsms;
     QString str;
     double testData;
@@ -102,16 +102,22 @@ void mainWindow::onTimeOut()
     //if(pSerialHost != NULL)
     //    pSerialHost->write(strsms.toAscii());
 
-    //get the valid pressure
-    str = strsms.right(10);
-    testData = str.toDouble();
-    testData = testData * pUnit->conversiontoPSI;
-    str = QString::number(testData, 'f', 4);
-    testData = str.toDouble();
-    // display data
+    if(strsms.length() != 0)
+    {
+        //get the valid pressure
+        str = strsms.right(10);
+        testData = str.toDouble();
+        testData = testData * pUnit->conversiontoPSI;
+        str = QString::number(testData, 'f', 4);
+        testData = str.toDouble();
+        // display data
 
-    ui->lcdNumber_2->display(testData);
-
+        ui->lcdNumber_2->display(testData);
+    }
+    else
+    {
+        ui->lcdNumber_2->display(data * pUnit->conversiontoPSI);
+    }
     //send a basic query pressure readings
 
     ui->btn_unitChange->setText(pUnit->unitName);

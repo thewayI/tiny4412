@@ -22,7 +22,7 @@ S_CMD_LIST gCommandListTbl[CMD_SUPPORT_COUNT] = {
     {CMD_GET_CAL_TYPE              , QString("#*T?")},
     {CMD_GET_UNIT_CODE             , QString("#*U?")},
     {CMD_GET_ZERO_CORRECTION       , QString("#*ZC?")},
-    {CMD_SET_ZERO_CORRECTION       , QString("#*ZC}")},
+    {CMD_SET_ZERO_CORRECTION       , QString("#*ZC")},
     {CMD_GET_VOLTAGE_UPPER         , QString("#*V+?")},
     {CMD_GET_VOLTAGE_LOWER         , QString("#*V-?")},
     {CMD_GET_VSC                   , QString("#*VSC?")},
@@ -41,16 +41,43 @@ QString getCommandString(unsigned char cmdIdx)
 
 void sendSerialCommand(Posix_QextSerialPort *pSerial, unsigned char index, QString *result)
 {
+    QString str;
     if(pSerial != NULL)
     {
-        pSerial->write(getCommandString((unsigned char)(index)).toAscii());
+        str = getCommandString((unsigned char)(index));
+        str.append("\n");
+        pSerial->write(str.toAscii());
 
         QByteArray temp = pSerial->readAll();
 
+#if 0
         while(temp.size() == 0)
         {
             temp = pSerial->readAll();
         }
+#endif
+        *result = QString(temp);
+    }
+}
+
+void sendSerialCommandArg(Posix_QextSerialPort *pSerial, unsigned char index, QString arg, QString *result)
+{
+    QString str;
+    str = getCommandString((unsigned char)(index));
+    str.append(arg);
+    str.append("\n");
+    if(pSerial != NULL)
+    {
+        pSerial->write(str.toAscii());
+
+        QByteArray temp = pSerial->readAll();
+
+#if 0
+        while(temp.size() == 0)
+        {
+            temp = pSerial->readAll();
+        }
+#endif
         *result = QString(temp);
     }
 }
