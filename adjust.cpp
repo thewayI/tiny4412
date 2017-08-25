@@ -1,6 +1,7 @@
 #include "adjust.h"
 #include "ui_adjust.h"
 #include "commandList.h"
+#include <QMessageBox>
 
 adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     QWidget(parent),
@@ -13,17 +14,20 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     ui->tblwidget_adjustTitle->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("校准日期表")));
     ui->tblwidget_adjustItem->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("序列号")));
     //get id
+    str = QString("");
     sendSerialCommand(pSerial, CMD_GET_ID, &str);
+
     if(str.length() == 0)
     {
         ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem(QString::fromUtf8("6012095")));
     }
     else
     {
-        ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem(str));
+        ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem((str.right(str.length() - QString("1 ID Mensor DPT 6000, SN ").length())).left(6)));
     }
     ui->tblwidget_adjustItem->setItem(1,0,new QTableWidgetItem(QString::fromUtf8("DOC")));
     //get the date of calibration
+    str = QString("");
     sendSerialCommand(pSerial, CMD_GET_CALIBRATION_DATE, &str);
 
     if(str.length() == 0)
@@ -32,12 +36,14 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     }
     else
     {
-        ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(str));
+        ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(str.right(str.length() - QString("1 DC ").length())));
     }
     ui->tblwidget_adjustItem->setItem(2,0,new QTableWidgetItem(QString::fromUtf8("零点")));
     //get zero correction value
+    str = QString("");
     sendSerialCommand(pSerial, CMD_GET_ZERO_CORRECTION, &str);
-    ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem(str));
+
+    ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem(str.right(str.length() - QString("1 ZC ").length())));
     ui->tblwidget_adjustItem->setItem(3,0,new QTableWidgetItem(QString::fromUtf8("满量程")));
     ui->tblwidget_adjustItem->setItem(3,1,new QTableWidgetItem(QString::fromUtf8("1.000000")));
     ui->tblwidget_adjustItem->setItem(4,0,new QTableWidgetItem(QString::fromUtf8("高程修正")));
@@ -130,12 +136,13 @@ void adjust::on_btn_adjustclose_clicked()
 
 void adjust::on_btn_adjustUnlock_clicked()
 {
+    QString str;
     ui->tblwidget_adjustLock_2->setStyleSheet("border-image: url(:/new/prefix1/image/unlock.png)");
     ui->btn_adjustOk->show();
     ui->cmb_adjust->show();
-
-    pLogin->show();
-    pLogin->move((QApplication::desktop()->width() - pLogin->width())/2,(QApplication::desktop()->height() - pLogin->height())/2);
+    sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+    //pLogin->show();
+    //pLogin->move((QApplication::desktop()->width() - pLogin->width())/2,(QApplication::desktop()->height() - pLogin->height())/2);
 }
 
 void adjust::on_btn_adjustOk_clicked()

@@ -51,7 +51,7 @@ unitChange::unitChange(QWidget *parent, Posix_QextSerialPort *serial) :
     unitName = gSconver[m32UnitState].name;
     pSerial = serial;
     setAllbuttonEnable();
-    ui->pushButton_5->setEnabled(false);
+    ui->pushButton->setEnabled(false);
 }
 
 unitChange::~unitChange()

@@ -5,6 +5,7 @@ Contoller::Contoller(QWidget *parent, Posix_QextSerialPort *serial) :
     QWidget(parent),
     ui(new Ui::Contoller)
 {
+    QString strTemp;
     ui->setupUi(this);
 
     pTimer = new QTimer(this);
@@ -18,7 +19,14 @@ Contoller::Contoller(QWidget *parent, Posix_QextSerialPort *serial) :
     pSerial = serial;
     pKeyboard = new keyBoard;
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
-
+    sendSerialCommand(pSerial, CMD_GET_MINIMUM, &strTemp);
+    ui->btn_ctrlMAX1->setText(strTemp);
+    strTemp = QString("");
+    sendSerialCommand(pSerial, CMD_GET_MINIMUM, &strTemp);
+    ui->btn_ctrlMAX2->setText(strTemp);
+    strTemp = QString("");
+    sendSerialCommand(pSerial, CMD_GET_UNIT_CODE, &strTemp);
+    ui->btn_ctrlMAX3->setText();
     editctrlMax1Flag = false;
     editctrlMax2Flag = false;
     editctrlMax3Flag = false;

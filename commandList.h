@@ -8,6 +8,7 @@ typedef struct cmd_list
 {
     unsigned char cmdNo;
     QString cmdInfo;
+    unsigned int respCharCnt;
 
 }S_CMD_LIST;
 
@@ -119,6 +120,7 @@ typedef struct cmd_list
 
 extern S_CMD_LIST gCommandListTbl[CMD_SUPPORT_COUNT];
 extern QString getCommandString(unsigned char cmdIdx);
+extern unsigned int getResponseCharCnt(unsigned char cmdIdx);
 extern void sendSerialCommand(Posix_QextSerialPort *pSerial, unsigned char index, QString *result);
 extern void sendSerialCommandArg(Posix_QextSerialPort *pSerial, unsigned char index, QString arg, QString *result);
 #endif // COMMANDLIST_H

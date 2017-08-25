@@ -46,18 +46,18 @@ mainWindow::mainWindow(QWidget *parent) :
 
     //creator a timer
     pTimer = new QTimer(this);
-    pTimer->setInterval(200);
+    pTimer->setInterval(500);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
     pTimer->start();
 
     ui->btn_unitChange->setText(tr("MPa A"));
     ui->dsb_step->setSingleStep(0.0005); // 步长
-    ui->dsb_setpoint->setSingleStep(0.0005); // 步长
+    ui->dsb_setpoint->setSingleStep(1); // 步长
     ui->dsb_range->setSingleStep(0.0005); // 步长
 
     ui->dsb_step->setValue(0.001);
-    ui->dsb_setpoint->setValue(0.201);
+    ui->dsb_setpoint->setValue(1);
     ui->dsb_range->setValue(1.031);
 
     this->close_manu();
@@ -105,13 +105,12 @@ void mainWindow::onTimeOut()
     if(strsms.length() != 0)
     {
         //get the valid pressure
-        str = strsms.right(10);
+        str = strsms.right(strsms.length() - QString("1 ").length());
         testData = str.toDouble();
         testData = testData * pUnit->conversiontoPSI;
-        str = QString::number(testData, 'f', 4);
+        str = QString::number(testData, 'f', (ui->dsb_setpoint->text().toInt()));
         testData = str.toDouble();
         // display data
-
         ui->lcdNumber_2->display(testData);
     }
     else
