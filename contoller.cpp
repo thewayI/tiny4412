@@ -6,6 +6,7 @@ Contoller::Contoller(QWidget *parent, Posix_QextSerialPort *serial) :
     ui(new Ui::Contoller)
 {
     QString strTemp;
+    u_int32_t loop = 0;
     ui->setupUi(this);
 
     pTimer = new QTimer(this);
@@ -18,24 +19,46 @@ Contoller::Contoller(QWidget *parent, Posix_QextSerialPort *serial) :
 
     pSerial = serial;
     pKeyboard = new keyBoard;
+    pChanTest = new channelTest(this, pSerial);
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
     sendSerialCommand(pSerial, CMD_GET_MINIMUM, &strTemp);
-    ui->btn_ctrlMAX1->setText(strTemp);
+    ui->btn_ctrlMAX1->setText(strTemp.right(strTemp.length() - QString("1 R+ ").length()));
     strTemp = QString("");
-    sendSerialCommand(pSerial, CMD_GET_MINIMUM, &strTemp);
-    ui->btn_ctrlMAX2->setText(strTemp);
+    sendSerialCommand(pSerial, CMD_GET_MAXIMUM, &strTemp);
+    ui->btn_ctrlMAX2->setText(strTemp.right(strTemp.length() - QString("1 R- ").length()));
     strTemp = QString("");
     sendSerialCommand(pSerial, CMD_GET_UNIT_CODE, &strTemp);
-    ui->btn_ctrlMAX3->setText();
+    strTemp = strTemp.right(strTemp.length() - QString("1 ").length());
+    for(loop = 0; loop < 40; loop++)
+    {
+        if(strTemp.toInt() == gUnitChange[loop].code)
+        {
+            ui->btn_ctrlMAX3->setText(gUnitChange[loop].unitInfo);
+            break;
+        }
+    }
+
     editctrlMax1Flag = false;
     editctrlMax2Flag = false;
     editctrlMax3Flag = false;
+
+    ui->btn_ctrlMAX1->setEnabled(false);
+    ui->btn_ctrlMAX2->setEnabled(false);
+    ui->btn_ctrlMAX3->setEnabled(false);
+
+    ui->btn_ctrlstab1->setEnabled(false);
+    strTemp = QString("");
+    sendSerialCommand(pSerial, CMD_GET_FS_ACCURACY, &strTemp);
+    ui->btn_ctrlstab1->setText(strTemp.right(strTemp.length() - QString("1 FS ").length()));
+
 
     editctrlstab1Flag = false;
     editctrlstab2Flag = false;
 
     editctrlMAX1_2Flag = false;
     editctrlvariableFlag = false;
+
+    pChanTest->close();
 }
 
 Contoller::~Contoller()
@@ -205,4 +228,9 @@ void Contoller::on_btn_ctrlstab2_clicked()
 void Contoller::on_btn_ctrlMAX3_3_clicked()
 {
     this->close();
+}
+
+void Contoller::on_btn_ctrlMAX3_2_clicked()
+{
+    pChanTest->show();
 }

@@ -9,6 +9,7 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
 {
     ui->setupUi(this);
     QString str;
+    u_int32_t loop = 0;
     pSerial = serial;
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
     ui->tblwidget_adjustTitle->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("校准日期表")));
@@ -88,7 +89,32 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     ui->btn_num_sub->hide();
     ui->btn_num_clr->hide();
 
+    ui->btn_adjustUnit->setEnabled(false);
     str = QString("");
+    sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+    if(str.length() != 0)
+    {
+        //get the valid pressure
+        str = str.right(str.length() - QString("1 ").length());
+        ui->edit_adjustView->setText(str);
+    }
+    str = QString("");
+    sendSerialCommand(pSerial, CMD_GET_UNIT_CODE, &str);
+    if(str.length() != 0)
+    {
+        //get the valid pressure
+        str = str.right(str.length() - QString("1 ").length());
+        for(loop = 0 ;loop < 40; loop++)
+        {
+            if(str.toInt() == gUnitChange[loop].code)
+            {
+                ui->edit_adjustView->setText(gUnitChange[loop].unitInfo);
+                break;
+            }
+        }
+
+    }
+
     btime = false;
     badjust = false;
 }
@@ -100,7 +126,33 @@ adjust::~adjust()
 
 void adjust::on_btn_adjustMeasure_clicked()
 {
+    QString str = QString("");
+    u_int32_t loop = 0;
 
+    sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+
+    if(str.length() != 0)
+    {
+        //get the valid pressure
+        str = str.right(str.length() - QString("1 ").length());
+        ui->edit_adjustView->setText(str);
+    }
+    str = QString("");
+    sendSerialCommand(pSerial, CMD_GET_UNIT_CODE, &str);
+    if(str.length() != 0)
+    {
+        //get the valid pressure
+        str = str.right(str.length() - QString("1 ").length());
+        for(loop = 0 ;loop < 40; loop++)
+        {
+            if(str.toInt() == gUnitChange[loop].code)
+            {
+                ui->edit_adjustView->setText(gUnitChange[loop].unitInfo);
+                break;
+            }
+        }
+
+    }
 }
 
 void adjust::onTimeOut()

@@ -68,6 +68,7 @@ private slots:
     void spanAdjust();
     void on_btn_adjustAuto_clicked();
 
+
 private:
     Ui::adjust *ui;
 public:

@@ -154,7 +154,7 @@
     </font>
    </property>
    <property name="text">
-    <string>%      F.S.</string>
+    <string>% F.S.</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">

@@ -35,8 +35,8 @@ S_CONVER_PSI gSconver[] = {
     //{30,, QString("% Full Scale")},
     {31,51715.08, QString("microns Hg @ 0°C")},
     {32,0.0005, QString("tsi")},
-    {33,68.94757, QString("HPa")},
-    {34,0.006894757, QString("MPa")},
+    {34,68.94757, QString("HPa")},
+    {35,0.006894757, QString("MPa")},
     //{35,, QString("")},
 };
 
@@ -109,11 +109,25 @@ void unitChange::setAllbuttonEnable(void)
    ui->pushButton_27->setEnabled(true);
 }
 
+void unitChange::getcoefficient(int index)
+{
+    int loop = 0;
+    for(loop = 0; loop < CONVERSION_COUNT; loop++)
+    {
+        if(index == gSconver[loop].index)
+        {
+            conversiontoPSI = gSconver[loop].coefficient;
+            unitName = gSconver[loop].name;
+            return;
+        }
+    }
+
+}
+
 void unitChange::on_pushButton_clicked()
 {
     m32UnitState= 0;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     setAllbuttonEnable();
     ui->pushButton->setEnabled(false);
 }
@@ -121,8 +135,7 @@ void unitChange::on_pushButton_clicked()
 void unitChange::on_pushButton_5_clicked()
 {
     m32UnitState= 1;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     setAllbuttonEnable();
     ui->pushButton_5->setEnabled(false);
 }
@@ -130,8 +143,7 @@ void unitChange::on_pushButton_5_clicked()
 void unitChange::on_pushButton_4_clicked()
 {
     m32UnitState= 2;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
    setAllbuttonEnable();
     ui->pushButton_4->setEnabled(false);
 }
@@ -139,8 +151,7 @@ void unitChange::on_pushButton_4_clicked()
 void unitChange::on_pushButton_20_clicked()
 {
     m32UnitState= 3;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     setAllbuttonEnable();
     ui->pushButton_20->setEnabled(false);
 }
@@ -148,8 +159,7 @@ void unitChange::on_pushButton_20_clicked()
 void unitChange::on_pushButton_24_clicked()
 {
     m32UnitState= 4;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     setAllbuttonEnable();
     ui->pushButton_24->setEnabled(false);
 }
@@ -157,26 +167,23 @@ void unitChange::on_pushButton_24_clicked()
 void unitChange::on_pushButton_19_clicked()
 {
     m32UnitState= 5;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
-setAllbuttonEnable();
+    getcoefficient(m32UnitState);
+    setAllbuttonEnable();
     ui->pushButton_19->setEnabled(false);
 }
 
 void unitChange::on_pushButton_3_clicked()
 {
     m32UnitState= 6;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
-    setAllbuttonEnable();
+   getcoefficient(m32UnitState);
+   setAllbuttonEnable();
     ui->pushButton_3->setEnabled(false);
 }
 
 void unitChange::on_pushButton_2_clicked()
 {
     m32UnitState= 7;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     setAllbuttonEnable();
     ui->pushButton_2->setEnabled(false);
 }
@@ -184,8 +191,7 @@ void unitChange::on_pushButton_2_clicked()
 void unitChange::on_pushButton_6_clicked()
 {
     m32UnitState= 8;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     setAllbuttonEnable();
     ui->pushButton_6->setEnabled(false);
 }
@@ -194,8 +200,7 @@ void unitChange::on_pushButton_21_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 9;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_21->setEnabled(false);
 }
 
@@ -203,8 +208,7 @@ void unitChange::on_pushButton_23_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 10;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_23->setEnabled(false);
 }
 
@@ -221,8 +225,7 @@ void unitChange::on_pushButton_12_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 12;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_12->setEnabled(false);
 }
 
@@ -230,8 +233,7 @@ void unitChange::on_pushButton_7_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 13;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_7->setEnabled(false);
 }
 
@@ -239,8 +241,7 @@ void unitChange::on_pushButton_26_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 14;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_26->setEnabled(false);
 }
 
@@ -248,8 +249,7 @@ void unitChange::on_pushButton_30_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 15;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_30->setEnabled(false);
 }
 
@@ -257,8 +257,7 @@ void unitChange::on_pushButton_25_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 16;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_25->setEnabled(false);
 }
 
@@ -266,8 +265,7 @@ void unitChange::on_pushButton_10_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 17;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_10->setEnabled(false);
 }
 
@@ -275,8 +273,7 @@ void unitChange::on_pushButton_9_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 18;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_9->setEnabled(false);
 }
 
@@ -284,8 +281,7 @@ void unitChange::on_pushButton_11_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 19;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_11->setEnabled(false);
 }
 
@@ -293,8 +289,7 @@ void unitChange::on_pushButton_28_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 20;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_28->setEnabled(false);
 }
 
@@ -302,8 +297,7 @@ void unitChange::on_pushButton_27_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 21;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_27->setEnabled(false);
 }
 
@@ -311,8 +305,7 @@ void unitChange::on_pushButton_29_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 22;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_29->setEnabled(false);
 }
 
@@ -320,8 +313,7 @@ void unitChange::on_pushButton_14_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 23;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_14->setEnabled(false);
 }
 
@@ -329,8 +321,7 @@ void unitChange::on_pushButton_18_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 24;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_18->setEnabled(false);
 }
 
@@ -338,8 +329,7 @@ void unitChange::on_pushButton_13_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 25;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_13->setEnabled(false);
 }
 
@@ -347,8 +337,7 @@ void unitChange::on_pushButton_32_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 26;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_32->setEnabled(false);
 }
 
@@ -356,8 +345,7 @@ void unitChange::on_pushButton_36_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 27;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_36->setEnabled(false);
 }
 
@@ -365,8 +353,7 @@ void unitChange::on_pushButton_31_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 28;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_31->setEnabled(false);
 }
 
@@ -374,8 +361,7 @@ void unitChange::on_pushButton_16_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 29;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_16->setEnabled(false);
 }
 
@@ -389,8 +375,7 @@ void unitChange::on_pushButton_17_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 31;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_17->setEnabled(false);
 }
 
@@ -398,25 +383,22 @@ void unitChange::on_pushButton_34_clicked()
 {
     setAllbuttonEnable();
     m32UnitState= 32;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    getcoefficient(m32UnitState);
     ui->pushButton_34->setEnabled(false);
 }
 
 void unitChange::on_pushButton_33_clicked()
 {
     setAllbuttonEnable();
-    m32UnitState= 33;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    m32UnitState= 34;
+    getcoefficient(m32UnitState);
     ui->pushButton_33->setEnabled(false);
 }
 
 void unitChange::on_pushButton_35_clicked()
 {
     setAllbuttonEnable();
-    m32UnitState= 34;
-    conversiontoPSI = gSconver[m32UnitState].coefficient;
-    unitName = gSconver[m32UnitState].name;
+    m32UnitState= 35;
+    getcoefficient(m32UnitState);
     ui->pushButton_35->setEnabled(false);
 }

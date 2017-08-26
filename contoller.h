@@ -6,6 +6,7 @@
 #include "qtimer.h"
 #include "keyboard.h"
 #include "commandList.h"
+#include "channeltest.h"
 
 namespace Ui {
 class Contoller;
@@ -38,6 +39,8 @@ private slots:
 
     void on_btn_ctrlMAX3_3_clicked();
 
+    void on_btn_ctrlMAX3_2_clicked();
+
 private:
     Ui::Contoller *ui;
 
@@ -45,6 +48,7 @@ public:
     QTimer *pTimer;
     Posix_QextSerialPort *pSerial;
     keyBoard *pKeyboard;
+    channelTest *pChanTest;
 
     bool editctrlMax1Flag;
     bool editctrlMax2Flag;

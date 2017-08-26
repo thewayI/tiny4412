@@ -12,6 +12,11 @@ typedef struct cmd_list
 
 }S_CMD_LIST;
 
+typedef struct unit_change{
+    unsigned char code;
+    QString unitInfo;
+}S_UNIT_CHANGE;
+
 //command list define
 #if 1
 #define CMD_GET_PRESSURE_READING    0  //#*?
@@ -117,7 +122,9 @@ typedef struct cmd_list
 #endif
 
 #define CMD_SUPPORT_COUNT           30
+#define RECV_RESP_TIMEOUT           30000
 
+extern S_UNIT_CHANGE gUnitChange[40];
 extern S_CMD_LIST gCommandListTbl[CMD_SUPPORT_COUNT];
 extern QString getCommandString(unsigned char cmdIdx);
 extern unsigned int getResponseCharCnt(unsigned char cmdIdx);

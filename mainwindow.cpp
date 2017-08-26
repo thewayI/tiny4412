@@ -57,7 +57,7 @@ mainWindow::mainWindow(QWidget *parent) :
     ui->dsb_range->setSingleStep(0.0005); // 步长
 
     ui->dsb_step->setValue(0.001);
-    ui->dsb_setpoint->setValue(1);
+    ui->dsb_setpoint->setValue(3);
     ui->dsb_range->setValue(1.031);
 
     this->close_manu();

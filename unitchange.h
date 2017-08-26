@@ -25,6 +25,9 @@ public:
     ~unitChange();
 
 private slots:
+
+    void getcoefficient(int index);
+
     void on_pushButton_38_clicked();
 
     void on_pushButton_clicked();
