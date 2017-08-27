@@ -234,6 +234,8 @@ void adjust::on_btn_adjustUnlock_clicked()
 
 void adjust::on_btn_adjustOk_clicked()
 {
+    QString str = QString("1");
+    QString strTemp = QString("");
     switch(ui->cmb_adjust->currentIndex())
     {
     case 0:
@@ -244,6 +246,7 @@ void adjust::on_btn_adjustOk_clicked()
         spanAdjust();
         break;
     case 2:
+        sendSerialCommandArg(pSerial, CMD_SWITCH_CAL, str, &strTemp);
         break;
     case 3:
         btime = true;
