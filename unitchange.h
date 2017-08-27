@@ -110,6 +110,7 @@ private:
 public :
     int m32UnitState;
     double conversiontoPSI;
+    double baseConver;
     QString unitName;
     Posix_QextSerialPort *pSerial;
 };

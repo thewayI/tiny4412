@@ -30,7 +30,7 @@ mainWindow::mainWindow(QWidget *parent) :
     pUnit      = new unitChange(this, pSerialDev);
     pConfigure = new configure(this, pSerialDev);
     pAbout     = new about(this, pSerialDev);
-    pSensor    = new sensor(this, pSerialDev);
+    pAdjust = new adjust(this, pSerialDev);
     pSerialUI  = new Serial(this, pSerialHost);
     pController= new Contoller(this, pSerialDev);
     pMachine   = new Machine;
@@ -38,7 +38,7 @@ mainWindow::mainWindow(QWidget *parent) :
     pUnit->close();
     pConfigure->close();
     pAbout->close();
-    pSensor->close();
+    pAdjust->close();
     pSerialUI->close();
     pController->close();
     pMachine->close();
@@ -47,7 +47,7 @@ mainWindow::mainWindow(QWidget *parent) :
 #endif
     //creator a timer
     pTimer = new QTimer(this);
-    pTimer->setInterval(500);
+    pTimer->setInterval(200);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
     pTimer->start();
@@ -60,6 +60,10 @@ mainWindow::mainWindow(QWidget *parent) :
     ui->dsb_step->setValue(0.001);
     ui->dsb_setpoint->setValue(3);
     ui->dsb_range->setValue(1.031);
+
+    //set default accuracy to 3
+    ui->cmb_accuracy->setCurrentIndex(2);
+
 
     this->close_manu();
     this->closeSubConfigureMenu();
@@ -83,6 +87,21 @@ mainWindow::mainWindow(QWidget *parent) :
     ui->label_step->hide();
     ui->label_setpoint->hide();
     ui->label_range->hide();
+
+    //set control button disable
+    ui->btn_controlrange->setEnabled(false);
+    ui->btn_controlsetpoint->setEnabled(false);
+    ui->btn_controlstep->setEnabled(false);
+
+    ui->btn_air->setEnabled(false);
+    ui->btn_configureControl->setEnabled(false);
+    ui->btn_measure->setEnabled(false);
+    ui->btn_procedure->setEnabled(false);
+    ui->btn_standby->setEnabled(false);
+
+
+    //zdren for debug
+    testloop = 0;
 }
 
 mainWindow::~mainWindow()
@@ -109,14 +128,14 @@ void mainWindow::onTimeOut()
         str = strsms.right(strsms.length() - QString("1 ").length());
         testData = str.toDouble();
         testData = testData * pUnit->conversiontoPSI;
-        str = QString::number(testData, 'f', (ui->dsb_setpoint->text().toInt()));
+        str = QString::number(testData, 'f', (ui->cmb_accuracy->currentText().toInt()));
         testData = str.toDouble();
         // display data
         ui->lcdNumber_2->display(testData);
     }
     else
     {
-        ui->lcdNumber_2->display(data * pUnit->conversiontoPSI);
+        ui->lcdNumber_2->display(data * pUnit->conversiontoPSI / pUnit->baseConver);
     }
     //send a basic query pressure readings
 
@@ -364,7 +383,7 @@ void mainWindow::on_btn_configureSensor_clicked()
     this->closeSubConfigureMenu();
     this->closeSubRemoteMenu();
     this->closeSubControlMenu();
-    pSensor->show();
+    pAdjust->show();
     m32ButtonClickControl &= ~0x01;
     m32ButtonClickRemote &= ~0x01;
     m32ButtonClick &= ~0x01;
@@ -504,8 +523,16 @@ void mainWindow::on_btn_controlrange_clicked()
     m32ButtonClickManu &= ~0x01;
 }
 
-void mainWindow::on_pushButton_clicked()
-{
-    QString strsms;
-    sendSerialCommand(pSerialDev, CMD_GET_PRESSURE_READING, &strsms);
-}
+//void mainWindow::on_pushButton_clicked()
+//{
+//    QString strsms = QString("");
+//    sendSerialCommand(pSerialDev, gCommandListTbl[testloop].cmdNo, &strsms);
+//    strsms.append(QString("-------------"));
+//    strsms.append(gCommandListTbl[testloop].cmdInfo);
+//    ui->label_2->setText(strsms);
+
+//    testloop++;
+//    if(testloop > 13)
+//        testloop = 0;
+
+//}

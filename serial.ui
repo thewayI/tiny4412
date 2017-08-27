@@ -388,16 +388,6 @@
     <string>关闭</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_serialView">
-   <property name="geometry">
-    <rect>
-     <x>152</x>
-     <y>293</y>
-     <width>221</width>
-     <height>41</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="statusBar">
    <property name="geometry">
     <rect>
@@ -443,7 +433,6 @@
   <zorder>label_4</zorder>
   <zorder>Startsmsbtn</zorder>
   <zorder>Stopsmsbtn</zorder>
-  <zorder>lineEdit_serialView</zorder>
   <zorder>statusBar</zorder>
  </widget>
  <resources/>

@@ -24,7 +24,7 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     }
     else
     {
-        ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem((str.right(str.length() - QString("1 ID Mensor DPT 6000, SN ").length())).left(6)));
+        ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem((str.right(str.length() - QString("1 ID Mensor DPT 6000, SN ").length())).left(8)));
     }
     ui->tblwidget_adjustItem->setItem(1,0,new QTableWidgetItem(QString::fromUtf8("DOC")));
     //get the date of calibration
@@ -90,8 +90,9 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     ui->btn_num_clr->hide();
 
     ui->btn_adjustUnit->setEnabled(false);
+
     str = QString("");
-    sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
     if(str.length() != 0)
     {
         //get the valid pressure
@@ -103,12 +104,12 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     if(str.length() != 0)
     {
         //get the valid pressure
-        str = str.right(str.length() - QString("1 ").length());
+        str = str.right(str.length() - QString("1 U ").length());
         for(loop = 0 ;loop < 40; loop++)
         {
             if(str.toInt() == gUnitChange[loop].code)
             {
-                ui->edit_adjustView->setText(gUnitChange[loop].unitInfo);
+                ui->btn_adjustUnit->setText(gUnitChange[loop].unitInfo);
                 break;
             }
         }

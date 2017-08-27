@@ -17,6 +17,7 @@ Serial::Serial(QWidget *parent, Posix_QextSerialPort *serial) :
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
     pTimer->start();
+    ui->Stopsmsbtn->setEnabled(false);
 }
 
 Serial::~Serial()
@@ -31,8 +32,8 @@ void Serial::onTimeOut()
     QByteArray temp = pSerial->readAll();
 
     QString strsms=QString(temp);
-    ui->lineEdit_serialView->clear();
-    ui->lineEdit_serialView->setText(strsms);
+    //ui->lineEdit_serialView->clear();
+    //ui->lineEdit_serialView->setText(strsms);
 
     QString qStrCmd = "hello";
     pSerial->write(qStrCmd.toAscii());

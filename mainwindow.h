@@ -11,7 +11,8 @@
 #include "unitchange.h"
 #include "configure.h"
 #include "about.h"
-#include "sensor.h"
+#include "adjust.h"
+//#include "sensor.h"
 #include "serial.h"
 #include "contoller.h"
 #include "machine.h"
@@ -83,7 +84,7 @@ private slots:
 
     void on_btn_controlrange_clicked();
 
-    void on_pushButton_clicked();
+//    void on_pushButton_clicked();
 
 private:
     Ui::mainWindow *ui;
@@ -97,11 +98,13 @@ public :
     int m32ButtonClickControlStep;
     int m32ButtonClickControlSetPoint;
     int m32ButtonClickControlRange;
+    int testloop;
 
     unitChange *pUnit;
     configure *pConfigure;
     about *pAbout;
-    sensor *pSensor;
+    adjust *pAdjust;
+    //sensor *pSensor;
     Serial *pSerialUI;
     Contoller *pController;
     Machine *pMachine;

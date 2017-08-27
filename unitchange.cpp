@@ -45,11 +45,22 @@ unitChange::unitChange(QWidget *parent, Posix_QextSerialPort *serial) :
     ui(new Ui::unitChange)
 {
     ui->setupUi(this);
+    pSerial = serial;
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
-    m32UnitState= 0;
+    QString str = QString("");
+    sendSerialCommand(pSerial, CMD_GET_UNIT_CODE, &str);
+    if(str.size() != 0)
+    {
+        str = str.right(str.length() - QString("1 U ").length());
+        m32UnitState = str.toInt() - 1;
+        baseConver = gSconver[m32UnitState].coefficient;;
+    }
+    else
+    {
+        m32UnitState= 0;
+    }
     conversiontoPSI = gSconver[m32UnitState].coefficient;
     unitName = gSconver[m32UnitState].name;
-    pSerial = serial;
     setAllbuttonEnable();
     ui->pushButton->setEnabled(false);
 }
