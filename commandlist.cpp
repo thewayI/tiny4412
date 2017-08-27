@@ -1,34 +1,34 @@
 #include "commandList.h"
 
 S_CMD_LIST gCommandListTbl[CMD_SUPPORT_COUNT] = {
-    {CMD_GET_PRESSURE_READING      , QString("#*?"),    10},
-    {CMD_SET_ADDR                  , QString("#*A"),     1},
-    {CMD_GET_TURNDOWN              , QString("#*B?"),    5},
-    {CMD_GET_CALIBRATION_DATE      , QString("#*DC?"),  11},
-    {CMD_SET_CALIBRATION_DATE      , QString("#*DC"),    1},
-    {CMD_GET_FLITER                , QString("#*FL?"),   7},
-    {CMD_SET_FLITER                , QString("#*FL"),    1},
-    {CMD_GET_FS_ACCURACY           , QString("#*FS?"),  10},
-    {CMD_GET_ID                    , QString("#*ID?"),  39},
-    {CMD_GET_MODE                  , QString("#*M?"),    5},
-    {CMD_SET_MODE                  , QString("#*M"),     1},
-    {CMD_DISABLE_PASSWD            , QString("#*PW"),    1},
-    {CMD_GET_MINIMUM               , QString("#*R-?"),  14},
-    {CMD_GET_MAXIMUM               , QString("#*R+?"),  14},
-    {CMD_SAVE_ALL_DATA             , QString("#*SAVE"),  1},
-    {CMD_GET_CORRECTION_MULTIPLIER , QString("#*SC?"),   8},
-    {CMD_LOAD_CORRECTION_MULTIPLIER, QString("#*SC"),    1},
-    {CMD_SWITCH_CAL                , QString("#*SW"),    1},
-    {CMD_GET_CAL_TYPE              , QString("#*T?"),    5},
-    {CMD_GET_UNIT_CODE             , QString("#*U?"),    3},
-    {CMD_GET_ZERO_CORRECTION       , QString("#*ZC?"),  13},
-    {CMD_SET_ZERO_CORRECTION       , QString("#*ZC"),    1},
-    {CMD_GET_VOLTAGE_UPPER         , QString("#*V+?"),   6},
-    {CMD_GET_VOLTAGE_LOWER         , QString("#*V-?"),   6},
-    {CMD_GET_VSC                   , QString("#*VSC?"),  7},
-    {CMD_SET_VSC                   , QString("#*VSC"),   1},
-    {CMD_GET_VZC                   , QString("#*VZC?"),  8},
-    {CMD_SET_VZC                   , QString("#*VZC"),   1}
+    {CMD_GET_PRESSURE_READING      , QString("#1?"),    10},
+    {CMD_SET_ADDR                  , QString("#1A"),     1},
+    {CMD_GET_TURNDOWN              , QString("#1B?"),    5},
+    {CMD_GET_CALIBRATION_DATE      , QString("#1DC?"),  11},
+    {CMD_SET_CALIBRATION_DATE      , QString("#1DC"),    1},
+    {CMD_GET_FLITER                , QString("#1FL?"),   7},
+    {CMD_SET_FLITER                , QString("#1FL"),    1},
+    {CMD_GET_FS_ACCURACY           , QString("#1FS?"),  10},
+    {CMD_GET_ID                    , QString("#1ID?"),  39},
+    {CMD_GET_MODE                  , QString("#1M?"),    5},
+    {CMD_SET_MODE                  , QString("#1M"),     1},
+    {CMD_DISABLE_PASSWD            , QString("#1PW"),    1},
+    {CMD_GET_MINIMUM               , QString("#1R-?"),  14},
+    {CMD_GET_MAXIMUM               , QString("#1R+?"),  14},
+    {CMD_SAVE_ALL_DATA             , QString("#1SAVE"),  1},
+    {CMD_GET_CORRECTION_MULTIPLIER , QString("#1SC?"),   8},
+    {CMD_LOAD_CORRECTION_MULTIPLIER, QString("#1SC"),    1},
+    {CMD_SWITCH_CAL                , QString("#1SW"),    1},
+    {CMD_GET_CAL_TYPE              , QString("#1T?"),    5},
+    {CMD_GET_UNIT_CODE             , QString("#1U?"),    3},
+    {CMD_GET_ZERO_CORRECTION       , QString("#1ZC?"),  13},
+    {CMD_SET_ZERO_CORRECTION       , QString("#1ZC"),    1},
+    {CMD_GET_VOLTAGE_UPPER         , QString("#1V+?"),   6},
+    {CMD_GET_VOLTAGE_LOWER         , QString("#1V-?"),   6},
+    {CMD_GET_VSC                   , QString("#1VSC?"),  7},
+    {CMD_SET_VSC                   , QString("#1VSC"),   1},
+    {CMD_GET_VZC                   , QString("#1VZC?"),  8},
+    {CMD_SET_VZC                   , QString("#1VZC"),   1}
 };
 
 S_UNIT_CHANGE gUnitChange[] = {
@@ -92,7 +92,7 @@ void sendSerialCommand(Posix_QextSerialPort *pSerial, unsigned char index, QStri
     if(pSerial != NULL)
     {
         str = getCommandString((unsigned char)(index));
-        //str.append("\n");
+        str.append("\r\n");
         pSerial->write(str.toAscii());
 
         QByteArray temp = pSerial->readAll();
@@ -105,7 +105,7 @@ void sendSerialCommand(Posix_QextSerialPort *pSerial, unsigned char index, QStri
                 temp = pSerial->readAll();
                 break;
             }
-#if 0
+#if 1
             else
             {
                 timeout++;
@@ -126,7 +126,7 @@ void sendSerialCommandArg(Posix_QextSerialPort *pSerial, unsigned char index, QS
     u_int32_t timeout = 0;
     str = getCommandString((unsigned char)(index));
     str.append(arg);
-    //str.append("\n");
+    str.append("\r\n");
     if(pSerial != NULL)
     {
         pSerial->write(str.toAscii());
@@ -141,7 +141,7 @@ void sendSerialCommandArg(Posix_QextSerialPort *pSerial, unsigned char index, QS
                 temp = pSerial->readAll();
                 break;
             }
-#if 0
+#if 1
             else
             {
                 timeout++;

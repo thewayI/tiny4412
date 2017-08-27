@@ -11,7 +11,7 @@ mainWindow::mainWindow(QWidget *parent) :
     pSerialDev = new Posix_QextSerialPort(portName, QextSerialBase::Polling);
     pSerialDev->open(QIODevice::ReadWrite);
     //设置波特率
-    pSerialDev->setBaudRate((BaudRateType)(BAUD115200));
+    pSerialDev->setBaudRate((BaudRateType)(BAUD9600));
 
     //设置数据位
     pSerialDev->setDataBits((DataBitsType)(DATA_8));
@@ -26,6 +26,7 @@ mainWindow::mainWindow(QWidget *parent) :
     //设置延时
     pSerialDev->setTimeout(TIME_OUT);
 
+#if 1
     pUnit      = new unitChange(this, pSerialDev);
     pConfigure = new configure(this, pSerialDev);
     pAbout     = new about(this, pSerialDev);
@@ -43,7 +44,7 @@ mainWindow::mainWindow(QWidget *parent) :
     pMachine->close();
     pRemoteETH->close();
     //pAdjust    = new adjust;
-
+#endif
     //creator a timer
     pTimer = new QTimer(this);
     pTimer->setInterval(500);
@@ -501,4 +502,10 @@ void mainWindow::on_btn_controlrange_clicked()
     m32ButtonClickRemote &= ~0x01;
     m32ButtonClick &= ~0x01;
     m32ButtonClickManu &= ~0x01;
+}
+
+void mainWindow::on_pushButton_clicked()
+{
+    QString strsms;
+    sendSerialCommand(pSerialDev, CMD_GET_PRESSURE_READING, &strsms);
 }
