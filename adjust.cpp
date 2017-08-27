@@ -8,113 +8,53 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     ui(new Ui::adjust)
 {
     ui->setupUi(this);
-    QString str;
-    u_int32_t loop = 0;
+
     pSerial = serial;
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
+
     ui->tblwidget_adjustTitle->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("校准日期表")));
+
     ui->tblwidget_adjustItem->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("序列号")));
-    //get id
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_ID, &str);
 
-    if(str.length() == 0)
-    {
-        ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem(QString::fromUtf8("6012095")));
-    }
-    else
-    {
-        ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem((str.right(str.length() - QString("1 ID Mensor DPT 6000, SN ").length())).left(8)));
-    }
     ui->tblwidget_adjustItem->setItem(1,0,new QTableWidgetItem(QString::fromUtf8("DOC")));
-    //get the date of calibration
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_CALIBRATION_DATE, &str);
 
-    if(str.length() == 0)
-    {
-        ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(QString::fromUtf8("2017-08-24")));
-    }
-    else
-    {
-        ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(str.right(str.length() - QString("1 DC ").length())));
-    }
     ui->tblwidget_adjustItem->setItem(2,0,new QTableWidgetItem(QString::fromUtf8("零点")));
-    //get zero correction value
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_ZERO_CORRECTION, &str);
 
-    ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem(str.right(str.length() - QString("1 ZC ").length())));
     ui->tblwidget_adjustItem->setItem(3,0,new QTableWidgetItem(QString::fromUtf8("满量程")));
-    ui->tblwidget_adjustItem->setItem(3,1,new QTableWidgetItem(QString::fromUtf8("1.000000")));
+
     ui->tblwidget_adjustItem->setItem(4,0,new QTableWidgetItem(QString::fromUtf8("高程修正")));
     ui->tblwidget_adjustItem->setItem(4,1,new QTableWidgetItem(QString::fromUtf8("1.000000")));
 
     ui->tblwidget_adjustTitle->item(0,0)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+
     ui->tblwidget_adjustItem->item(0,0)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    ui->tblwidget_adjustItem->item(0,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+
     ui->tblwidget_adjustItem->item(1,0)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+
     ui->tblwidget_adjustItem->item(2,0)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    ui->tblwidget_adjustItem->item(2,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+
+    //ui->tblwidget_adjustItem->item(2,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
     ui->tblwidget_adjustItem->item(3,0)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    ui->tblwidget_adjustItem->item(3,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+
+    //ui->tblwidget_adjustItem->item(3,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
     ui->tblwidget_adjustItem->item(4,0)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+
     ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 
     ui->btn_adjustOk->hide();
     ui->cmb_adjust->hide();
 
     pSimple = new SimpleAdjust;
+    pKeyBoard = new keyBoard;
+
     pLogin  = new login;
     pTimer2 = new QTimer(this);
-    pTimer2->setInterval(100);
+    pTimer2->setInterval(1000);
     connect(pTimer2, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
-    pTimer2->start();
-
-    ui->btn_num_0->hide();
-    ui->btn_num_1->hide();
-    ui->btn_num_2->hide();
-    ui->btn_num_3->hide();
-    ui->btn_num_4->hide();
-    ui->btn_num_5->hide();
-    ui->btn_num_6->hide();
-    ui->btn_num_7->hide();
-    ui->btn_num_8->hide();
-    ui->btn_num_9->hide();
-    ui->btn_num_10->hide();
-    ui->btn_num_Point->hide();
-    ui->btn_num_add->hide();
-    ui->btn_num_sub->hide();
-    ui->btn_num_clr->hide();
+    //pTimer2->start();
 
     ui->btn_adjustUnit->setEnabled(false);
-
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
-    if(str.length() != 0)
-    {
-        //get the valid pressure
-        str = str.right(str.length() - QString("1 ").length());
-        ui->edit_adjustView->setText(str);
-    }
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_UNIT_CODE, &str);
-    if(str.length() != 0)
-    {
-        //get the valid pressure
-        str = str.right(str.length() - QString("1 U ").length());
-        for(loop = 0 ;loop < 40; loop++)
-        {
-            if(str.toInt() == gUnitChange[loop].code)
-            {
-                ui->btn_adjustUnit->setText(gUnitChange[loop].unitInfo);
-                break;
-            }
-        }
-
-    }
 
     btime = false;
     badjust = false;
@@ -130,7 +70,7 @@ void adjust::on_btn_adjustMeasure_clicked()
     QString str = QString("");
     u_int32_t loop = 0;
 
-    sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
 
     if(str.length() != 0)
     {
@@ -152,30 +92,123 @@ void adjust::on_btn_adjustMeasure_clicked()
                 break;
             }
         }
-
     }
 }
 
 void adjust::onTimeOut()
 {
+    QString str = QString("");
+    QString strTemp = QString("");
+    u_int32_t loop = 0;
     switch(ui->cmb_adjust->currentIndex())
     {
     case 3:
         if(btime)
         {
-            ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(str));
-            ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+            if(pKeyBoard->editFlag)
+            {
+                ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(pKeyBoard->str));
+                ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+            }
+            else
+            {
+                sendSerialCommandArg(pSerial, CMD_SET_CALIBRATION_DATE, pKeyBoard->str, &strTemp);
+                sendSerialCommand(pSerial, CMD_SAVE_ALL_DATA, &strTemp);
+                btime = false;
+            }
         }
         break;
     case 4:
         if(badjust)
         {
-            ui->tblwidget_adjustItem->setItem(4,1,new QTableWidgetItem(str));
+            ui->tblwidget_adjustItem->setItem(4,1,new QTableWidgetItem(pKeyBoard->str));
             ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
         }
         break;
     default:
         break;
+    }
+
+    //get id
+    str = QString("");
+    sendSerialCommand(pSerial, CMD_GET_ID, &str);
+
+    if(str.length() == 0)
+    {
+        ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem(QString::fromUtf8("6012095")));
+        ui->tblwidget_adjustItem->item(0,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    }
+    else
+    {
+        ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem((str.right(str.length() - QString("1 ID Mensor DPT 6000, SN ").length())).left(8)));
+        ui->tblwidget_adjustItem->item(0,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    }
+
+    //get the date of calibration
+    str = QString("");
+    sendSerialCommand(pSerial, CMD_GET_CALIBRATION_DATE, &str);
+
+    if(str.length() == 0)
+    {
+        ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(QString::fromUtf8("2017-08-24")));
+        ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    }
+    else
+    {
+        ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem((str.right(str.length() - QString("1 DC ").length())).left(6)));
+        ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    }
+    //get zero correction value
+    str = QString("");
+    sendSerialCommand(pSerial, CMD_GET_ZERO_CORRECTION, &str);
+    if(str.length() != 0)
+    {
+        ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem((str.right(str.length() - QString("1 ZC ").length())).left(str.length() - QString("1 ZC ").length() - QString("\r\n").length())));
+        ui->tblwidget_adjustItem->item(2,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    }
+    else
+    {
+         ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem(QString::fromUtf8("0.000000")));
+         ui->tblwidget_adjustItem->item(2,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    }
+
+    //get the maximum range
+    str = QString("");
+    sendSerialCommand(pSerial, CMD_GET_MAXIMUM, &str);
+    if(str.length() != 0)
+    {
+        ui->tblwidget_adjustItem->setItem(3,1,new QTableWidgetItem((str.right(str.length() - QString("1 R+ ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length())));
+        ui->tblwidget_adjustItem->item(3,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    }
+    else
+    {
+        ui->tblwidget_adjustItem->setItem(3,1,new QTableWidgetItem(QString::fromUtf8("1.000000")));
+        ui->tblwidget_adjustItem->item(3,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    }
+
+    str = QString("");
+    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
+    if(str.length() != 0)
+    {
+        //get the valid pressure
+        str = str.right(str.length() - QString("1 ").length());
+        ui->edit_adjustView->setText(str);
+    }
+    str = QString("");
+    sendSerialCommand(pSerial, CMD_GET_UNIT_CODE, &str);
+    if(str.length() != 0)
+    {
+        //get the valid uni code
+        str = str.right(str.length() - QString("1 U ").length());
+        for(loop = 0 ;loop < 40; loop++)
+        {
+            if(str.toInt() == gUnitChange[loop].code)
+            {
+                ui->btn_adjustUnit->setText(gUnitChange[loop].unitInfo);
+                break;
+            }
+        }
+
     }
 }
 
@@ -184,6 +217,7 @@ void adjust::on_btn_adjustclose_clicked()
     ui->tblwidget_adjustLock_2->setStyleSheet("border-image: url(:/new/prefix1/image/lock.png)");
     ui->btn_adjustOk->hide();
     ui->cmb_adjust->hide();
+    pTimer2->stop();
     this->close();
 }
 
@@ -212,12 +246,18 @@ void adjust::on_btn_adjustOk_clicked()
     case 2:
         break;
     case 3:
-        this->btn_show();
         btime = true;
+        pKeyBoard->str = QString("");
+        pKeyBoard->editFlag = true;
+        pKeyBoard->show();
+        pKeyBoard->move(600, 300);
         break;
     case 4:
         badjust = true;
-        this->btn_show();
+        pKeyBoard->str = QString("");
+        pKeyBoard->editFlag = true;
+        pKeyBoard->show();
+        pKeyBoard->move(600, 300);
         break;
     case 5:
     default:
@@ -227,119 +267,14 @@ void adjust::on_btn_adjustOk_clicked()
 
 void adjust::btn_show()
 {
-    ui->btn_num_0->show();
-    ui->btn_num_1->show();
-    ui->btn_num_2->show();
-    ui->btn_num_3->show();
-    ui->btn_num_4->show();
-    ui->btn_num_5->show();
-    ui->btn_num_6->show();
-    ui->btn_num_7->show();
-    ui->btn_num_8->show();
-    ui->btn_num_9->show();
-    ui->btn_num_10->show();
-    ui->btn_num_Point->show();
-    ui->btn_num_add->show();
-    ui->btn_num_sub->show();
-    ui->btn_num_clr->show();
-
     ui->btn_adjustOk->hide();
     ui->cmb_adjust->hide();
 }
 
 void adjust::btn_close()
 {
-    ui->btn_num_0->hide();
-    ui->btn_num_1->hide();
-    ui->btn_num_2->hide();
-    ui->btn_num_3->hide();
-    ui->btn_num_4->hide();
-    ui->btn_num_5->hide();
-    ui->btn_num_6->hide();
-    ui->btn_num_7->hide();
-    ui->btn_num_8->hide();
-    ui->btn_num_9->hide();
-    ui->btn_num_10->hide();
-    ui->btn_num_Point->hide();
-    ui->btn_num_add->hide();
-    ui->btn_num_sub->hide();
-    ui->btn_num_clr->hide();
-
     ui->btn_adjustOk->show();
     ui->cmb_adjust->show();
-}
-
-void adjust::on_btn_num_1_clicked()
-{
-    str.sprintf("%s%s",str.toLatin1().data(),"1");
-}
-
-void adjust::on_btn_num_2_clicked()
-{
-    str.sprintf("%s%s",str.toLatin1().data(),"2");
-}
-
-void adjust::on_btn_num_3_clicked()
-{
-    str.sprintf("%s%s",str.toLatin1().data(),"3");
-}
-
-void adjust::on_btn_num_4_clicked()
-{
-    str.sprintf("%s%s",str.toLatin1().data(),"4");
-}
-
-void adjust::on_btn_num_5_clicked()
-{
-    str.sprintf("%s%s",str.toLatin1().data(),"5");
-}
-
-void adjust::on_btn_num_6_clicked()
-{
-    str.sprintf("%s%s",str.toLatin1().data(),"6");
-}
-
-void adjust::on_btn_num_7_clicked()
-{
-    str.sprintf("%s%s",str.toLatin1().data(),"7");
-}
-
-void adjust::on_btn_num_8_clicked()
-{
-    str.sprintf("%s%s",str.toLatin1().data(),"8");
-}
-
-void adjust::on_btn_num_9_clicked()
-{
-    str.sprintf("%s%s",str.toLatin1().data(),"9");
-}
-
-void adjust::on_btn_num_Point_clicked()
-{
-    str.sprintf("%s%s",str.toLatin1().data(),".");
-}
-
-void adjust::on_btn_num_0_clicked()
-{
-    str.sprintf("%s%s",str.toLatin1().data(),"0");
-}
-
-void adjust::on_btn_num_sub_clicked()
-{
-    str.sprintf("%s%s",str.toLatin1().data(),"-");
-}
-
-void adjust::on_btn_num_clr_clicked()
-{
-    str = QString("");
-}
-
-void adjust::on_btn_num_10_clicked()
-{
-    str = QString("");
-    this->btn_close();
-    badjust = false;
-    btime = false;
 }
 
 void adjust::on_btn_adjustAuto_clicked()

@@ -27,20 +27,28 @@ mainWindow::mainWindow(QWidget *parent) :
     pSerialDev->setTimeout(TIME_OUT);
 
 #if 1
+    //qDebug("serial");
     pUnit      = new unitChange(this, pSerialDev);
+    //qDebug("pUnit");
     pConfigure = new configure(this, pSerialDev);
+    //qDebug("pConfigure");
     pAbout     = new about(this, pSerialDev);
+    //qDebug("pAbout");
     pAdjust = new adjust(this, pSerialDev);
+    //qDebug("pAdjust");
     pSerialUI  = new Serial(this, pSerialHost);
-    pController= new Contoller(this, pSerialDev);
+    //pController= new Contoller(this, pSerialDev);
+    //qDebug("pSerialUI");
     pMachine   = new Machine;
+    //qDebug("pMachine");
     pRemoteETH = new RemoteEth;
+    //qDebug("pRemoteETH");
     pUnit->close();
     pConfigure->close();
     pAbout->close();
     pAdjust->close();
     pSerialUI->close();
-    pController->close();
+    //pController->close();
     pMachine->close();
     pRemoteETH->close();
     //pAdjust    = new adjust;
@@ -127,7 +135,7 @@ void mainWindow::onTimeOut()
         //get the valid pressure
         str = strsms.right(strsms.length() - QString("1 ").length());
         testData = str.toDouble();
-        testData = testData * pUnit->conversiontoPSI;
+        testData = testData * pUnit->conversiontoPSI / pUnit->baseConver;
         str = QString::number(testData, 'f', (ui->cmb_accuracy->currentText().toInt()));
         testData = str.toDouble();
         // display data
@@ -383,6 +391,7 @@ void mainWindow::on_btn_configureSensor_clicked()
     this->closeSubConfigureMenu();
     this->closeSubRemoteMenu();
     this->closeSubControlMenu();
+    pAdjust->pTimer2->start();
     pAdjust->show();
     m32ButtonClickControl &= ~0x01;
     m32ButtonClickRemote &= ~0x01;
@@ -536,3 +545,30 @@ void mainWindow::on_btn_controlrange_clicked()
 //        testloop = 0;
 
 //}
+
+void mainWindow::on_btn_test_clicked()
+{
+    QString str = QString("082717");
+    QString strTemp = QString("");
+    sendSerialCommand(pSerialDev, CMD_DISABLE_PASSWD, &strTemp);
+    ui->label_test->setText(strTemp);
+    strTemp = QString("");
+    sendSerialCommandArg(pSerialDev, CMD_SET_CALIBRATION_DATE, str, &strTemp);
+    ui->label_test->setText(strTemp);
+
+}
+
+void mainWindow::on_btn_test_2_clicked()
+{
+    QString strTemp = QString("");
+    sendSerialCommand(pSerialDev, CMD_SAVE_ALL_DATA, &strTemp);
+    ui->label_test->setText(strTemp);
+}
+
+void mainWindow::on_btn_test_3_clicked()
+{
+    QString str = QString("");
+    str = QString("");
+    sendSerialCommand(pSerialDev, CMD_GET_CALIBRATION_DATE, &str);
+    ui->label_test->setText(str);
+}

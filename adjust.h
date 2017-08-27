@@ -13,6 +13,7 @@
 #include "login.h"
 #include "posix_qextserialport.h"
 #include "commandList.h"
+#include "keyboard.h"
 namespace Ui {
 class adjust;
 }
@@ -34,34 +35,6 @@ private slots:
 
     void on_btn_adjustOk_clicked();
 
-    void on_btn_num_1_clicked();
-
-    void on_btn_num_2_clicked();
-
-    void on_btn_num_3_clicked();
-
-    void on_btn_num_4_clicked();
-
-    void on_btn_num_5_clicked();
-
-    void on_btn_num_6_clicked();
-
-    void on_btn_num_7_clicked();
-
-    void on_btn_num_8_clicked();
-
-    void on_btn_num_9_clicked();
-
-    void on_btn_num_Point_clicked();
-
-    void on_btn_num_0_clicked();
-
-    void on_btn_num_sub_clicked();
-
-    void on_btn_num_clr_clicked();
-
-    void on_btn_num_10_clicked();
-
     void btn_close();
     void btn_show();
     void onTimeOut();
@@ -73,6 +46,7 @@ private:
     Ui::adjust *ui;
 public:
     SimpleAdjust *pSimple;
+    keyBoard     *pKeyBoard;
     login *pLogin;
     QString str;
     bool btime;

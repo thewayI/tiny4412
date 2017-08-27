@@ -12,7 +12,7 @@ S_CMD_LIST gCommandListTbl[CMD_SUPPORT_COUNT] = {
     {CMD_GET_ID                    , QString("#1ID?"),  40},
     {CMD_GET_MODE                  , QString("#1M?"),    5},
     {CMD_SET_MODE                  , QString("#1M"),     1},
-    {CMD_DISABLE_PASSWD            , QString("#1PW"),    1},
+    {CMD_DISABLE_PASSWD            , QString("#1PW?"),    1},
     {CMD_GET_MINIMUM               , QString("#1R-?"),  14},
     {CMD_GET_MAXIMUM               , QString("#1R+?"),  14},
     {CMD_SAVE_ALL_DATA             , QString("#1SAVE"),  1},
@@ -103,6 +103,9 @@ void sendSerialCommand(Posix_QextSerialPort *pSerial, unsigned char index, QStri
         if(str.size() != 0)
         {
             str.append("\r");
+            if(index != CMD_GET_PRESSURE_READING)
+                if(str.size() != 0)
+                    qDebug("%s", qPrintable(str));
             pSerial->write(str.toAscii());
 
             QByteArray temp;
@@ -121,6 +124,9 @@ void sendSerialCommand(Posix_QextSerialPort *pSerial, unsigned char index, QStri
                 {
                     temp = pSerial->readAll();
                     str = QString(temp);
+                    if(index != CMD_GET_PRESSURE_READING)
+                        if(str.size() != 0)
+                            qDebug("%s", qPrintable(str));
                     strTemp.append(str);
                     if((strTemp.left(1) == strTemp.right(1)) && (strTemp.left(1) == QString("R")))
                     {
@@ -165,9 +171,11 @@ void sendSerialCommandArg(Posix_QextSerialPort *pSerial, unsigned char index, QS
         str = getCommandString((unsigned char)(index));
         if(str.size() != 0)
         {
+            str.append(QString(" "));
             str.append(arg);
             str.append("\r");
-
+            if(str.size() != 0)
+                qDebug("%s", qPrintable(str));
             pSerial->write(str.toAscii());
 
             QByteArray temp;
@@ -187,8 +195,11 @@ void sendSerialCommandArg(Posix_QextSerialPort *pSerial, unsigned char index, QS
                     temp = pSerial->readAll();
                     str = QString(temp);
                     strTemp.append(str);
+
                     if((strTemp.left(1) == strTemp.right(1)) && (strTemp.left(1) == QString("R")))
                     {
+                        if(str.size() != 0)
+                            qDebug("%s", qPrintable(str));
                         break;
                     }
                 }
