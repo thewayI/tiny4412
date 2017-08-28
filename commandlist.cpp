@@ -22,7 +22,7 @@ S_CMD_LIST gCommandListTbl[CMD_SUPPORT_COUNT] = {
     {CMD_GET_CAL_TYPE              , QString("#1T?"),    5},
     {CMD_GET_UNIT_CODE             , QString("#1U?"),    5},
     {CMD_GET_ZERO_CORRECTION       , QString("#1ZC?"),  13},
-    //{CMD_SET_ZERO_CORRECTION       , QString("#1ZC"),    1},
+    {CMD_SET_ZERO_CORRECTION       , QString("#1ZC"),    1},
     //{CMD_GET_VOLTAGE_UPPER         , QString("#1V+?"),   6},
     //{CMD_GET_VOLTAGE_LOWER         , QString("#1V-?"),   6},
     //{CMD_GET_VSC                   , QString("#1VSC?"),  7},
@@ -90,7 +90,7 @@ unsigned int getResponseCharCnt(unsigned char cmdIdx)
     }
     return 0;
 }
-
+#define __DEBUG__
 void sendSerialCommand(Posix_QextSerialPort *pSerial, unsigned char index, QString *result)
 {
     QString str;
@@ -103,11 +103,11 @@ void sendSerialCommand(Posix_QextSerialPort *pSerial, unsigned char index, QStri
         if(str.size() != 0)
         {
             str.append("\r");
-            if(index != CMD_GET_PRESSURE_READING)
-                if(str.size() != 0)
-                    qDebug("%s", qPrintable(str));
             pSerial->write(str.toAscii());
-
+#ifdef __DEBUG__
+            if(index != CMD_GET_PRESSURE_READING)
+                qDebug("%s", qPrintable( str ));
+#endif
             QByteArray temp;
             str = QString("");
             timeout = 0;
@@ -124,10 +124,13 @@ void sendSerialCommand(Posix_QextSerialPort *pSerial, unsigned char index, QStri
                 {
                     temp = pSerial->readAll();
                     str = QString(temp);
+#ifdef __DEBUG__
                     if(index != CMD_GET_PRESSURE_READING)
                         if(str.size() != 0)
-                            qDebug("%s", qPrintable(str));
+                            qDebug("%s", qPrintable( str ));
+#endif
                     strTemp.append(str);
+
                     if((strTemp.left(1) == strTemp.right(1)) && (strTemp.left(1) == QString("R")))
                     {
                         break;
@@ -171,13 +174,17 @@ void sendSerialCommandArg(Posix_QextSerialPort *pSerial, unsigned char index, QS
         str = getCommandString((unsigned char)(index));
         if(str.size() != 0)
         {
-            str.append(QString(" "));
+            if(index != CMD_SWITCH_CAL)
+                str.append(QString(" "));
+            else
+                str.append(QString("\n"));
             str.append(arg);
             str.append("\r");
-            if(str.size() != 0)
-                qDebug("%s", qPrintable(str));
             pSerial->write(str.toAscii());
-
+#ifdef __DEBUG__
+            if(index != CMD_GET_PRESSURE_READING)
+                qDebug("%s", qPrintable( str ));
+#endif
             QByteArray temp;
 
             timeout = 0;
@@ -194,12 +201,14 @@ void sendSerialCommandArg(Posix_QextSerialPort *pSerial, unsigned char index, QS
                 {
                     temp = pSerial->readAll();
                     str = QString(temp);
+#ifdef __DEBUG__
+                    if(index != CMD_GET_PRESSURE_READING)
+                        if(str.size() != 0)
+                            qDebug("%s", qPrintable( str ));
+#endif
                     strTemp.append(str);
-
                     if((strTemp.left(1) == strTemp.right(1)) && (strTemp.left(1) == QString("R")))
                     {
-                        if(str.size() != 0)
-                            qDebug("%s", qPrintable(str));
                         break;
                     }
                 }

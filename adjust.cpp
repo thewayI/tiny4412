@@ -112,6 +112,7 @@ void adjust::onTimeOut()
             }
             else
             {
+                sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
                 sendSerialCommandArg(pSerial, CMD_SET_CALIBRATION_DATE, pKeyBoard->str, &strTemp);
                 sendSerialCommand(pSerial, CMD_SAVE_ALL_DATA, &strTemp);
                 btime = false;
@@ -293,7 +294,7 @@ void adjust::on_btn_adjustAuto_clicked()
     //2. send #*PW    disable password
     sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
     //3. send #*ZC 0  send a new zero
-    strTemp = QString(" 0");
+    strTemp = QString("0");
     sendSerialCommandArg(pSerial, CMD_SET_ZERO_CORRECTION, strTemp, &str);
     //4. send #*?     get current pressure
     sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);

@@ -499,7 +499,6 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <zorder>btn_adjustAuto</zorder>
   </widget>
   <zorder>frame</zorder>
   <zorder>tblwidget_adjustItem</zorder>
@@ -511,12 +510,12 @@
   <zorder>tblwidget_adjustTitle</zorder>
   <zorder>tblwidget_adjustLock</zorder>
   <zorder>label</zorder>
-  <zorder>btn_adjustAuto</zorder>
   <zorder>btn_adjustOk</zorder>
   <zorder>btn_adjustUnlock</zorder>
   <zorder>btn_adjustclose</zorder>
   <zorder>cmb_adjust</zorder>
   <zorder>tblwidget_adjustLock_2</zorder>
+  <zorder>btn_adjustAuto</zorder>
  </widget>
  <resources/>
  <connections/>

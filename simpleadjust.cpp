@@ -35,8 +35,37 @@ void SimpleAdjust::onTimeOut()
 {
 
     QString str;
+    QString strTemp = QString("");
     str.sprintf("%d.%d", mExceptValueInt, mExceptValueFloat);
     ui->lineEdit_except->setText(str);
+
+    //get current pressure
+    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &strTemp);
+
+    if(strTemp.length() != 0)
+    {
+        //get the valid pressure
+        strTemp = strTemp.right(strTemp.length() - QString("1 ").length());
+        // display data
+        ui->lineEdit_current->setText(strTemp);
+    }
+
+    //get the maximum range
+    strTemp = QString("");
+    sendSerialCommand(pSerial, CMD_GET_MAXIMUM, &strTemp);
+    if(strTemp.length() != 0)
+    {
+        ui->lineEdit_max->setText((strTemp.right(strTemp.length() - QString("1 R+ ").length())).left(strTemp.length() - QString("1 R+ ").length() - QString("\r\n").length()));
+
+    }
+    //get the minimum range
+    strTemp = QString("");
+    sendSerialCommand(pSerial, CMD_GET_MINIMUM, &strTemp);
+    if(strTemp.length() != 0)
+    {
+        ui->lineEdit_max->setText((strTemp.right(strTemp.length() - QString("1 R- ").length())).left(strTemp.length() - QString("1 R+ ").length() - QString("\r\n").length()));
+
+    }
 }
 
 void SimpleAdjust::on_btn_num_clr_clicked()

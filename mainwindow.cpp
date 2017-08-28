@@ -108,6 +108,11 @@ mainWindow::mainWindow(QWidget *parent) :
     ui->btn_standby->setEnabled(false);
 
 
+    ui->btn_test->hide();
+    //ui->btn_test_2->hide();
+    //ui->btn_test_3->hide();
+    //ui->label_test->hide();
+
     //zdren for debug
     testloop = 0;
 }
@@ -119,7 +124,6 @@ mainWindow::~mainWindow()
 
 void mainWindow::onTimeOut()
 {
-    double data = 10.10403;
     QString strsms;
     QString str;
     double testData;
@@ -140,10 +144,12 @@ void mainWindow::onTimeOut()
         testData = str.toDouble();
         // display data
         ui->lcdNumber_2->display(testData);
+        //ui->statusBar->showMessage(QString::fromUtf8("串口读取成功"));
     }
     else
     {
-        ui->lcdNumber_2->display(data * pUnit->conversiontoPSI / pUnit->baseConver);
+        //ui->statusBar->showMessage(QString::fromUtf8("串口读取超时"));
+        ui->lcdNumber_2->display(QString("-----------"));
     }
     //send a basic query pressure readings
 
@@ -560,15 +566,85 @@ void mainWindow::on_btn_test_clicked()
 
 void mainWindow::on_btn_test_2_clicked()
 {
-    QString strTemp = QString("");
-    sendSerialCommand(pSerialDev, CMD_SAVE_ALL_DATA, &strTemp);
-    ui->label_test->setText(strTemp);
+
+    QString str;
+#ifdef __TEST_ZC_CMD__
+    sendSerialCommand(pSerialDev, CMD_GET_ZERO_CORRECTION, &str);
+#endif
+    //1. send #*ZC?   get current zero
+    sendSerialCommand(pSerialDev, CMD_GET_CORRECTION_MULTIPLIER, &str);
+    str = str.right(str.length() - QString("1 SC ").length());
+    ui->label_test->setText(str);
 }
 
 void mainWindow::on_btn_test_3_clicked()
 {
+#ifdef __TEST_ZC_CMD__
+    QString str;
+    double zero = 0.0;
+    double zeroTemp = 0.0;
+
+    QString strTemp = QString("1 ZC ");
+    //1. send #*ZC?   get current zero
+    sendSerialCommand(pSerialDev, CMD_GET_ZERO_CORRECTION, &str);
+    str = str.right(str.length() - strTemp.length());
+    zero = str.toDouble();
+    //2. send #*PW    disable password
+    sendSerialCommand(pSerialDev, CMD_DISABLE_PASSWD, &str);
+    //3. send #*ZC 0  send a new zero
+    strTemp = QString("0");
+    sendSerialCommandArg(pSerialDev, CMD_SET_ZERO_CORRECTION, strTemp, &str);
+    //4. send #*?     get current pressure
+    sendSerialCommand(pSerialDev, CMD_GET_PRESSURE_READING, &str);
+    str = str.right(str.length() - QString("1 ").length());
+    //ui->edit_adjustView->setText(str);
+    zeroTemp = str.toDouble();
+    //5. send #*PW    disbale passwd
+    sendSerialCommand(pSerialDev, CMD_DISABLE_PASSWD, &str);
+    //6. send #*ZC ... send a new zero
+    strTemp = QString(" ");
+    strTemp.append(QString::number(zero - zeroTemp, 'f', 6));
+    sendSerialCommandArg(pSerialDev, CMD_SET_ZERO_CORRECTION, strTemp, &str);
+    //7. send #*SAVE  save enviment
+    sendSerialCommand(pSerialDev, CMD_SAVE_ALL_DATA, &str);
+    //ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem(QString::number(zero - zeroTemp, 'f', 6)));
+    //8. send #*?
+    sendSerialCommand(pSerialDev, CMD_GET_PRESSURE_READING, &str);
+    str = str.right(str.length() - QString("1 ").length());
+    //ui->edit_adjustView->setText(str);
+#endif
+
     QString str = QString("");
-    str = QString("");
-    sendSerialCommand(pSerialDev, CMD_GET_CALIBRATION_DATE, &str);
-    ui->label_test->setText(str);
+    double pressure = 0.0;
+    double pressureTemp = 0.0;
+    //1. send #*SC? get current span cal
+    QString strTemp = QString("1 SC ");
+    //1. send #*ZC?   get current zero
+    sendSerialCommand(pSerialDev, CMD_GET_CORRECTION_MULTIPLIER, &str);
+
+    //2. send #*PW    disable password
+    sendSerialCommand(pSerialDev, CMD_DISABLE_PASSWD, &str);
+    //3. send #*SC 1  send a new zero
+    strTemp = QString("1");
+    sendSerialCommandArg(pSerialDev, CMD_LOAD_CORRECTION_MULTIPLIER, strTemp, &str);
+    //4. send #*?     get current pressure
+    sendSerialCommand(pSerialDev, CMD_GET_PRESSURE_READING, &str);
+    str = str.right(str.length() - QString("1 ").length());
+    //ui->edit_adjustView->setText(str);
+    pressure = str.toDouble();
+
+    pressureTemp = 2.0 / pressure;
+
+    strTemp = QString::number(pressureTemp, 'f', 6);
+
+    //2. send #*PW    disable password
+    sendSerialCommand(pSerialDev, CMD_DISABLE_PASSWD, &str);
+    //3. send #*SC 1  send a new zero
+    strTemp = QString("1");
+    sendSerialCommandArg(pSerialDev, CMD_LOAD_CORRECTION_MULTIPLIER, strTemp, &str);
+    //7. send #*SAVE  save enviment
+    sendSerialCommand(pSerialDev, CMD_SAVE_ALL_DATA, &str);
+    //8. send #*?
+    sendSerialCommand(pSerialDev, CMD_GET_PRESSURE_READING, &str);
+    str = str.right(str.length() - QString("1 ").length());
 }
