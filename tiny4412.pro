@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     machine.cpp \
     remoteeth.cpp \
     commandlist.cpp \
-    channeltest.cpp
+    channeltest.cpp \
+    manu.cpp
 
 HEADERS  += mainwindow.h \
     unitchange.h \
@@ -47,7 +48,8 @@ HEADERS  += mainwindow.h \
     machine.h \
     remoteeth.h \
     commandList.h \
-    channeltest.h
+    channeltest.h \
+    manu.h
 
 FORMS    += mainwindow.ui \
     unitchange.ui \
@@ -62,7 +64,8 @@ FORMS    += mainwindow.ui \
     keyboard.ui \
     machine.ui \
     remoteeth.ui \
-    channeltest.ui
+    channeltest.ui \
+    manu.ui
 
 RESOURCES += \
     image.qrc

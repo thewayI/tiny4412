@@ -91,6 +91,51 @@ unsigned int getResponseCharCnt(unsigned char cmdIdx)
     return 0;
 }
 #define __DEBUG__
+
+QString sendSerialMessage(Posix_QextSerialPort *pSerial, QString cmd)
+{
+    QString str;
+    QString strTemp = QString("");
+    u_int32_t timeout = 0;
+    QByteArray temp;
+
+    if(pSerial != NULL)
+    {
+        pSerial->write(cmd.toAscii());
+
+        str = QString("");
+        timeout = 0;
+        while(1)
+        {
+            if(strTemp.right(2) != QString("\r\n"))
+            {
+                temp = pSerial->readAll();
+                str = QString(temp);
+                strTemp.append(str);
+
+                if((strTemp.left(1) == strTemp.right(1)) && (strTemp.left(1) == QString("R")))
+                {
+                    break;
+                }
+            }
+            else
+            {
+                break;
+            }
+
+            timeout++;
+
+            if(timeout >= RECV_RESP_TIMEOUT)
+            {
+                break;
+            }
+        }
+    }
+
+    return strTemp;
+}
+
+
 void sendSerialCommand(Posix_QextSerialPort *pSerial, unsigned char index, QString *result)
 {
     QString str;

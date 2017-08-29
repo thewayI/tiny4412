@@ -1,12 +1,22 @@
 <RCC>
     <qresource prefix="/new/prefix1">
+        <file>image/标注_PxCook.png</file>
+        <file>image/首页 阀门蓝.png</file>
+        <file>image/bg_01.png</file>
+        <file>image/bg_02.png</file>
+        <file>image/bg_03.png</file>
+        <file>image/bg_04.png</file>
+        <file>image/bg_05.png</file>
+        <file>image/bt_mune.png</file>
+        <file>image/bt_xia.png</file>
+        <file>image/Cancle.png</file>
+        <file>image/icon_home.png</file>
+        <file>image/lock.png</file>
+        <file>image/ok.png</file>
+        <file>image/Start.png</file>
+        <file>image/test.png</file>
         <file>image/timg2.png</file>
         <file>image/timg3.png</file>
-        <file>image/Start.png</file>
-        <file>image/ok.png</file>
-        <file>image/Cancle.png</file>
-        <file>image/test.png</file>
         <file>image/unlock.png</file>
-        <file>image/lock.png</file>
     </qresource>
 </RCC>

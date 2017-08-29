@@ -19,6 +19,7 @@
 #include "remoteeth.h"
 #include "commandList.h"
 #include "posix_qextserialport.h"
+#include "manu.h"
 //#include "adjust.h"
 
 namespace Ui {
@@ -34,6 +35,7 @@ public:
     ~mainWindow();
 
 private slots:
+    void onHostTimeout();
     void onTimeOut();
     void on_btn_manu_clicked();
     void show_manu();
@@ -97,6 +99,7 @@ private:
 
 public :
     QTimer *pTimer;
+    QTimer *pTimerHost;
     int m32ButtonClick;
     int m32ButtonClickRemote;
     int m32ButtonClickManu;
@@ -106,6 +109,7 @@ public :
     int m32ButtonClickControlRange;
     int testloop;
 
+    manu *pManu;
     unitChange *pUnit;
     configure *pConfigure;
     about *pAbout;

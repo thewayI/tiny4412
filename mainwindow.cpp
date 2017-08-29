@@ -26,6 +26,25 @@ mainWindow::mainWindow(QWidget *parent) :
     //设置延时
     pSerialDev->setTimeout(TIME_OUT);
 
+    portName = "/dev/ttySAC3";   //获取串口名
+    pSerialHost = new Posix_QextSerialPort(portName, QextSerialBase::Polling);
+    pSerialHost->open(QIODevice::ReadWrite);
+    //设置波特率
+    pSerialHost->setBaudRate((BaudRateType)(BAUD9600));
+
+    //设置数据位
+    pSerialHost->setDataBits((DataBitsType)(DATA_8));
+
+    //设置校验
+    pSerialHost->setParity((ParityType)(PAR_NONE));
+
+    //设置停止位
+    pSerialHost->setStopBits((StopBitsType)(STOP_1));
+    //设置数据流控制
+    pSerialHost->setFlowControl(FLOW_OFF);
+    //设置延时
+    pSerialHost->setTimeout(TIME_OUT);
+
 #if 1
     //qDebug("serial");
     pUnit      = new unitChange(this, pSerialDev);
@@ -42,6 +61,7 @@ mainWindow::mainWindow(QWidget *parent) :
     pMachine   = new Machine;
     //qDebug("pMachine");
     pRemoteETH = new RemoteEth;
+    pManu      = new manu(this, pSerialDev, pSerialHost);
     //qDebug("pRemoteETH");
     pUnit->close();
     pConfigure->close();
@@ -51,14 +71,19 @@ mainWindow::mainWindow(QWidget *parent) :
     //pController->close();
     pMachine->close();
     pRemoteETH->close();
+    pManu->close();
     //pAdjust    = new adjust;
 #endif
     //creator a timer
     pTimer = new QTimer(this);
     pTimer->setInterval(200);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
+    //pTimer->start();
 
-    pTimer->start();
+    pTimerHost = new QTimer(this);
+    pTimerHost->setInterval(100);
+    connect(pTimerHost, SIGNAL(timeout()), this, SLOT(onHostTimeout()));
+    pTimerHost->start();
 
     ui->btn_unitChange->setText(tr("MPa A"));
     ui->dsb_step->setSingleStep(0.0005); // 步长
@@ -108,10 +133,14 @@ mainWindow::mainWindow(QWidget *parent) :
     ui->btn_standby->setEnabled(false);
 
 
-    ui->btn_test->hide();
-    //ui->btn_test_2->hide();
-    //ui->btn_test_3->hide();
-    //ui->label_test->hide();
+    //ui->btn_test->hide();
+    ui->btn_test_2->hide();
+    ui->btn_test_3->hide();
+    ui->label_test->hide();
+
+    //ui->lcdNumber->hide();
+    //ui->lcdNumber_2->hide();
+    //ui->label_2->hide();
 
     //zdren for debug
     testloop = 0;
@@ -120,6 +149,46 @@ mainWindow::mainWindow(QWidget *parent) :
 mainWindow::~mainWindow()
 {
     delete ui;
+}
+
+void mainWindow::onHostTimeout()
+{
+    QString str = QString("");
+    QString strTemp = QString("");
+    u_int32_t timeout = 0;
+    QByteArray temp;
+
+    if(pSerialHost != NULL)
+    {
+        if(pSerialHost->isOpen())
+        {
+            while(1)
+            {
+                if(str.right(1) != QString("\r"))
+                {
+                    temp = pSerialHost->readAll();
+                    strTemp = QString(temp);
+                    str.append(strTemp);
+                    if(str.length() != 0)
+                        qDebug("%s", qPrintable( str ));
+                }
+                else
+                {
+                    strTemp = QString("");
+                    strTemp = sendSerialMessage(pSerialDev, str);
+                    qDebug("%s", qPrintable( strTemp ));
+                    pSerialHost->write(strTemp.toAscii());
+                    break;
+                }
+
+                timeout++;
+                if(timeout > 1000)
+                    break;
+            }
+        }
+    }
+    strTemp = QString("test");
+    pSerialHost->write(strTemp.toAscii());
 }
 
 void mainWindow::onTimeOut()
@@ -141,20 +210,17 @@ void mainWindow::onTimeOut()
         testData = str.toDouble();
         testData = testData * pUnit->conversiontoPSI / pUnit->baseConver;
         str = QString::number(testData, 'f', (ui->cmb_accuracy->currentText().toInt()));
+        ui->label_view->setText(str);
         testData = str.toDouble();
-        // display data
-        ui->lcdNumber_2->display(testData);
-        //ui->statusBar->showMessage(QString::fromUtf8("串口读取成功"));
     }
     else
     {
-        //ui->statusBar->showMessage(QString::fromUtf8("串口读取超时"));
-        ui->lcdNumber_2->display(QString("-----------"));
+        ui->label_view->setText(QString("-----------"));
     }
     //send a basic query pressure readings
 
     ui->btn_unitChange->setText(pUnit->unitName);
-    ui->lcdNumber->display(pUnit->conversiontoPSI);
+    //ui->lcdNumber->display(pUnit->conversiontoPSI);
 
 }
 
@@ -235,6 +301,7 @@ void mainWindow::closeSubControlMenu()
 
 void mainWindow::on_btn_manu_clicked()
 {
+#if 0
     m32ButtonClickManu++;
 
     if(m32ButtonClickManu % 2)
@@ -249,6 +316,8 @@ void mainWindow::on_btn_manu_clicked()
         m32ButtonClickRemote &= ~0x01;
         m32ButtonClick &= ~0x01;
     }
+#endif
+    pManu->show();
 }
 
 void mainWindow::on_btn_configure_clicked()

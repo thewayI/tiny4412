@@ -43,7 +43,6 @@ void Serial::onTimeOut()
 
 void Serial::on_Startsmsbtn_clicked()
 {
-
     //这里QextSerialBase::QueryMode应该使用QextSerialBase::Polling
 
     if(pSerial->open(QIODevice::ReadWrite)){

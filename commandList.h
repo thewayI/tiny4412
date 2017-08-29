@@ -128,6 +128,7 @@ extern S_UNIT_CHANGE gUnitChange[40];
 extern S_CMD_LIST gCommandListTbl[CMD_SUPPORT_COUNT];
 extern QString getCommandString(unsigned char cmdIdx);
 extern unsigned int getResponseCharCnt(unsigned char cmdIdx);
+extern QString sendSerialMessage(Posix_QextSerialPort *pSerial, QString cmd);
 extern void sendSerialCommand(Posix_QextSerialPort *pSerial, unsigned char index, QString *result);
 extern void sendSerialCommandArg(Posix_QextSerialPort *pSerial, unsigned char index, QString arg, QString *result);
 #endif // COMMANDLIST_H
