@@ -247,6 +247,8 @@ void adjust::on_btn_adjustOk_clicked()
         spanAdjust();
         break;
     case 2:
+        str = QString("1");
+        strTemp = QString("");
         sendSerialCommandArg(pSerial, CMD_SWITCH_CAL, str, &strTemp);
         break;
     case 3:

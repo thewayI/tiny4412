@@ -78,7 +78,7 @@ mainWindow::mainWindow(QWidget *parent) :
     pTimer = new QTimer(this);
     pTimer->setInterval(200);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
-    //pTimer->start();
+    pTimer->start();
 
     pTimerHost = new QTimer(this);
     pTimerHost->setInterval(100);
@@ -137,7 +137,7 @@ mainWindow::mainWindow(QWidget *parent) :
     ui->btn_test_2->hide();
     ui->btn_test_3->hide();
     ui->label_test->hide();
-
+    ui->btn_configureSensor->show();
     //ui->lcdNumber->hide();
     //ui->lcdNumber_2->hide();
     //ui->label_2->hide();
@@ -187,8 +187,8 @@ void mainWindow::onHostTimeout()
             }
         }
     }
-    strTemp = QString("test");
-    pSerialHost->write(strTemp.toAscii());
+    //strTemp = QString("test");
+    //pSerialHost->write(strTemp.toAscii());
 }
 
 void mainWindow::onTimeOut()
@@ -466,7 +466,7 @@ void mainWindow::on_btn_configureSensor_clicked()
     this->closeSubConfigureMenu();
     this->closeSubRemoteMenu();
     this->closeSubControlMenu();
-    pAdjust->pTimer2->start();
+    //pAdjust->pTimer2->start();
     pAdjust->show();
     m32ButtonClickControl &= ~0x01;
     m32ButtonClickRemote &= ~0x01;

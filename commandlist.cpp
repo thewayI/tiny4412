@@ -1,34 +1,34 @@
 #include "commandList.h"
 
 S_CMD_LIST gCommandListTbl[CMD_SUPPORT_COUNT] = {
-    {CMD_GET_PRESSURE_READING      , QString("#1?"),    10},
-    {CMD_SET_ADDR                  , QString("#1A"),     1},
-    {CMD_GET_TURNDOWN              , QString("#1B?"),    7},
-    {CMD_GET_CALIBRATION_DATE      , QString("#1DC?"),  13},
-    {CMD_SET_CALIBRATION_DATE      , QString("#1DC"),    1},
-    {CMD_GET_FLITER                , QString("#1FL?"),   9},
-    {CMD_SET_FLITER                , QString("#1FL"),    1},
-    {CMD_GET_FS_ACCURACY           , QString("#1FS?"),  10},
-    {CMD_GET_ID                    , QString("#1ID?"),  40},
-    {CMD_GET_MODE                  , QString("#1M?"),    5},
-    {CMD_SET_MODE                  , QString("#1M"),     1},
-    {CMD_DISABLE_PASSWD            , QString("#1CALU\n"),    1},
-    {CMD_GET_MINIMUM               , QString("#1R-?"),  14},
-    {CMD_GET_MAXIMUM               , QString("#1R+?"),  14},
-    {CMD_SAVE_ALL_DATA             , QString("#1SAVE\n"),  1},
-    {CMD_GET_CORRECTION_MULTIPLIER , QString("#1SC?"),   14},
-    {CMD_LOAD_CORRECTION_MULTIPLIER, QString("#1SC"),    1},
-    {CMD_SWITCH_CAL                , QString("#1SW"),    1},
-    {CMD_GET_CAL_TYPE              , QString("#1T?"),    5},
-    {CMD_GET_UNIT_CODE             , QString("#1U?"),    5},
-    {CMD_GET_ZERO_CORRECTION       , QString("#1ZC?"),  13},
-    {CMD_SET_ZERO_CORRECTION       , QString("#1ZC"),    1},
-    //{CMD_GET_VOLTAGE_UPPER         , QString("#1V+?"),   6},
-    //{CMD_GET_VOLTAGE_LOWER         , QString("#1V-?"),   6},
-    //{CMD_GET_VSC                   , QString("#1VSC?"),  7},
-    //{CMD_SET_VSC                   , QString("#1VSC"),   1},
-    //{CMD_GET_VZC                   , QString("#1VZC?"),  8},
-    //{CMD_SET_VZC                   , QString("#1VZC"),   1}
+    {CMD_GET_PRESSURE_READING      , QString("#*?"),    10},
+    {CMD_SET_ADDR                  , QString("#*A"),     1},
+    {CMD_GET_TURNDOWN              , QString("#*B?"),    7},
+    {CMD_GET_CALIBRATION_DATE      , QString("#*DC?"),  13},
+    {CMD_SET_CALIBRATION_DATE      , QString("#*DC"),    1},
+    {CMD_GET_FLITER                , QString("#*FL?"),   9},
+    {CMD_SET_FLITER                , QString("#*FL"),    1},
+    {CMD_GET_FS_ACCURACY           , QString("#*FS?"),  10},
+    {CMD_GET_ID                    , QString("#*ID?"),  40},
+    {CMD_GET_MODE                  , QString("#*M?"),    5},
+    {CMD_SET_MODE                  , QString("#*M"),     1},
+    {CMD_DISABLE_PASSWD            , QString("#*CALU\n"),    1},
+    {CMD_GET_MINIMUM               , QString("#*R-?"),  14},
+    {CMD_GET_MAXIMUM               , QString("#*R+?"),  14},
+    {CMD_SAVE_ALL_DATA             , QString("#*SAVE\n"),  1},
+    {CMD_GET_CORRECTION_MULTIPLIER , QString("#*SC?"),   14},
+    {CMD_LOAD_CORRECTION_MULTIPLIER, QString("#*SC"),    1},
+    {CMD_SWITCH_CAL                , QString("#*SW\n1\r"),    1},
+    {CMD_GET_CAL_TYPE              , QString("#*T?"),    5},
+    {CMD_GET_UNIT_CODE             , QString("#*U?"),    5},
+    {CMD_GET_ZERO_CORRECTION       , QString("#*ZC?"),  13},
+    {CMD_SET_ZERO_CORRECTION       , QString("#*ZC"),    1},
+    //{CMD_GET_VOLTAGE_UPPER         , QString("#*V+?"),   6},
+    //{CMD_GET_VOLTAGE_LOWER         , QString("#*V-?"),   6},
+    //{CMD_GET_VSC                   , QString("#*VSC?"),  7},
+    //{CMD_SET_VSC                   , QString("#*VSC"),   1},
+    //{CMD_GET_VZC                   , QString("#*VZC?"),  8},
+    //{CMD_SET_VZC                   , QString("#*VZC"),   1}
 };
 
 S_UNIT_CHANGE gUnitChange[] = {
@@ -220,11 +220,17 @@ void sendSerialCommandArg(Posix_QextSerialPort *pSerial, unsigned char index, QS
         if(str.size() != 0)
         {
             if(index != CMD_SWITCH_CAL)
+            {
                 str.append(QString(" "));
+                str.append(arg);
+                str.append("\r");
+            }
             else
-                str.append(QString("\n"));
-            str.append(arg);
-            str.append("\r");
+            {
+                str.append(QString("\r"));
+                str.append(arg);
+                str.append("\n");
+            }
             pSerial->write(str.toAscii());
 #ifdef __DEBUG__
             if(index != CMD_GET_PRESSURE_READING)

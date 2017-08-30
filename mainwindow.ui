@@ -39,9 +39,9 @@
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(253, 251, 252);
-background-color: qlineargradient(spread:pad, x1:0.506, y1:0, x2:0.52, y2:1, stop:0 rgba(0, 0, 114, 255), stop:0.0245098 rgba(0, 33, 47, 255), stop:1 rgba(100, 135, 255, 0));
-background-color: rgb(74, 131, 253);
+border:2px solid rgb(255, 255, 255);
 border-top-left-radius:6px;
+background-color: rgba(5, 4, 250, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;
@@ -72,7 +72,11 @@ border-bottom-right-radius:6px;
      <enum>Qt::ClickFocus</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/image/bt_mune.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/image/bt_mune.png);
+border-top-left-radius:45px;
+border-top-right-radius:45px;
+border-bottom-left-radius:45px;
+border-bottom-right-radius:45px;</string>
     </property>
     <property name="text">
      <string/>
@@ -581,8 +585,8 @@ border-bottom-right-radius:6px;
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(253, 251, 252);
-background-color: qlineargradient(spread:pad, x1:0.506, y1:0, x2:0.52, y2:1, stop:0 rgba(0, 0, 114, 255), stop:0.0245098 rgba(0, 33, 47, 255), stop:1 rgba(100, 135, 255, 0));
-background-color: rgb(74, 131, 253);
+border:2px solid rgb(255, 255, 255);
+background-color: rgba(5, 4, 250, 20);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
@@ -750,12 +754,12 @@ border-bottom-right-radius:6px;
     </property>
     <property name="font">
      <font>
-      <pointsize>20</pointsize>
+      <pointsize>15</pointsize>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(253, 252, 254);
-background-color: rgb(25, 75, 255);</string>
+background-color: rgba(5, 2, 250, 20);</string>
     </property>
     <property name="text">
      <string>       首页</string>
@@ -771,8 +775,8 @@ background-color: rgb(25, 75, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/image/bg_04.png);
-border-image: url(:/new/prefix1/image/bg_02.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);
+</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
