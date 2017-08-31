@@ -14,6 +14,7 @@
 #include "commandList.h"
 #include "manu.h"
 #include "debuginfo.h"
+#include "lockunlock.h"
 
 namespace Ui {
 class manu;
@@ -43,14 +44,18 @@ public:
     Machine *pMachine;
     RemoteEth *pRemoteETH;
     debugInfo *pDebugInfo;
+    lockUnLock *pLock;
 
 private slots:
     void on_btn_configureSensor_clicked();
-    void on_btn_remoteSerial_clicked();
-    void on_btn_remoteMachine_clicked();
-    void on_btn_remoteETH_clicked();
     void on_btn_about_clicked();
     void on_btn_debugInfo_clicked();
+    void on_btn_configureChan_clicked();
+    void on_btn_configureMachine_clicked();
+    void on_btn_configureSerial_clicked();
+    void on_btn_configureETH_clicked();
+    void on_btn_leakTest_clicked();
+    void on_btn_lockUnlock_clicked();
 };
 
 #endif // MANU_H

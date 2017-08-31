@@ -137,7 +137,7 @@ mainWindow::mainWindow(QWidget *parent) :
     ui->btn_test_2->hide();
     ui->btn_test_3->hide();
     ui->label_test->hide();
-    ui->btn_configureSensor->show();
+    //ui->btn_configureSensor->show();
     //ui->lcdNumber->hide();
     //ui->lcdNumber_2->hide();
     //ui->label_2->hide();
@@ -178,7 +178,8 @@ void mainWindow::onHostTimeout()
                     strTemp = sendSerialMessage(pSerialDev, str);
                     qDebug("%s", qPrintable( strTemp ));
                     pSerialHost->write(strTemp.toAscii());
-                    pManu
+                    pManu->pDebugInfo->appendInfo = str + strTemp;
+                    pManu->pDebugInfo->beditFlag = true;
                     break;
                 }
 

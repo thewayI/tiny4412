@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     commandlist.cpp \
     channeltest.cpp \
     manu.cpp \
-    debuginfo.cpp
+    debuginfo.cpp \
+    lockunlock.cpp
 
 HEADERS  += mainwindow.h \
     unitchange.h \
@@ -51,7 +52,8 @@ HEADERS  += mainwindow.h \
     commandList.h \
     channeltest.h \
     manu.h \
-    debuginfo.h
+    debuginfo.h \
+    lockunlock.h
 
 FORMS    += mainwindow.ui \
     unitchange.ui \
@@ -68,7 +70,8 @@ FORMS    += mainwindow.ui \
     remoteeth.ui \
     channeltest.ui \
     manu.ui \
-    debuginfo.ui
+    debuginfo.ui \
+    lockunlock.ui
 
 RESOURCES += \
     image.qrc

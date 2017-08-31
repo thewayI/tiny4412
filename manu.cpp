@@ -18,12 +18,15 @@ manu::manu(QWidget *parent, Posix_QextSerialPort *pSerialDevice, Posix_QextSeria
     pMachine   = new Machine;
     pRemoteETH = new RemoteEth;
     pDebugInfo = new debugInfo;
+    pLock      = new lockUnLock;
     pConfigure->close();
     pAbout->close();
     pAdjust->close();
     pSerialUI->close();
     pMachine->close();
     pRemoteETH->close();
+    pDebugInfo->close();
+    pLock->close();
 }
 
 manu::~manu()
@@ -37,21 +40,6 @@ void manu::on_btn_configureSensor_clicked()
     pAdjust->show();
 }
 
-void manu::on_btn_remoteSerial_clicked()
-{
-    pSerialUI->show();
-}
-
-void manu::on_btn_remoteMachine_clicked()
-{
-    pMachine->show();
-}
-
-void manu::on_btn_remoteETH_clicked()
-{
-    pRemoteETH->show();
-}
-
 void manu::on_btn_about_clicked()
 {
     pAbout->show();
@@ -59,5 +47,35 @@ void manu::on_btn_about_clicked()
 
 void manu::on_btn_debugInfo_clicked()
 {
+    pDebugInfo->show();
+}
 
+void manu::on_btn_configureChan_clicked()
+{
+    pConfigure->show();
+}
+
+void manu::on_btn_configureMachine_clicked()
+{
+    pMachine->show();
+}
+
+void manu::on_btn_configureSerial_clicked()
+{
+    pSerialUI->show();
+}
+
+void manu::on_btn_configureETH_clicked()
+{
+    pRemoteETH->show();
+}
+
+void manu::on_btn_leakTest_clicked()
+{
+
+}
+
+void manu::on_btn_lockUnlock_clicked()
+{
+    pLock->show();
 }
