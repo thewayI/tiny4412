@@ -13,6 +13,7 @@
 #include "remoteeth.h"
 #include "commandList.h"
 #include "manu.h"
+#include "debuginfo.h"
 
 namespace Ui {
 class manu;
@@ -41,6 +42,7 @@ public:
     Contoller *pController;
     Machine *pMachine;
     RemoteEth *pRemoteETH;
+    debugInfo *pDebugInfo;
 
 private slots:
     void on_btn_configureSensor_clicked();

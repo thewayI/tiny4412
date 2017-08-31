@@ -17,6 +17,7 @@ manu::manu(QWidget *parent, Posix_QextSerialPort *pSerialDevice, Posix_QextSeria
     pSerialUI  = new Serial(this, pSerialHost);
     pMachine   = new Machine;
     pRemoteETH = new RemoteEth;
+    pDebugInfo = new debugInfo;
     pConfigure->close();
     pAbout->close();
     pAdjust->close();
