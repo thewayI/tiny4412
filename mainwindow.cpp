@@ -178,6 +178,7 @@ void mainWindow::onHostTimeout()
                     strTemp = sendSerialMessage(pSerialDev, str);
                     qDebug("%s", qPrintable( strTemp ));
                     pSerialHost->write(strTemp.toAscii());
+                    pManu
                     break;
                 }
 

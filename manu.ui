@@ -13,162 +13,99 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="btn_configure">
+  <widget class="QPushButton" name="btn_configureMachine">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>20</y>
-     <width>150</width>
-     <height>40</height>
+     <x>770</x>
+     <y>150</y>
+     <width>200</width>
+     <height>90</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>8</pointsize>
-    </font>
-   </property>
-   <property name="focusPolicy">
-    <enum>Qt::ClickFocus</enum>
-   </property>
-   <property name="text">
-    <string>设    置 ▶</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_remoteMachine">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>185</y>
-     <width>120</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>7</pointsize>
+     <pointsize>9</pointsize>
     </font>
    </property>
    <property name="text">
-    <string>仪  器</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_control">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>140</y>
-     <width>150</width>
-     <height>40</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>8</pointsize>
-    </font>
-   </property>
-   <property name="focusPolicy">
-    <enum>Qt::ClickFocus</enum>
-   </property>
-   <property name="text">
-    <string>控  制 ▶</string>
+    <string>仪 器 设 置</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_configureSensor">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>35</y>
-     <width>120</width>
-     <height>35</height>
+     <x>240</x>
+     <y>150</y>
+     <width>200</width>
+     <height>90</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>9</pointsize>
     </font>
    </property>
    <property name="focusPolicy">
     <enum>Qt::ClickFocus</enum>
    </property>
    <property name="text">
-    <string>传 感 器</string>
+    <string>传 感 器 设 置</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn_serial">
+  <widget class="QPushButton" name="btn_configureChan">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>510</x>
+     <y>150</y>
+     <width>200</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
+   <property name="text">
+    <string>通 道 设 置</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_configureETH">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
      <y>300</y>
-     <width>150</width>
-     <height>40</height>
+     <width>200</width>
+     <height>90</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>8</pointsize>
+     <pointsize>9</pointsize>
     </font>
    </property>
    <property name="focusPolicy">
     <enum>Qt::ClickFocus</enum>
    </property>
    <property name="text">
-    <string>串    口</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_remote">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>220</y>
-     <width>150</width>
-     <height>40</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>8</pointsize>
-    </font>
-   </property>
-   <property name="focusPolicy">
-    <enum>Qt::ClickFocus</enum>
-   </property>
-   <property name="text">
-    <string>远程操作 ▶</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_remoteETH">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>255</y>
-     <width>120</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>7</pointsize>
-    </font>
-   </property>
-   <property name="focusPolicy">
-    <enum>Qt::ClickFocus</enum>
-   </property>
-   <property name="text">
-    <string>以 太 网</string>
+    <string>以 太 网 设 置</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_about">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>340</y>
-     <width>150</width>
-     <height>40</height>
+     <x>770</x>
+     <y>460</y>
+     <width>200</width>
+     <height>90</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>8</pointsize>
+     <pointsize>9</pointsize>
     </font>
    </property>
    <property name="focusPolicy">
@@ -178,25 +115,88 @@
     <string>关    于</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn_remoteSerial">
+  <widget class="QPushButton" name="btn_configureSerial">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>220</y>
-     <width>120</width>
-     <height>35</height>
+     <x>240</x>
+     <y>300</y>
+     <width>200</width>
+     <height>90</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>9</pointsize>
     </font>
    </property>
    <property name="focusPolicy">
     <enum>Qt::ClickFocus</enum>
    </property>
    <property name="text">
-    <string>串  口</string>
+    <string>串  口 设 置</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_debugInfo">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>460</y>
+     <width>200</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
+   <property name="text">
+    <string>调 试 信 息</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_lockUnlock">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>460</y>
+     <width>200</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
+   <property name="text">
+    <string>锁 定 / 解 锁</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_leakTest">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>300</y>
+     <width>200</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
+   <property name="text">
+    <string>泄 露 测 试</string>
    </property>
   </widget>
  </widget>

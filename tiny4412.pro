@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     remoteeth.cpp \
     commandlist.cpp \
     channeltest.cpp \
-    manu.cpp
+    manu.cpp \
+    debuginfo.cpp
 
 HEADERS  += mainwindow.h \
     unitchange.h \
@@ -49,7 +50,8 @@ HEADERS  += mainwindow.h \
     remoteeth.h \
     commandList.h \
     channeltest.h \
-    manu.h
+    manu.h \
+    debuginfo.h
 
 FORMS    += mainwindow.ui \
     unitchange.ui \
@@ -65,7 +67,8 @@ FORMS    += mainwindow.ui \
     machine.ui \
     remoteeth.ui \
     channeltest.ui \
-    manu.ui
+    manu.ui \
+    debuginfo.ui
 
 RESOURCES += \
     image.qrc
