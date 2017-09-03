@@ -90,3 +90,8 @@ void lockUnLock::on_btn_unlock_clicked()
 {
     this->close();
 }
+
+void lockUnLock::on_pushButton_clicked()
+{
+    this->close();
+}

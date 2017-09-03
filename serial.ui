@@ -401,39 +401,19 @@
     <string/>
    </property>
   </widget>
-  <widget class="QFrame" name="frame">
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>500</width>
-     <height>600</height>
+     <x>380</x>
+     <y>370</y>
+     <width>99</width>
+     <height>61</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/timg2.png);</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
+   <property name="text">
+    <string>返回</string>
    </property>
   </widget>
-  <zorder>frame</zorder>
-  <zorder>label_6</zorder>
-  <zorder>parityComboBoxGPS</zorder>
-  <zorder>portNameComboBoxGPS</zorder>
-  <zorder>dataBitsComboBoxGPS</zorder>
-  <zorder>label_9</zorder>
-  <zorder>label_11</zorder>
-  <zorder>label_10</zorder>
-  <zorder>baudRateComboBoxGPS</zorder>
-  <zorder>stopBitsComboBoxGPS</zorder>
-  <zorder>label_4</zorder>
-  <zorder>Startsmsbtn</zorder>
-  <zorder>Stopsmsbtn</zorder>
-  <zorder>statusBar</zorder>
  </widget>
  <resources/>
  <connections/>

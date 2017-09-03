@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     channeltest.cpp \
     manu.cpp \
     debuginfo.cpp \
-    lockunlock.cpp
+    lockunlock.cpp \
+    leaktest.cpp
 
 HEADERS  += mainwindow.h \
     unitchange.h \
@@ -53,7 +54,8 @@ HEADERS  += mainwindow.h \
     channeltest.h \
     manu.h \
     debuginfo.h \
-    lockunlock.h
+    lockunlock.h \
+    leaktest.h
 
 FORMS    += mainwindow.ui \
     unitchange.ui \
@@ -71,7 +73,8 @@ FORMS    += mainwindow.ui \
     channeltest.ui \
     manu.ui \
     debuginfo.ui \
-    lockunlock.ui
+    lockunlock.ui \
+    leaktest.ui
 
 RESOURCES += \
     image.qrc

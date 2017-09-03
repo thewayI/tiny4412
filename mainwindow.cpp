@@ -26,8 +26,10 @@ mainWindow::mainWindow(QWidget *parent) :
     //设置延时
     pSerialDev->setTimeout(TIME_OUT);
 
+
     portName = "/dev/ttySAC3";   //获取串口名
     pSerialHost = new Posix_QextSerialPort(portName, QextSerialBase::Polling);
+#if 0
     pSerialHost->open(QIODevice::ReadWrite);
     //设置波特率
     pSerialHost->setBaudRate((BaudRateType)(BAUD9600));
@@ -44,7 +46,7 @@ mainWindow::mainWindow(QWidget *parent) :
     pSerialHost->setFlowControl(FLOW_OFF);
     //设置延时
     pSerialHost->setTimeout(TIME_OUT);
-
+#endif
 #if 1
     //qDebug("serial");
     pUnit      = new unitChange(this, pSerialDev);

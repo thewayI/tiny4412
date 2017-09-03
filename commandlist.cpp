@@ -285,6 +285,3 @@ void sendSerialCommandArg(Posix_QextSerialPort *pSerial, unsigned char index, QS
         *result = QString("");
     }
 }
-
-
-//cpt6100 address default is "1", use set

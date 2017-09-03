@@ -28,6 +28,7 @@ public:
 
 private slots:
     void onTimeOut();
+    void on_pushButton_clicked();
 };
 
 #endif // DEBUGINFO_H

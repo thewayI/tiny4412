@@ -19,7 +19,7 @@ SimpleAdjust::SimpleAdjust(QWidget *parent, Posix_QextSerialPort *serial) :
     pTimer1->setInterval(100);
     connect(pTimer1, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
-    pTimer1->start();
+
     ui->lineEdit_current->setText(QString("0.1000"));
     ui->lineEdit_max->setText(QString("0.1500"));
     ui->lineEdit_min->setText(QString("0.0050"));
@@ -55,6 +55,7 @@ void SimpleAdjust::onTimeOut()
     sendSerialCommand(pSerial, CMD_GET_MAXIMUM, &strTemp);
     if(strTemp.length() != 0)
     {
+        //qDebug("strTemp = %s\n", qPrintable(strTemp));
         ui->lineEdit_max->setText((strTemp.right(strTemp.length() - QString("1 R+ ").length())).left(strTemp.length() - QString("1 R+ ").length() - QString("\r\n").length()));
 
     }
@@ -63,7 +64,8 @@ void SimpleAdjust::onTimeOut()
     sendSerialCommand(pSerial, CMD_GET_MINIMUM, &strTemp);
     if(strTemp.length() != 0)
     {
-        ui->lineEdit_max->setText((strTemp.right(strTemp.length() - QString("1 R- ").length())).left(strTemp.length() - QString("1 R+ ").length() - QString("\r\n").length()));
+        //qDebug("strTemp = %s\n", qPrintable(strTemp));
+        ui->lineEdit_min->setText((strTemp.right(strTemp.length() - QString("1 R- ").length())).left(strTemp.length() - QString("1 R+ ").length() - QString("\r\n").length()));
 
     }
 }
@@ -230,5 +232,45 @@ void SimpleAdjust::on_btn_num_9_clicked()
 
 void SimpleAdjust::on_btn_ok_clicked()
 {
+    pTimer1->stop();
     this->close();
+ }
+
+void SimpleAdjust::on_btn_ok_2_clicked()
+{
+    QString str = QString("");
+    double pressure = 0.0;
+    double pressureTemp = 0.0;
+    //1. send #*SC? get current span cal
+    QString strTemp = QString("1 SC ");
+    //1. send #*ZC?   get current zero
+    sendSerialCommand(pSerial, CMD_GET_CORRECTION_MULTIPLIER, &str);
+
+    //2. send #*PW    disable password
+    sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+    //3. send #*SC 1  send a new zero
+    strTemp = QString("1");
+    sendSerialCommandArg(pSerial, CMD_LOAD_CORRECTION_MULTIPLIER, strTemp, &str);
+    //4. send #*?     get current pressure
+    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
+    str = str.right(str.length() - QString("1 ").length());
+    //ui->edit_adjustView->setText(str);
+    pressure = str.toDouble();
+
+    //ui->lineEdit_except->text().toDouble()
+    pressureTemp = ui->lineEdit_except->text().toDouble() / pressure;
+
+    strTemp = QString::number(pressureTemp, 'f', 6);
+
+    //2. send #*PW    disable password
+    sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+    //3. send #*SC 1  send a new zero
+    //strTemp = QString("1");
+    strTemp = QString::number(pressureTemp, 'f', 6);
+    sendSerialCommandArg(pSerial, CMD_LOAD_CORRECTION_MULTIPLIER, strTemp, &str);
+    //7. send #*SAVE  save enviment
+    sendSerialCommand(pSerial, CMD_SAVE_ALL_DATA, &str);
+    //8. send #*?
+    //sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
+    //str = str.right(str.length() - QString("1 ").length());
 }

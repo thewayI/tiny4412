@@ -44,8 +44,9 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     ui->btn_adjustOk->hide();
     ui->cmb_adjust->hide();
 
-    pSimple = new SimpleAdjust;
+    pSimple = new SimpleAdjust(this, pSerial);
     pKeyBoard = new keyBoard;
+
 
     pLogin  = new login;
     pTimer2 = new QTimer(this);
@@ -53,6 +54,9 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     connect(pTimer2, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
     //pTimer2->start();
+    pLogin->close();
+    pSimple->close();
+    pKeyBoard->close();
 
     ui->btn_adjustUnit->setEnabled(false);
 
@@ -240,6 +244,7 @@ void adjust::on_btn_adjustOk_clicked()
     switch(ui->cmb_adjust->currentIndex())
     {
     case 0:
+        pSimple->pTimer1->start();
         pSimple->show();
         pSimple->move((QApplication::desktop()->width() - pSimple->width())/2,(QApplication::desktop()->height() - pSimple->height())/2);
         break;

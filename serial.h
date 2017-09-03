@@ -28,6 +28,8 @@ private slots:
 
     void onTimeOut();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Serial *ui;
 

@@ -47,6 +47,8 @@ private slots:
 
     void on_btn_ok_clicked();
 
+    void on_btn_ok_2_clicked();
+
 private:
     Ui::SimpleAdjust *ui;
 

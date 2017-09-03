@@ -15,6 +15,7 @@
 #include "manu.h"
 #include "debuginfo.h"
 #include "lockunlock.h"
+#include "leaktest.h"
 
 namespace Ui {
 class manu;
@@ -45,6 +46,7 @@ public:
     RemoteEth *pRemoteETH;
     debugInfo *pDebugInfo;
     lockUnLock *pLock;
+    leakTest   *pLeakTest;
 
 private slots:
     void on_btn_configureSensor_clicked();
@@ -56,7 +58,10 @@ private slots:
     void on_btn_configureETH_clicked();
     void on_btn_leakTest_clicked();
     void on_btn_lockUnlock_clicked();
+    void on_btn_configureMachine_2_clicked();
 };
 
 #endif // MANU_H
+
+
 

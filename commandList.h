@@ -48,6 +48,20 @@ typedef struct unit_change{
 #define CMD_GET_VZC                 26 //#*VZC?
 #define CMD_SET_VZC                 27 //#*VZC
 
+#define RESP_HEADER_LEN             2  //addr + sp
+#define RESP_TAIL_LEN               2  //<cr><lf>
+#define RESP_READY_LEN              1  //R
+
+//#*?
+#define RESP_PRESSURE_LEN           9  //pressure read
+//#*B?
+#define RESP_TURNDOWN_NUM_LEN       2  //B<sp>
+#define RESP_TURNDOWN_RESUT_LEN     1  //NUM
+//#*DC?
+#define RESP_CALIBRATION_DATE_LEN   3  //DC<sp>
+#define RESP_CALIBRATION_DATE_RESULT_LEN 6 //date
+//#*FL?
+//#define RESP_
 
 
 #else

@@ -199,6 +199,54 @@
     <string>泄 露 测 试</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_configureMachine_2">
+   <property name="geometry">
+    <rect>
+     <x>1130</x>
+     <y>150</y>
+     <width>91</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>返  回</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>800</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <zorder>frame</zorder>
+  <zorder>btn_configureMachine</zorder>
+  <zorder>btn_configureSensor</zorder>
+  <zorder>btn_configureChan</zorder>
+  <zorder>btn_configureETH</zorder>
+  <zorder>btn_about</zorder>
+  <zorder>btn_configureSerial</zorder>
+  <zorder>btn_debugInfo</zorder>
+  <zorder>btn_lockUnlock</zorder>
+  <zorder>btn_leakTest</zorder>
+  <zorder>btn_configureMachine_2</zorder>
  </widget>
  <resources/>
  <connections/>

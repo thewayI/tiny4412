@@ -7,9 +7,9 @@ Serial::Serial(QWidget *parent, Posix_QextSerialPort *serial) :
     ui(new Ui::Serial)
 {
     ui->setupUi(this);
-    QString portName = "/dev/" + ui->portNameComboBoxGPS->currentText();   //获取串口名
-    pSerial = new Posix_QextSerialPort(portName, QextSerialBase::Polling);
-    serial = pSerial;
+    //QString portName = "/dev/" + ui->portNameComboBoxGPS->currentText();   //获取串口名
+    //pSerial = new Posix_QextSerialPort(portName, QextSerialBase::Polling);
+    pSerial = serial;
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
 
     pTimer = new QTimer(this);
@@ -27,6 +27,7 @@ Serial::~Serial()
 
 void Serial::onTimeOut()
 {
+#if 0
     if(pSerial->isOpen())
     {
     QByteArray temp = pSerial->readAll();
@@ -38,6 +39,7 @@ void Serial::onTimeOut()
     QString qStrCmd = "hello";
     pSerial->write(qStrCmd.toAscii());
     }
+#endif
 }
 
 
@@ -90,5 +92,10 @@ void Serial::on_Stopsmsbtn_clicked()
     setComboBoxEnabled(true);
     ui->Startsmsbtn->setEnabled(true);
     ui->Stopsmsbtn->setEnabled(false);
-    this->close();
+
+}
+
+void Serial::on_pushButton_clicked()
+{
+     this->close();
 }

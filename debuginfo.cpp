@@ -80,3 +80,8 @@ void debugInfo::onTimeOut()
 
 
 }
+
+void debugInfo::on_pushButton_clicked()
+{
+    this->close();
+}

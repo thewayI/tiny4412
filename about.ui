@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>600</height>
+    <width>1280</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>640</x>
      <y>20</y>
      <width>121</width>
      <height>31</height>
@@ -44,8 +44,8 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>520</y>
+     <x>780</x>
+     <y>630</y>
      <width>131</width>
      <height>51</height>
     </rect>
@@ -54,59 +54,132 @@
     <string>关闭</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QTableWidget" name="tblWidget_baseInfo">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>110</x>
      <y>60</y>
-     <width>341</width>
-     <height>431</height>
+     <width>600</width>
+     <height>280</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>6</pointsize>
+     <pointsize>7</pointsize>
     </font>
    </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
-   <property name="text">
-    <string>TextLabelklgulg</string>
-   </property>
-   <property name="wordWrap">
+   <property name="autoScroll">
     <bool>true</bool>
    </property>
-   <property name="indent">
-    <number>0</number>
+   <property name="showDropIndicator" stdset="0">
+    <bool>false</bool>
    </property>
+   <property name="dragEnabled">
+    <bool>true</bool>
+   </property>
+   <property name="dragDropOverwriteMode">
+    <bool>true</bool>
+   </property>
+   <property name="rowCount">
+    <number>4</number>
+   </property>
+   <property name="columnCount">
+    <number>2</number>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>300</number>
+   </attribute>
+   <attribute name="horizontalHeaderHighlightSections">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderDefaultSectionSize">
+    <number>70</number>
+   </attribute>
+   <attribute name="verticalHeaderHighlightSections">
+    <bool>false</bool>
+   </attribute>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <column/>
+   <column/>
   </widget>
-  <widget class="QFrame" name="frame">
+  <widget class="QTableWidget" name="tblWidget_devInfo">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>110</x>
+     <y>360</y>
      <width>600</width>
-     <height>600</height>
+     <height>280</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/timg2.png);</string>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
+   <property name="autoScroll">
+    <bool>true</bool>
+   </property>
+   <property name="showDropIndicator" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="dragEnabled">
+    <bool>true</bool>
+   </property>
+   <property name="dragDropOverwriteMode">
+    <bool>true</bool>
+   </property>
+   <property name="rowCount">
+    <number>4</number>
+   </property>
+   <property name="columnCount">
+    <number>2</number>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>300</number>
+   </attribute>
+   <attribute name="horizontalHeaderHighlightSections">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderDefaultSectionSize">
+    <number>70</number>
+   </attribute>
+   <attribute name="verticalHeaderHighlightSections">
+    <bool>false</bool>
+   </attribute>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <column/>
+   <column/>
   </widget>
-  <zorder>frame</zorder>
-  <zorder>label_2</zorder>
-  <zorder>pushButton</zorder>
-  <zorder>label</zorder>
  </widget>
  <resources>
   <include location="image.qrc"/>
