@@ -627,6 +627,7 @@ void mainWindow::on_btn_controlrange_clicked()
 
 void mainWindow::on_btn_test_clicked()
 {
+#if 0
     QString str = QString("082717");
     QString strTemp = QString("");
     sendSerialCommand(pSerialDev, CMD_DISABLE_PASSWD, &strTemp);
@@ -634,6 +635,7 @@ void mainWindow::on_btn_test_clicked()
     strTemp = QString("");
     sendSerialCommandArg(pSerialDev, CMD_SET_CALIBRATION_DATE, str, &strTemp);
     ui->label_test->setText(strTemp);
+#endif
 
 }
 

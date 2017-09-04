@@ -40,8 +40,8 @@
     <property name="styleSheet">
      <string notr="true">color: rgb(253, 251, 252);
 border:2px solid rgb(255, 255, 255);
-border-top-left-radius:6px;
 background-color: rgba(5, 4, 250, 20);
+border-top-left-radius:6px;
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;
@@ -58,7 +58,7 @@ border-bottom-right-radius:6px;
     <property name="geometry">
      <rect>
       <x>1130</x>
-      <y>90</y>
+      <y>130</y>
       <width>90</width>
       <height>90</height>
      </rect>
@@ -690,10 +690,10 @@ border-bottom-right-radius:6px;
    <widget class="QPushButton" name="btn_test">
     <property name="geometry">
      <rect>
-      <x>15</x>
-      <y>15</y>
-      <width>40</width>
-      <height>40</height>
+      <x>20</x>
+      <y>20</y>
+      <width>49</width>
+      <height>49</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -749,7 +749,7 @@ border-bottom-right-radius:6px;
       <x>0</x>
       <y>0</y>
       <width>1280</width>
-      <height>70</height>
+      <height>90</height>
      </rect>
     </property>
     <property name="font">
@@ -758,8 +758,8 @@ border-bottom-right-radius:6px;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(253, 252, 254);
-background-color: rgba(5, 2, 250, 20);</string>
+     <string notr="true">background-color: rgba(34, 44, 125,80);
+color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>       首页</string>

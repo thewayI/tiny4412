@@ -419,3 +419,13 @@ void unitChange::on_pushButton_35_clicked()
     getcoefficient(m32UnitState);
     ui->pushButton_35->setEnabled(false);
 }
+
+void unitChange::on_btn_configureMachine_2_clicked()
+{
+    this->close();
+}
+
+void unitChange::on_pushButton_39_clicked()
+{
+    this->close();
+}

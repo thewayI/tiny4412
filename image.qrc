@@ -18,5 +18,17 @@
         <file>image/timg2.png</file>
         <file>image/timg3.png</file>
         <file>image/unlock.png</file>
+        <file>image/icon_菜单.png</file>
+        <file>image/icon_传感器.png</file>
+        <file>image/icon_串口.png</file>
+        <file>image/icon_单位.png</file>
+        <file>image/icon_调试信息.png</file>
+        <file>image/icon_关于.png</file>
+        <file>image/icon_锁定、解锁.png</file>
+        <file>image/icon_通道.png</file>
+        <file>image/icon_通道设置.png</file>
+        <file>image/icon_泄露测试.png</file>
+        <file>image/icon_仪器.png</file>
+        <file>image/icon_以太网.png</file>
     </qresource>
 </RCC>

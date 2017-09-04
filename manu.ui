@@ -16,10 +16,10 @@
   <widget class="QPushButton" name="btn_configureMachine">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>150</y>
-     <width>200</width>
-     <height>90</height>
+     <x>873</x>
+     <y>140</y>
+     <width>106</width>
+     <height>106</height>
     </rect>
    </property>
    <property name="font">
@@ -27,17 +27,27 @@
      <pointsize>9</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:53px;
+border-top-right-radius:53px;
+border-bottom-left-radius:53px;
+border-bottom-right-radius:53px;
+border-image: url(:/new/prefix1/image/icon_仪器.png);</string>
+   </property>
    <property name="text">
-    <string>仪 器 设 置</string>
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_configureSensor">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>150</y>
-     <width>200</width>
-     <height>90</height>
+     <x>300</x>
+     <y>140</y>
+     <width>106</width>
+     <height>106</height>
     </rect>
    </property>
    <property name="font">
@@ -48,17 +58,27 @@
    <property name="focusPolicy">
     <enum>Qt::ClickFocus</enum>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/icon_传感器.png);
+border-top-left-radius:53px;
+border-top-right-radius:53px;
+border-bottom-left-radius:53px;
+border-bottom-right-radius:53px;</string>
+   </property>
    <property name="text">
-    <string>传 感 器 设 置</string>
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_configureChan">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>150</y>
-     <width>200</width>
-     <height>90</height>
+     <x>587</x>
+     <y>140</y>
+     <width>106</width>
+     <height>106</height>
     </rect>
    </property>
    <property name="font">
@@ -69,17 +89,27 @@
    <property name="focusPolicy">
     <enum>Qt::ClickFocus</enum>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/icon_通道.png);
+border-top-left-radius:53px;
+border-top-right-radius:53px;
+border-bottom-left-radius:53px;
+border-bottom-right-radius:53px;</string>
+   </property>
    <property name="text">
-    <string>通 道 设 置</string>
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_configureETH">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>300</y>
-     <width>200</width>
-     <height>90</height>
+     <x>587</x>
+     <y>340</y>
+     <width>106</width>
+     <height>106</height>
     </rect>
    </property>
    <property name="font">
@@ -90,17 +120,27 @@
    <property name="focusPolicy">
     <enum>Qt::ClickFocus</enum>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:53px;
+border-image: url(:/new/prefix1/image/icon_以太网.png);
+border-top-right-radius:53px;
+border-bottom-left-radius:53px;
+border-bottom-right-radius:53px;</string>
+   </property>
    <property name="text">
-    <string>以 太 网 设 置</string>
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_about">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>460</y>
-     <width>200</width>
-     <height>90</height>
+     <x>873</x>
+     <y>550</y>
+     <width>106</width>
+     <height>106</height>
     </rect>
    </property>
    <property name="font">
@@ -111,17 +151,27 @@
    <property name="focusPolicy">
     <enum>Qt::ClickFocus</enum>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:53px;
+border-image: url(:/new/prefix1/image/icon_关于.png);
+border-top-right-radius:53px;
+border-bottom-left-radius:53px;
+border-bottom-right-radius:53px;</string>
+   </property>
    <property name="text">
-    <string>关    于</string>
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_configureSerial">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>300</y>
-     <width>200</width>
-     <height>90</height>
+     <x>300</x>
+     <y>340</y>
+     <width>106</width>
+     <height>106</height>
     </rect>
    </property>
    <property name="font">
@@ -132,17 +182,27 @@
    <property name="focusPolicy">
     <enum>Qt::ClickFocus</enum>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:53px;
+border-image: url(:/new/prefix1/image/icon_串口.png);
+border-top-right-radius:53px;
+border-bottom-left-radius:53px;
+border-bottom-right-radius:53px;</string>
+   </property>
    <property name="text">
-    <string>串  口 设 置</string>
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_debugInfo">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>460</y>
-     <width>200</width>
-     <height>90</height>
+     <x>587</x>
+     <y>550</y>
+     <width>106</width>
+     <height>106</height>
     </rect>
    </property>
    <property name="font">
@@ -153,17 +213,27 @@
    <property name="focusPolicy">
     <enum>Qt::ClickFocus</enum>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:53px;
+border-image: url(:/new/prefix1/image/icon_调试信息.png);
+border-top-right-radius:53px;
+border-bottom-left-radius:53px;
+border-bottom-right-radius:53px;</string>
+   </property>
    <property name="text">
-    <string>调 试 信 息</string>
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_lockUnlock">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>460</y>
-     <width>200</width>
-     <height>90</height>
+     <x>300</x>
+     <y>550</y>
+     <width>106</width>
+     <height>106</height>
     </rect>
    </property>
    <property name="font">
@@ -174,17 +244,27 @@
    <property name="focusPolicy">
     <enum>Qt::ClickFocus</enum>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:53px;
+border-image: url(:/new/prefix1/image/icon_锁定、解锁.png);
+border-top-right-radius:53px;
+border-bottom-left-radius:53px;
+border-bottom-right-radius:53px;</string>
+   </property>
    <property name="text">
-    <string>锁 定 / 解 锁</string>
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_leakTest">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>300</y>
-     <width>200</width>
-     <height>90</height>
+     <x>873</x>
+     <y>340</y>
+     <width>106</width>
+     <height>106</height>
     </rect>
    </property>
    <property name="font">
@@ -195,17 +275,27 @@
    <property name="focusPolicy">
     <enum>Qt::ClickFocus</enum>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:53px;
+border-image: url(:/new/prefix1/image/icon_泄露测试.png);
+border-top-right-radius:53px;
+border-bottom-left-radius:53px;
+border-bottom-right-radius:53px;</string>
+   </property>
    <property name="text">
-    <string>泄 露 测 试</string>
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_configureMachine_2">
    <property name="geometry">
     <rect>
-     <x>1130</x>
-     <y>150</y>
-     <width>91</width>
-     <height>81</height>
+     <x>1110</x>
+     <y>20</y>
+     <width>117</width>
+     <height>49</height>
     </rect>
    </property>
    <property name="font">
@@ -213,11 +303,277 @@
      <pointsize>9</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(99, 115, 187);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+color: rgb(255, 255, 255);</string>
+   </property>
    <property name="text">
     <string>返  回</string>
    </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
   </widget>
-  <widget class="QFrame" name="frame">
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 252, 254);
+background-color: rgba(34, 44, 125,80);
+</string>
+   </property>
+   <property name="text">
+    <string>       菜单</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>49</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/icon_菜单.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>450</y>
+     <width>106</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>以太网</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>250</y>
+     <width>106</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>传感器</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>450</y>
+     <width>106</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>串口</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>650</y>
+     <width>171</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>调 试 信 息</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>450</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>泄 露 测 试</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_17">
+   <property name="geometry">
+    <rect>
+     <x>870</x>
+     <y>250</y>
+     <width>106</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>仪器</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_18">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>650</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>锁 定 / 解 锁</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_19">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>250</y>
+     <width>106</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>通道</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_20">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>650</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>关    于</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -236,7 +592,8 @@
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
-  <zorder>frame</zorder>
+  <zorder>frame_2</zorder>
+  <zorder>label</zorder>
   <zorder>btn_configureMachine</zorder>
   <zorder>btn_configureSensor</zorder>
   <zorder>btn_configureChan</zorder>
@@ -247,6 +604,16 @@
   <zorder>btn_lockUnlock</zorder>
   <zorder>btn_leakTest</zorder>
   <zorder>btn_configureMachine_2</zorder>
+  <zorder>label_11</zorder>
+  <zorder>label_12</zorder>
+  <zorder>label_13</zorder>
+  <zorder>label_14</zorder>
+  <zorder>label_15</zorder>
+  <zorder>label_16</zorder>
+  <zorder>label_17</zorder>
+  <zorder>label_18</zorder>
+  <zorder>label_19</zorder>
+  <zorder>label_20</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -13,37 +13,28 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>600</y>
-     <width>150</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>X</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_7">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>260</y>
-     <width>150</width>
-     <height>60</height>
+     <x>455</x>
+     <y>276</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>Bars</string>
@@ -52,16 +43,25 @@
   <widget class="QPushButton" name="pushButton_28">
    <property name="geometry">
     <rect>
-     <x>630</x>
-     <y>340</y>
-     <width>150</width>
-     <height>60</height>
+     <x>655</x>
+     <y>364</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>Torr</string>
@@ -70,16 +70,25 @@
   <widget class="QPushButton" name="pushButton_25">
    <property name="geometry">
     <rect>
-     <x>1030</x>
-     <y>260</y>
-     <width>150</width>
-     <height>60</height>
+     <x>1055</x>
+     <y>276</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>cmH2O@4°C</string>
@@ -88,16 +97,25 @@
   <widget class="QPushButton" name="pushButton_14">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>420</y>
-     <width>150</width>
-     <height>60</height>
+     <x>55</x>
+     <y>452</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>Dynes/cm2</string>
@@ -106,49 +124,52 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>55</x>
      <y>100</y>
-     <width>150</width>
-     <height>60</height>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>PSI</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>590</y>
-     <width>150</width>
-     <height>40</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_16">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>500</y>
-     <width>150</width>
-     <height>60</height>
+     <x>55</x>
+     <y>540</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>tsf</string>
@@ -157,16 +178,25 @@
   <widget class="QPushButton" name="pushButton_30">
    <property name="geometry">
     <rect>
-     <x>830</x>
-     <y>260</y>
-     <width>150</width>
-     <height>60</height>
+     <x>855</x>
+     <y>276</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>mmH2O@4°C</string>
@@ -175,52 +205,52 @@
   <widget class="QPushButton" name="pushButton_37">
    <property name="geometry">
     <rect>
-     <x>1030</x>
-     <y>570</y>
-     <width>150</width>
-     <height>60</height>
+     <x>855</x>
+     <y>540</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>绝压</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>590</y>
-     <width>150</width>
-     <height>40</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>自定义 1</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_8">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>260</y>
-     <width>150</width>
-     <height>60</height>
+     <x>55</x>
+     <y>276</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>ftSW @ 0°C (3.5% salinity)</string>
@@ -229,31 +259,49 @@
   <widget class="QTextEdit" name="textEdit_3">
    <property name="geometry">
     <rect>
-     <x>480</x>
+     <x>460</x>
      <y>660</y>
-     <width>150</width>
-     <height>40</height>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>180</y>
-     <width>150</width>
-     <height>60</height>
+     <x>55</x>
+     <y>188</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>ftH2O@4°C</string>
@@ -262,16 +310,25 @@
   <widget class="QPushButton" name="pushButton_32">
    <property name="geometry">
     <rect>
-     <x>630</x>
-     <y>420</y>
-     <width>150</width>
-     <height>60</height>
+     <x>655</x>
+     <y>452</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>mSW @ 0°C (3.5% salinity)</string>
@@ -280,16 +337,25 @@
   <widget class="QPushButton" name="pushButton_24">
    <property name="geometry">
     <rect>
-     <x>830</x>
+     <x>855</x>
      <y>100</y>
-     <width>150</width>
-     <height>60</height>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>inH2O@20°C</string>
@@ -298,16 +364,25 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>180</y>
-     <width>150</width>
-     <height>60</height>
+     <x>255</x>
+     <y>188</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>ftH2O@20°C</string>
@@ -316,16 +391,25 @@
   <widget class="QPushButton" name="pushButton_15">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>500</y>
-     <width>150</width>
-     <height>60</height>
+     <x>255</x>
+     <y>540</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>% Full Scale</string>
@@ -334,16 +418,25 @@
   <widget class="QPushButton" name="pushButton_9">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>340</y>
-     <width>150</width>
-     <height>60</height>
+     <x>255</x>
+     <y>364</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>mmHg@0°C</string>
@@ -352,16 +445,25 @@
   <widget class="QPushButton" name="pushButton_34">
    <property name="geometry">
     <rect>
-     <x>630</x>
-     <y>500</y>
-     <width>150</width>
-     <height>60</height>
+     <x>655</x>
+     <y>540</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>tsi</string>
@@ -370,16 +472,25 @@
   <widget class="QPushButton" name="pushButton_13">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>420</y>
-     <width>150</width>
-     <height>60</height>
+     <x>455</x>
+     <y>452</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>kg/cm2</string>
@@ -388,10 +499,40 @@
   <widget class="QPushButton" name="pushButton_39">
    <property name="geometry">
     <rect>
-     <x>1030</x>
-     <y>660</y>
-     <width>150</width>
-     <height>40</height>
+     <x>980</x>
+     <y>650</y>
+     <width>242</width>
+     <height>77</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:2px solid rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+border-top-left-radius:6px;
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+</string>
+   </property>
+   <property name="text">
+    <string>取消</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_18">
+   <property name="geometry">
+    <rect>
+     <x>255</x>
+     <y>452</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
@@ -400,25 +541,13 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/Cancle.png);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_18">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>420</y>
-     <width>150</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>g/cm2</string>
@@ -427,169 +556,10 @@
   <widget class="QPushButton" name="pushButton_4">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>455</x>
      <y>100</y>
-     <width>150</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>inHg@60°F</string>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="textEdit_4">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>660</y>
-     <width>150</width>
-     <height>40</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_12">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>260</y>
-     <width>150</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>atm</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>660</y>
-     <width>150</width>
-     <height>40</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>自定义 1</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_19">
-   <property name="geometry">
-    <rect>
-     <x>1030</x>
-     <y>100</y>
-     <width>150</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>inH2O@60°F</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_11">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>340</y>
-     <width>150</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>cmHg@0°C</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_10">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>340</y>
-     <width>150</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>mH2O@4°C</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_17">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>500</y>
-     <width>150</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>microns Hg @ 0°C</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_23">
-   <property name="geometry">
-    <rect>
-     <x>1030</x>
-     <y>180</y>
-     <width>150</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>inSW @ 0°C (3.5% salinity)</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_38">
-   <property name="geometry">
-    <rect>
-     <x>830</x>
-     <y>660</y>
-     <width>150</width>
-     <height>40</height>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
@@ -598,40 +568,277 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/ok.png);</string>
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
-    <string/>
+    <string>inHg@60°F</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit_2">
+  <widget class="QTextEdit" name="textEdit_4">
    <property name="geometry">
     <rect>
-     <x>480</x>
-     <y>590</y>
-     <width>150</width>
-     <height>40</height>
+     <x>200</x>
+     <y>660</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_12">
+   <property name="geometry">
+    <rect>
+     <x>255</x>
+     <y>276</y>
+     <width>170</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>atm</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>660</y>
+     <width>170</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>自定义 :</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_19">
+   <property name="geometry">
+    <rect>
+     <x>1055</x>
+     <y>100</y>
+     <width>170</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>inH2O@60°F</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_11">
+   <property name="geometry">
+    <rect>
+     <x>455</x>
+     <y>364</y>
+     <width>170</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>cmHg@0°C</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_10">
+   <property name="geometry">
+    <rect>
+     <x>55</x>
+     <y>364</y>
+     <width>170</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>mH2O@4°C</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_17">
+   <property name="geometry">
+    <rect>
+     <x>455</x>
+     <y>540</y>
+     <width>170</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>microns Hg @ 0°C</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_23">
+   <property name="geometry">
+    <rect>
+     <x>1055</x>
+     <y>188</y>
+     <width>170</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>inSW @ 0°C (3.5% salinity)</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_38">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>650</y>
+     <width>242</width>
+     <height>77</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:2px solid rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+border-top-left-radius:6px;
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+</string>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_36">
    <property name="geometry">
     <rect>
-     <x>830</x>
-     <y>420</y>
-     <width>150</width>
-     <height>60</height>
+     <x>855</x>
+     <y>452</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>oz/in2</string>
@@ -640,16 +847,25 @@
   <widget class="QPushButton" name="pushButton_5">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>255</x>
      <y>100</y>
-     <width>150</width>
-     <height>60</height>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>inHg@0°C</string>
@@ -658,16 +874,25 @@
   <widget class="QPushButton" name="pushButton_20">
    <property name="geometry">
     <rect>
-     <x>630</x>
+     <x>655</x>
      <y>100</y>
-     <width>150</width>
-     <height>60</height>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>inH2O@4°C</string>
@@ -676,16 +901,25 @@
   <widget class="QPushButton" name="pushButton_21">
    <property name="geometry">
     <rect>
-     <x>830</x>
-     <y>180</y>
-     <width>150</width>
-     <height>60</height>
+     <x>855</x>
+     <y>188</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>mtorr (@0°C)</string>
@@ -694,16 +928,25 @@
   <widget class="QPushButton" name="pushButton_29">
    <property name="geometry">
     <rect>
-     <x>1030</x>
-     <y>340</y>
-     <width>150</width>
-     <height>60</height>
+     <x>1055</x>
+     <y>364</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>Pa</string>
@@ -712,55 +955,53 @@
   <widget class="QPushButton" name="pushButton_35">
    <property name="geometry">
     <rect>
-     <x>1030</x>
-     <y>500</y>
-     <width>150</width>
-     <height>60</height>
+     <x>1055</x>
+     <y>540</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-left-radius:6px;
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>MPa</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>150</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>单位</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_26">
    <property name="geometry">
     <rect>
-     <x>630</x>
-     <y>260</y>
-     <width>150</width>
-     <height>60</height>
+     <x>655</x>
+     <y>276</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>mBars</string>
@@ -769,16 +1010,25 @@
   <widget class="QPushButton" name="pushButton_6">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>180</y>
-     <width>150</width>
-     <height>60</height>
+     <x>455</x>
+     <y>188</y>
+     <width>170</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>6</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>ftH2O@60°F</string>
@@ -787,10 +1037,10 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>380</x>
      <y>660</y>
-     <width>150</width>
-     <height>31</height>
+     <width>61</width>
+     <height>54</height>
     </rect>
    </property>
    <property name="font">
@@ -798,8 +1048,163 @@
      <pointsize>6</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
    <property name="text">
     <string>X</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_31">
+   <property name="geometry">
+    <rect>
+     <x>655</x>
+     <y>188</y>
+     <width>170</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>psf</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_33">
+   <property name="geometry">
+    <rect>
+     <x>855</x>
+     <y>364</y>
+     <width>170</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>HPa</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_27">
+   <property name="geometry">
+    <rect>
+     <x>1055</x>
+     <y>452</y>
+     <width>170</width>
+     <height>54</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>Kpa</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 252, 254);
+background-color: rgba(34, 44, 125,80);
+</string>
+   </property>
+   <property name="text">
+    <string>       单位</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_configureMachine_2">
+   <property name="geometry">
+    <rect>
+     <x>1110</x>
+     <y>20</y>
+     <width>117</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(99, 115, 187);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>返  回</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>49</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/icon_单位.png);</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <widget class="QFrame" name="frame">
@@ -813,11 +1218,11 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>6</pointsize>
+     <pointsize>9</pointsize>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(249, 255, 216);</string>
+    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -826,72 +1231,15 @@
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_31">
-   <property name="geometry">
-    <rect>
-     <x>630</x>
-     <y>180</y>
-     <width>150</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>psf</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_33">
-   <property name="geometry">
-    <rect>
-     <x>830</x>
-     <y>340</y>
-     <width>150</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>HPa</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_27">
-   <property name="geometry">
-    <rect>
-     <x>1030</x>
-     <y>420</y>
-     <width>150</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>6</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Kpa</string>
-   </property>
-  </widget>
   <zorder>frame</zorder>
-  <zorder>label_2</zorder>
   <zorder>pushButton_7</zorder>
   <zorder>pushButton_28</zorder>
   <zorder>pushButton_25</zorder>
   <zorder>pushButton_14</zorder>
   <zorder>pushButton</zorder>
-  <zorder>textEdit</zorder>
   <zorder>pushButton_16</zorder>
   <zorder>pushButton_30</zorder>
   <zorder>pushButton_37</zorder>
-  <zorder>label_4</zorder>
   <zorder>pushButton_8</zorder>
   <zorder>textEdit_3</zorder>
   <zorder>pushButton_3</zorder>
@@ -914,20 +1262,21 @@
   <zorder>pushButton_17</zorder>
   <zorder>pushButton_23</zorder>
   <zorder>pushButton_38</zorder>
-  <zorder>textEdit_2</zorder>
   <zorder>pushButton_36</zorder>
   <zorder>pushButton_5</zorder>
   <zorder>pushButton_20</zorder>
   <zorder>pushButton_21</zorder>
   <zorder>pushButton_29</zorder>
   <zorder>pushButton_35</zorder>
-  <zorder>label</zorder>
   <zorder>pushButton_26</zorder>
   <zorder>pushButton_6</zorder>
   <zorder>label_3</zorder>
   <zorder>pushButton_31</zorder>
   <zorder>pushButton_33</zorder>
   <zorder>pushButton_27</zorder>
+  <zorder>label_6</zorder>
+  <zorder>btn_configureMachine_2</zorder>
+  <zorder>label_7</zorder>
  </widget>
  <resources/>
  <connections/>
