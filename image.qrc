@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/new/prefix1">
-        <file>image/标注_PxCook.png</file>
-        <file>image/首页 阀门蓝.png</file>
         <file>image/bg_01.png</file>
         <file>image/bg_02.png</file>
         <file>image/bg_03.png</file>
@@ -30,5 +28,18 @@
         <file>image/icon_泄露测试.png</file>
         <file>image/icon_仪器.png</file>
         <file>image/icon_以太网.png</file>
+        <file>image/icon_串口_ 菜单.png</file>
+        <file>image/icon_关于_candan.png</file>
+        <file>image/icon_解锁_caidan.png</file>
+        <file>image/icon_解锁.png</file>
+        <file>image/icon_通道_caidan.png</file>
+        <file>image/icon_以太网_caidan.png</file>
+        <file>image/icon－信息调试_caidan.png</file>
+        <file>image/icon－信息调试.png</file>
+        <file>image/logo_linux_clut224_formal.pnm</file>
+        <file>image/logo_linux_clut224.ppm</file>
+        <file>image/logo_linux.pnm</file>
+        <file>image/logo_zzb_clut224.ppm</file>
+        <file>image/logo-1289-800.png</file>
     </qresource>
 </RCC>

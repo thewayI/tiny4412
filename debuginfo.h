@@ -28,7 +28,8 @@ public:
 
 private slots:
     void onTimeOut();
-    void on_pushButton_clicked();
+    void on_btn_configureMachine_2_clicked();
+    void on_btn_configureMachine_3_clicked();
 };
 
 #endif // DEBUGINFO_H

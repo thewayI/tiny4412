@@ -23,7 +23,7 @@ debugInfo::debugInfo(QWidget *parent) :
                                                                    "width: 35px;"
 
                                                                    "}"
-
+#if 0
                                                                    " QScrollBar::handle:vertical {"
 
                                                                    " background: #8080FF;"
@@ -56,7 +56,10 @@ debugInfo::debugInfo(QWidget *parent) :
 
                                                                    " background: none;"
 
-                                                                   "}");
+                                                               "}"
+ #endif
+
+                                                           );
 }
 
 debugInfo::~debugInfo()
@@ -81,7 +84,12 @@ void debugInfo::onTimeOut()
 
 }
 
-void debugInfo::on_pushButton_clicked()
+void debugInfo::on_btn_configureMachine_2_clicked()
 {
     this->close();
+}
+
+void debugInfo::on_btn_configureMachine_3_clicked()
+{
+    ui->edit_debugInfo->setText(QString(""));
 }

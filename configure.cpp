@@ -37,3 +37,8 @@ void configure::on_btn_state_clicked()
     ui->comboBox_chanFunc_2->setCurrentIndex(2);
     ui->comboBox_Mode_2->setCurrentIndex(0);
 }
+
+void configure::on_btn_configureMachine_2_clicked()
+{
+    this->close();
+}

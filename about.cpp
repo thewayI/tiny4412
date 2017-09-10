@@ -64,3 +64,8 @@ void about::onTimeOut(void)
         //ui->tblWidget_devInfo->item(0,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
     }
 }
+
+void about::on_btn_configureMachine_2_clicked()
+{
+    this->close();
+}

@@ -24,6 +24,8 @@ private slots:
 
     void on_btn_state_clicked();
 
+    void on_btn_configureMachine_2_clicked();
+
 private:
     Ui::configure *ui;
 

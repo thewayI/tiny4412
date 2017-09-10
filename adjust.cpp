@@ -62,6 +62,15 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
 
     btime = false;
     badjust = false;
+
+    ui->btn_adjustAir->hide();
+    ui->btn_adjustMeasure->hide();
+    ui->btn_adjustUnit->hide();
+    ui->edit_adjustView->hide();
+    ui->btn_adjustUnlock->hide();
+    ui->btn_adjustclose->hide();
+    ui->cmb_adjust->hide();
+    ui->btn_adjustOk->hide();
 }
 
 adjust::~adjust()
@@ -219,7 +228,7 @@ void adjust::onTimeOut()
 
 void adjust::on_btn_adjustclose_clicked()
 {
-    ui->tblwidget_adjustLock_2->setStyleSheet("border-image: url(:/new/prefix1/image/lock.png)");
+    //ui->tblwidget_adjustLock_2->setStyleSheet("border-image: url(:/new/prefix1/image/lock.png)");
     ui->btn_adjustOk->hide();
     ui->cmb_adjust->hide();
     pTimer2->stop();
@@ -229,7 +238,7 @@ void adjust::on_btn_adjustclose_clicked()
 void adjust::on_btn_adjustUnlock_clicked()
 {
     QString str;
-    ui->tblwidget_adjustLock_2->setStyleSheet("border-image: url(:/new/prefix1/image/unlock.png)");
+    //ui->tblwidget_adjustLock_2->setStyleSheet("border-image: url(:/new/prefix1/image/unlock.png)");
     ui->btn_adjustOk->show();
     ui->cmb_adjust->show();
     sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
@@ -356,4 +365,16 @@ void adjust::spanAdjust(void)
     sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
     str = str.right(10);
     ui->edit_adjustView->setText(str);
+}
+
+void adjust::on_btn_configureMachine_2_clicked()
+{
+    pTimer2->stop();
+    this->close();
+}
+
+void adjust::on_pushButton_38_clicked()
+{
+    pTimer2->stop();
+    this->close();
 }

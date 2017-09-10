@@ -16,16 +16,21 @@
   <widget class="QTableWidget" name="tblwidget_adjustItem">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>130</y>
-     <width>800</width>
-     <height>200</height>
+     <x>80</x>
+     <y>220</y>
+     <width>702</width>
+     <height>352</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>7</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(0, 0, 0, 0);
+color: rgb(255, 255, 255);
+gridline-color: rgb(255, 255, 255);</string>
    </property>
    <property name="verticalScrollBarPolicy">
     <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -55,16 +60,19 @@
     <bool>false</bool>
    </attribute>
    <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>400</number>
+    <number>350</number>
    </attribute>
    <attribute name="horizontalHeaderHighlightSections">
     <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>70</number>
    </attribute>
    <attribute name="verticalHeaderVisible">
     <bool>false</bool>
    </attribute>
    <attribute name="verticalHeaderDefaultSectionSize">
-    <number>40</number>
+    <number>70</number>
    </attribute>
    <attribute name="verticalHeaderHighlightSections">
     <bool>false</bool>
@@ -77,29 +85,11 @@
    <column/>
    <column/>
   </widget>
-  <widget class="QPushButton" name="btn_adjustAssit">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>100</y>
-     <width>260</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>7</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>辅助+0.00：+2.50</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btn_adjustUnit">
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>290</y>
+     <y>460</y>
      <width>61</width>
      <height>40</height>
     </rect>
@@ -117,7 +107,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>360</y>
+     <y>530</y>
      <width>130</width>
      <height>40</height>
     </rect>
@@ -135,7 +125,7 @@
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>360</y>
+     <y>530</y>
      <width>130</width>
      <height>40</height>
     </rect>
@@ -153,7 +143,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>290</y>
+     <y>460</y>
      <width>201</width>
      <height>40</height>
     </rect>
@@ -167,10 +157,10 @@
   <widget class="QTableWidget" name="tblwidget_adjustTitle">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>70</y>
-     <width>800</width>
-     <height>60</height>
+     <x>80</x>
+     <y>130</y>
+     <width>702</width>
+     <height>90</height>
     </rect>
    </property>
    <property name="font">
@@ -178,62 +168,10 @@
      <pointsize>8</pointsize>
     </font>
    </property>
-   <property name="verticalScrollBarPolicy">
-    <enum>Qt::ScrollBarAlwaysOff</enum>
-   </property>
-   <property name="horizontalScrollBarPolicy">
-    <enum>Qt::ScrollBarAlwaysOff</enum>
-   </property>
-   <property name="autoScroll">
-    <bool>true</bool>
-   </property>
-   <property name="showDropIndicator" stdset="0">
-    <bool>false</bool>
-   </property>
-   <property name="dragEnabled">
-    <bool>true</bool>
-   </property>
-   <property name="dragDropOverwriteMode">
-    <bool>true</bool>
-   </property>
-   <property name="rowCount">
-    <number>1</number>
-   </property>
-   <property name="columnCount">
-    <number>1</number>
-   </property>
-   <attribute name="horizontalHeaderVisible">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>800</number>
-   </attribute>
-   <attribute name="horizontalHeaderHighlightSections">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="verticalHeaderVisible">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="verticalHeaderDefaultSectionSize">
-    <number>60</number>
-   </attribute>
-   <attribute name="verticalHeaderHighlightSections">
-    <bool>false</bool>
-   </attribute>
-   <row/>
-   <column/>
-  </widget>
-  <widget class="QTableWidget" name="tblwidget_adjustLock">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>330</y>
-     <width>800</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(0, 0, 0, 0);
+color: rgb(255, 255, 255);
+gridline-color: rgb(255, 255, 255);</string>
    </property>
    <property name="verticalScrollBarPolicy">
     <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -268,45 +206,27 @@
    <attribute name="horizontalHeaderHighlightSections">
     <bool>false</bool>
    </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>90</number>
+   </attribute>
    <attribute name="verticalHeaderVisible">
     <bool>false</bool>
    </attribute>
    <attribute name="verticalHeaderDefaultSectionSize">
-    <number>60</number>
+    <number>90</number>
    </attribute>
    <attribute name="verticalHeaderHighlightSections">
     <bool>false</bool>
    </attribute>
    <row/>
    <column/>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1280</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>通道 A 校准</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
   </widget>
   <widget class="QPushButton" name="btn_adjustAuto">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>510</y>
-     <width>130</width>
+     <x>900</x>
+     <y>160</y>
+     <width>211</width>
      <height>50</height>
     </rect>
    </property>
@@ -314,6 +234,15 @@
     <font>
      <pointsize>7</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>自动调零</string>
@@ -323,7 +252,7 @@
    <property name="geometry">
     <rect>
      <x>910</x>
-     <y>560</y>
+     <y>630</y>
      <width>130</width>
      <height>50</height>
     </rect>
@@ -377,7 +306,7 @@
    <property name="geometry">
     <rect>
      <x>639</x>
-     <y>560</y>
+     <y>630</y>
      <width>231</width>
      <height>50</height>
     </rect>
@@ -418,66 +347,6 @@
     </property>
    </item>
   </widget>
-  <widget class="QTableWidget" name="tblwidget_adjustLock_2">
-   <property name="geometry">
-    <rect>
-     <x>810</x>
-     <y>330</y>
-     <width>61</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/lock.png);</string>
-   </property>
-   <property name="verticalScrollBarPolicy">
-    <enum>Qt::ScrollBarAlwaysOff</enum>
-   </property>
-   <property name="horizontalScrollBarPolicy">
-    <enum>Qt::ScrollBarAlwaysOff</enum>
-   </property>
-   <property name="autoScroll">
-    <bool>true</bool>
-   </property>
-   <property name="showDropIndicator" stdset="0">
-    <bool>false</bool>
-   </property>
-   <property name="dragEnabled">
-    <bool>true</bool>
-   </property>
-   <property name="dragDropOverwriteMode">
-    <bool>true</bool>
-   </property>
-   <property name="rowCount">
-    <number>1</number>
-   </property>
-   <property name="columnCount">
-    <number>1</number>
-   </property>
-   <attribute name="horizontalHeaderVisible">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>800</number>
-   </attribute>
-   <attribute name="horizontalHeaderHighlightSections">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="verticalHeaderVisible">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="verticalHeaderDefaultSectionSize">
-    <number>60</number>
-   </attribute>
-   <attribute name="verticalHeaderHighlightSections">
-    <bool>false</bool>
-   </attribute>
-   <row/>
-   <column/>
-  </widget>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
@@ -491,7 +360,7 @@
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(245, 255, 190);</string>
+    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -499,23 +368,237 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
+   <zorder>btn_adjustAuto</zorder>
+   <zorder>label_9</zorder>
+   <zorder>btn_configureMachine_2</zorder>
+   <zorder>label_10</zorder>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>49</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/icon_通道设置.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_configureMachine_2">
+   <property name="geometry">
+    <rect>
+     <x>1110</x>
+     <y>20</y>
+     <width>117</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(99, 115, 187);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>返  回</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-10</y>
+     <width>1280</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 252, 254);
+background-color: rgba(34, 44, 125,80);
+</string>
+   </property>
+   <property name="text">
+    <string>       通道A校准</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_adjustAuto_2">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>240</y>
+     <width>211</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>单点校准</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_adjustAuto_3">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>320</y>
+     <width>211</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>两点校准</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_adjustAuto_4">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>410</y>
+     <width>211</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>校准日期</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_adjustAuto_5">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>490</y>
+     <width>211</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string>恢复出厂设置</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_38">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>650</y>
+     <width>292</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:2px solid rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+border-top-left-radius:6px;
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+</string>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
   </widget>
   <zorder>frame</zorder>
+  <zorder>label_9</zorder>
   <zorder>tblwidget_adjustItem</zorder>
-  <zorder>btn_adjustAssit</zorder>
   <zorder>btn_adjustUnit</zorder>
   <zorder>btn_adjustMeasure</zorder>
   <zorder>btn_adjustAir</zorder>
   <zorder>edit_adjustView</zorder>
   <zorder>tblwidget_adjustTitle</zorder>
-  <zorder>tblwidget_adjustLock</zorder>
-  <zorder>label</zorder>
   <zorder>btn_adjustOk</zorder>
   <zorder>btn_adjustUnlock</zorder>
   <zorder>btn_adjustclose</zorder>
   <zorder>cmb_adjust</zorder>
-  <zorder>tblwidget_adjustLock_2</zorder>
   <zorder>btn_adjustAuto</zorder>
+  <zorder>label_10</zorder>
+  <zorder>btn_configureMachine_2</zorder>
+  <zorder>btn_adjustAuto_2</zorder>
+  <zorder>btn_adjustAuto_3</zorder>
+  <zorder>btn_adjustAuto_4</zorder>
+  <zorder>btn_adjustAuto_5</zorder>
+  <zorder>pushButton_38</zorder>
  </widget>
  <resources/>
  <connections/>

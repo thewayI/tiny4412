@@ -20,27 +20,6 @@
   <property name="autoFillBackground">
    <bool>true</bool>
   </property>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>640</x>
-     <y>20</y>
-     <width>121</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>11</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>关于</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
@@ -57,8 +36,8 @@
   <widget class="QTableWidget" name="tblWidget_baseInfo">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>60</y>
+     <x>100</x>
+     <y>100</y>
      <width>600</width>
      <height>280</height>
     </rect>
@@ -180,6 +159,80 @@
    <column/>
    <column/>
   </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>49</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/icon_关于_candan.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 252, 254);
+background-color: rgba(34, 44, 125,80);
+</string>
+   </property>
+   <property name="text">
+    <string>       关于</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_configureMachine_2">
+   <property name="geometry">
+    <rect>
+     <x>1110</x>
+     <y>20</y>
+     <width>117</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(99, 115, 187);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>返  回</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>label_9</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>tblWidget_baseInfo</zorder>
+  <zorder>tblWidget_devInfo</zorder>
+  <zorder>label_10</zorder>
+  <zorder>btn_configureMachine_2</zorder>
  </widget>
  <resources>
   <include location="image.qrc"/>
