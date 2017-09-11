@@ -37,6 +37,8 @@ void leakTest::onTimeOut(void)
 
         str = QString::number((m_currentPressure - m_basePressure), 'f', 6);
         ui->lineEdit_D_value->setText(str);
+        str = QString::number(m_currentPressure, 'f', 6);
+        ui->label_view->setText(str);
     }
 
     m_timer += 0.01;

@@ -13,65 +13,204 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLineEdit" name="lineEdit_unlock">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>170</y>
-     <width>320</width>
-     <height>60</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_change">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>290</y>
-     <width>320</width>
-     <height>60</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btn_unlock">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>170</y>
+     <x>840</x>
+     <y>250</y>
      <width>99</width>
-     <height>60</height>
+     <height>70</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 251, 252);
+border:2px solid rgb(255, 255, 255);
+border-top-left-radius:6px;
+background-color: rgb(33, 30, 122);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+</string>
    </property>
    <property name="text">
     <string>解锁</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>49</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/icon_解锁.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <widget class="QPushButton" name="btn_change">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>290</y>
+     <x>840</x>
+     <y>370</y>
      <width>99</width>
-     <height>60</height>
+     <height>70</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 251, 252);
+border:2px solid rgb(255, 255, 255);
+border-top-left-radius:6px;
+background-color: rgb(33, 30, 122);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+</string>
    </property>
    <property name="text">
     <string>改变口令</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btn_unlock_2">
    <property name="geometry">
     <rect>
-     <x>790</x>
-     <y>300</y>
-     <width>99</width>
-     <height>51</height>
+     <x>420</x>
+     <y>250</y>
+     <width>350</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(62, 102, 180);
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+border:2px solid rgb(255, 255, 255);</string>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>解锁</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 252, 254);
+background-color: rgba(34, 44, 125,80);
+</string>
+   </property>
+   <property name="text">
+    <string>       锁定/解锁</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_change_2">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>370</y>
+     <width>350</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(62, 102, 180);
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+border:2px solid rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>改变口令</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_configureMachine_2">
+   <property name="geometry">
+    <rect>
+     <x>1110</x>
+     <y>20</y>
+     <width>117</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(99, 115, 187);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>返  回</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>800</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <zorder>frame</zorder>
+  <zorder>label_9</zorder>
+  <zorder>btn_unlock_2</zorder>
+  <zorder>label_10</zorder>
+  <zorder>btn_unlock</zorder>
+  <zorder>btn_change_2</zorder>
+  <zorder>btn_configureMachine_2</zorder>
+  <zorder>btn_change</zorder>
  </widget>
  <resources/>
  <connections/>

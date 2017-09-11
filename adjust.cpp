@@ -378,3 +378,10 @@ void adjust::on_pushButton_38_clicked()
     pTimer2->stop();
     this->close();
 }
+
+void adjust::on_btn_adjustAuto_2_clicked()
+{
+    pSimple->pTimer1->start();
+    pSimple->show();
+    pSimple->move((QApplication::desktop()->width() - pSimple->width())/2,(QApplication::desktop()->height() - pSimple->height())/2);
+}

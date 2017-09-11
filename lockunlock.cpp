@@ -27,6 +27,7 @@ lockUnLock::~lockUnLock()
 
 void lockUnLock::onTimeOut()
 {
+#if 0
     if(bunlockEditFlag)
     {
         if(pKeyBoard->editFlag)
@@ -49,10 +50,12 @@ void lockUnLock::onTimeOut()
             bchangeEditFlag = false;
         }
     }
+#endif
 }
 
 bool lockUnLock::eventFilter(QObject *watched, QEvent *event)
 {
+#if 0
      if (watched==ui->lineEdit_unlock)         //首先判断控件(这里指 lineEdit1)
      {
           if (event->type()==QEvent::MouseButtonPress)     //然后再判断控件的具体事件 (这里指获得焦点事件)
@@ -84,6 +87,7 @@ qDebug("exit lineedit2");
          }
      }
  return QWidget::eventFilter(watched,event);     // 最后将事件交给上层对话框
+#endif
 }
 
 void lockUnLock::on_btn_unlock_clicked()
@@ -91,7 +95,12 @@ void lockUnLock::on_btn_unlock_clicked()
     this->close();
 }
 
-void lockUnLock::on_pushButton_clicked()
+void lockUnLock::on_btn_configureMachine_2_clicked()
 {
     this->close();
+}
+
+void lockUnLock::on_btn_unlock_2_clicked()
+{
+
 }

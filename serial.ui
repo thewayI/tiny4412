@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>600</height>
+    <width>1280</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="font">
@@ -21,10 +21,10 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>96</x>
-     <y>144</y>
-     <width>58</width>
-     <height>35</height>
+     <x>70</x>
+     <y>167</y>
+     <width>100</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -33,6 +33,19 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string>border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+color: rgb(255, 255, 255);
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
    <property name="text">
     <string>波特率</string>
    </property>
@@ -40,16 +53,25 @@
   <widget class="QComboBox" name="parityComboBoxGPS">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>207</y>
-     <width>200</width>
-     <height>40</height>
+     <x>750</x>
+     <y>164</y>
+     <width>350</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>11</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(62, 102, 180);
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+border:2px solid rgb(255, 255, 255);</string>
    </property>
    <item>
     <property name="text">
@@ -67,42 +89,28 @@
     </property>
    </item>
   </widget>
-  <widget class="QComboBox" name="portNameComboBoxGPS">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>108</y>
-     <width>200</width>
-     <height>40</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>7</pointsize>
-    </font>
-   </property>
-   <property name="currentIndex">
-    <number>0</number>
-   </property>
-   <item>
-    <property name="text">
-     <string>ttySAC3</string>
-    </property>
-   </item>
-  </widget>
   <widget class="QComboBox" name="dataBitsComboBoxGPS">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>174</y>
-     <width>200</width>
-     <height>40</height>
+     <x>190</x>
+     <y>410</y>
+     <width>350</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>11</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(62, 102, 180);
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+border:2px solid rgb(255, 255, 255);</string>
    </property>
    <property name="currentIndex">
     <number>3</number>
@@ -131,10 +139,10 @@
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
-     <x>96</x>
-     <y>177</y>
-     <width>58</width>
-     <height>35</height>
+     <x>70</x>
+     <y>413</y>
+     <width>100</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -142,6 +150,19 @@
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string>border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+color: rgb(255, 255, 255);
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>数据位</string>
@@ -150,10 +171,10 @@
   <widget class="QLabel" name="label_11">
    <property name="geometry">
     <rect>
-     <x>96</x>
-     <y>243</y>
-     <width>58</width>
-     <height>35</height>
+     <x>630</x>
+     <y>413</y>
+     <width>100</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -161,6 +182,19 @@
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string>border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+color: rgb(255, 255, 255);
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>停止位</string>
@@ -169,10 +203,10 @@
   <widget class="QLabel" name="label_10">
    <property name="geometry">
     <rect>
-     <x>96</x>
-     <y>210</y>
-     <width>58</width>
-     <height>35</height>
+     <x>630</x>
+     <y>167</y>
+     <width>100</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -181,6 +215,19 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string>border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+color: rgb(255, 255, 255);
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
    <property name="text">
     <string>校验位</string>
    </property>
@@ -188,19 +235,28 @@
   <widget class="QComboBox" name="baudRateComboBoxGPS">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>141</y>
-     <width>200</width>
-     <height>40</height>
+     <x>190</x>
+     <y>164</y>
+     <width>350</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(62, 102, 180);
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+border:2px solid rgb(255, 255, 255);</string>
+   </property>
    <property name="currentIndex">
-    <number>19</number>
+    <number>12</number>
    </property>
    <item>
     <property name="text">
@@ -316,16 +372,25 @@
   <widget class="QComboBox" name="stopBitsComboBoxGPS">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>240</y>
-     <width>200</width>
-     <height>40</height>
+     <x>750</x>
+     <y>410</y>
+     <width>350</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>11</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(62, 102, 180);
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+border:2px solid rgb(255, 255, 255);</string>
    </property>
    <item>
     <property name="text">
@@ -343,33 +408,29 @@
     </property>
    </item>
   </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>96</x>
-     <y>111</y>
-     <width>58</width>
-     <height>35</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="text">
-    <string>串口</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="Startsmsbtn">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>420</y>
-     <width>81</width>
-     <height>35</height>
+     <x>340</x>
+     <y>620</y>
+     <width>200</width>
+     <height>60</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 251, 252);
+border:2px solid rgb(255, 255, 255);
+border-top-left-radius:6px;
+background-color: rgb(33, 30, 122);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+</string>
    </property>
    <property name="text">
     <string>打开</string>
@@ -378,11 +439,26 @@
   <widget class="QPushButton" name="Stopsmsbtn">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>420</y>
-     <width>81</width>
-     <height>35</height>
+     <x>750</x>
+     <y>620</y>
+     <width>200</width>
+     <height>60</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 251, 252);
+border:2px solid rgb(255, 255, 255);
+background-color: rgba(5, 4, 250, 20);
+border-top-left-radius:6px;
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+</string>
    </property>
    <property name="text">
     <string>关闭</string>
@@ -401,19 +477,109 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QLabel" name="label_12">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>370</y>
-     <width>99</width>
-     <height>61</height>
+     <x>20</x>
+     <y>20</y>
+     <width>49</width>
+     <height>49</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/icon_串口_ 菜单.png);</string>
+   </property>
    <property name="text">
-    <string>返回</string>
+    <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_configureMachine_2">
+   <property name="geometry">
+    <rect>
+     <x>1110</x>
+     <y>20</y>
+     <width>117</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(99, 115, 187);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>返  回</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 252, 254);
+background-color: rgba(34, 44, 125,80);
+</string>
+   </property>
+   <property name="text">
+    <string>       串口设置</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>800</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <zorder>frame</zorder>
+  <zorder>label_13</zorder>
+  <zorder>label_6</zorder>
+  <zorder>parityComboBoxGPS</zorder>
+  <zorder>dataBitsComboBoxGPS</zorder>
+  <zorder>label_9</zorder>
+  <zorder>label_11</zorder>
+  <zorder>label_10</zorder>
+  <zorder>baudRateComboBoxGPS</zorder>
+  <zorder>stopBitsComboBoxGPS</zorder>
+  <zorder>Startsmsbtn</zorder>
+  <zorder>Stopsmsbtn</zorder>
+  <zorder>statusBar</zorder>
+  <zorder>label_12</zorder>
+  <zorder>btn_configureMachine_2</zorder>
  </widget>
  <resources/>
  <connections/>

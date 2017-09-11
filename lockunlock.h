@@ -24,7 +24,9 @@ private slots:
 
     void onTimeOut();
 
-    void on_pushButton_clicked();
+    void on_btn_configureMachine_2_clicked();
+
+    void on_btn_unlock_2_clicked();
 
 private:
     Ui::lockUnLock *ui;

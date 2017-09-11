@@ -18,6 +18,7 @@ Serial::Serial(QWidget *parent, Posix_QextSerialPort *serial) :
 
     pTimer->start();
     ui->Stopsmsbtn->setEnabled(false);
+
 }
 
 Serial::~Serial()
@@ -48,9 +49,9 @@ void Serial::on_Startsmsbtn_clicked()
     //这里QextSerialBase::QueryMode应该使用QextSerialBase::Polling
 
     if(pSerial->open(QIODevice::ReadWrite)){
-        ui->statusBar->setText(tr("open success"));
+        //ui->statusBar->setText(tr("open success"));
     }else{
-        ui->statusBar->setText(tr("open fail"));
+        //ui->statusBar->setText(tr("open fail"));
         return;
     }
     //设置波特率
@@ -70,13 +71,30 @@ void Serial::on_Startsmsbtn_clicked()
     pSerial->setTimeout(TIME_OUT);
 
     ui->Startsmsbtn->setEnabled(false);
+    ui->Startsmsbtn->setStyleSheet(QString::fromUtf8("color: rgb(253, 251, 252);\n"
+"border:2px solid rgb(255, 255, 255);\n"
+"background-color: rgba(5, 4, 250, 20);\n"
+"border-top-left-radius:6px;\n"
+"border-top-right-radius:6px;\n"
+"border-bottom-left-radius:6px;\n"
+"border-bottom-right-radius:6px;\n"
+""));
     ui->Stopsmsbtn->setEnabled(true);
+    ui->Stopsmsbtn->setStyleSheet(QString::fromUtf8("color: rgb(253, 251, 252);\n"
+"border:2px solid rgb(255, 255, 255);\n"
+"background-color: rgb(33, 30, 122);\n"
+"border-top-left-radius:6px;\n"
+"border-top-right-radius:6px;\n"
+"border-bottom-left-radius:6px;\n"
+"border-bottom-right-radius:6px;\n"
+""));
+
 }
 
 
 void Serial::setComboBoxEnabled(bool status)
 {
-    ui->portNameComboBoxGPS->setEnabled(status);
+    //ui->portNameComboBoxGPS->setEnabled(status);
     ui->baudRateComboBoxGPS->setEnabled(status);
     ui->dataBitsComboBoxGPS->setEnabled(status);
     ui->parityComboBoxGPS->setEnabled(status);
@@ -88,14 +106,31 @@ void Serial::on_Stopsmsbtn_clicked()
     pSerial->close();
     //delete pSerial;
     //readTimer->stop();
-    ui->statusBar->setText(tr("COM Close"));
+    //ui->statusBar->setText(tr("COM Close"));
     setComboBoxEnabled(true);
-    ui->Startsmsbtn->setEnabled(true);
+
     ui->Stopsmsbtn->setEnabled(false);
+    ui->Stopsmsbtn->setStyleSheet(QString::fromUtf8("color: rgb(253, 251, 252);\n"
+"border:2px solid rgb(255, 255, 255);\n"
+"background-color: rgba(5, 4, 250, 20);\n"
+"border-top-left-radius:6px;\n"
+"border-top-right-radius:6px;\n"
+"border-bottom-left-radius:6px;\n"
+"border-bottom-right-radius:6px;\n"
+""));
+    ui->Startsmsbtn->setEnabled(true);
+    ui->Startsmsbtn->setStyleSheet(QString::fromUtf8("color: rgb(253, 251, 252);\n"
+"border:2px solid rgb(255, 255, 255);\n"
+"background-color: rgb(33, 30, 122);\n"
+"border-top-left-radius:6px;\n"
+"border-top-right-radius:6px;\n"
+"border-bottom-left-radius:6px;\n"
+"border-bottom-right-radius:6px;\n"
+""));
 
 }
 
-void Serial::on_pushButton_clicked()
+void Serial::on_btn_configureMachine_2_clicked()
 {
-     this->close();
+    this->close();
 }
