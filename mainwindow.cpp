@@ -146,6 +146,26 @@ mainWindow::mainWindow(QWidget *parent) :
 
     //zdren for debug
     testloop = 0;
+
+    QSettings *configIniWrite = new QSettings("hahaya.ini", QSettings::IniFormat);
+    //向ini文件中写入内容,setValue函数的两个参数是键值对
+    //向ini文件的第一个节写入内容,ip节下的第一个参数
+    configIniWrite->setValue("/ip/first", "192.168.0.1");
+    if(configIniWrite->contains("ip/thrid"))
+    {
+        configIniWrite->setValue("ip/123", "127.2.1.1");
+    }
+    else
+    {
+        configIniWrite->setValue("ip/thrid", "127.3.0.1");
+    }
+    //向ini文件的第一个节写入内容,ip节下的第二个参数
+    configIniWrite->setValue("ip/second", "127.0.0.1");
+    //向ini文件的第二个节写入内容,port节下的第一个参数
+    configIniWrite->setValue("port/open", "2222");
+    //写入完成后删除指针
+    delete configIniWrite;
+
 }
 
 mainWindow::~mainWindow()

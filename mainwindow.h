@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QApplication>
+#include <QSettings>
 #include <QString>
 #include <QFile>
 #include <QWidget>

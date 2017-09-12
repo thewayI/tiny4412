@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>469</width>
-    <height>627</height>
+    <width>1280</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,16 +16,25 @@
   <widget class="QPushButton" name="btn_IP">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>250</x>
      <y>110</y>
-     <width>260</width>
-     <height>50</height>
+     <width>350</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>11</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(62, 102, 180);
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+border:2px solid rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>PushButton</string>
@@ -36,14 +45,17 @@
     <rect>
      <x>70</x>
      <y>110</y>
-     <width>60</width>
-     <height>50</height>
+     <width>150</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>11</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>IP</string>
@@ -52,16 +64,25 @@
   <widget class="QPushButton" name="btn_netmask">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>180</y>
-     <width>260</width>
-     <height>50</height>
+     <x>250</x>
+     <y>280</y>
+     <width>350</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>11</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(62, 102, 180);
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+border:2px solid rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>PushButton</string>
@@ -71,15 +92,18 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>180</y>
-     <width>60</width>
-     <height>50</height>
+     <y>280</y>
+     <width>150</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>11</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>网络掩码</string>
@@ -88,16 +112,25 @@
   <widget class="QPushButton" name="btn_gateway">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>250</y>
-     <width>260</width>
-     <height>50</height>
+     <x>820</x>
+     <y>120</y>
+     <width>350</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>11</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(62, 102, 180);
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+border:2px solid rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>PushButton</string>
@@ -106,16 +139,19 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>250</y>
-     <width>60</width>
-     <height>50</height>
+     <x>680</x>
+     <y>120</y>
+     <width>150</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>11</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>网关</string>
@@ -124,16 +160,25 @@
   <widget class="QPushButton" name="btn_netport">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>320</y>
-     <width>161</width>
-     <height>50</height>
+     <x>820</x>
+     <y>290</y>
+     <width>350</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>11</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(62, 102, 180);
+color: rgb(255, 255, 255);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+border:2px solid rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>PushButton</string>
@@ -142,16 +187,19 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>320</y>
-     <width>60</width>
-     <height>50</height>
+     <x>680</x>
+     <y>290</y>
+     <width>150</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>11</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>端口</string>
@@ -160,10 +208,10 @@
   <widget class="QPushButton" name="ok">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>560</y>
-     <width>161</width>
-     <height>50</height>
+     <x>580</x>
+     <y>610</y>
+     <width>200</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
@@ -171,10 +219,142 @@
      <pointsize>8</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 251, 252);
+border:2px solid rgb(255, 255, 255);
+border-top-left-radius:6px;
+background-color: rgb(33, 30, 122);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+</string>
+   </property>
    <property name="text">
-    <string>OK</string>
+    <string>确定</string>
    </property>
   </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>680</y>
+     <width>1280</width>
+     <height>800</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>49</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/icon_以太网_caidan.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 252, 254);
+background-color: rgba(34, 44, 125,80);
+</string>
+   </property>
+   <property name="text">
+    <string>       以太网设置</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_configureMachine_2">
+   <property name="geometry">
+    <rect>
+     <x>1110</x>
+     <y>20</y>
+     <width>117</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgb(99, 115, 187);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>返  回</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>800</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <zorder>frame_2</zorder>
+  <zorder>label_13</zorder>
+  <zorder>btn_IP</zorder>
+  <zorder>label</zorder>
+  <zorder>btn_netmask</zorder>
+  <zorder>label_2</zorder>
+  <zorder>btn_gateway</zorder>
+  <zorder>label_3</zorder>
+  <zorder>btn_netport</zorder>
+  <zorder>label_4</zorder>
+  <zorder>ok</zorder>
+  <zorder>frame</zorder>
+  <zorder>label_12</zorder>
+  <zorder>btn_configureMachine_2</zorder>
  </widget>
  <resources/>
  <connections/>

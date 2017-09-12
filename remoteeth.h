@@ -30,6 +30,8 @@ private slots:
 
     void onTimeOut();
 
+    void on_btn_configureMachine_2_clicked();
+
 private:
     Ui::RemoteEth *ui;
 

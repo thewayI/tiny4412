@@ -119,3 +119,8 @@ void RemoteEth::on_btn_netport_clicked()
     pKeyBoard->show();
     pKeyBoard->move(800, 240);
 }
+
+void RemoteEth::on_btn_configureMachine_2_clicked()
+{
+    this->close();
+}

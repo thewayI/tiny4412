@@ -29,6 +29,8 @@ manu::manu(QWidget *parent, Posix_QextSerialPort *pSerialDevice, Posix_QextSeria
     pRemoteETH->close();
     pDebugInfo->close();
     pLock->close();
+
+    ui->btn_configureMachine->setEnabled(false);
 }
 
 manu::~manu()
