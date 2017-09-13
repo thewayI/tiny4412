@@ -1,3 +1,5 @@
+#include <QSettings>
+
 #include "about.h"
 #include "ui_about.h"
 #include "commandList.h"
@@ -11,15 +13,30 @@ about::about(QWidget *parent, Posix_QextSerialPort *serial) :
     //ui->label->setText(QString::fromUtf8("Mensor CorPoration\n201  Barnes  Drive\nSam  Marcos,  Texas  78666\nVoice: (800) 984-4200\nFax: (512) 396-1820\nhttp://www.mensor.com\ntech.support@mensor.com\n\nModel : CPC600\n\n序列号: 612095\n软件版本 : 2.70.0\nIEEE-400 版本 : 2.6.3\n"));
     //ui->label->setFrameShape (QFrame::Box);
     pSerial = serial;
+    QString str;
+
+    QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    str = configIniWrite->value("about/company").toString();
+    QByteArray ba = str.toLatin1();
+    char *mm = ba.data();
 
     ui->tblWidget_baseInfo->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("公司")));
-    ui->tblWidget_baseInfo->setItem(0,1,new QTableWidgetItem(QString::fromUtf8("北京莱森泰克科技有限公司")));
+    ui->tblWidget_baseInfo->setItem(0,1,new QTableWidgetItem(QString::fromUtf8(mm)));
     ui->tblWidget_baseInfo->setItem(1,0,new QTableWidgetItem(QString::fromUtf8("地址")));
-    ui->tblWidget_baseInfo->setItem(1,1,new QTableWidgetItem(QString::fromUtf8("北京市-通州区-...")));
+    str = configIniWrite->value("about/addr").toString();
+    ba = str.toLatin1();
+    mm = ba.data();
+    ui->tblWidget_baseInfo->setItem(1,1,new QTableWidgetItem(QString::fromUtf8(mm)));
     ui->tblWidget_baseInfo->setItem(2,0,new QTableWidgetItem(QString::fromUtf8("联系方式")));
-    ui->tblWidget_baseInfo->setItem(2,1,new QTableWidgetItem(QString::fromUtf8("1234567890")));
+    str = configIniWrite->value("about/contact").toString();
+    ba = str.toLatin1();
+    mm = ba.data();
+    ui->tblWidget_baseInfo->setItem(2,1,new QTableWidgetItem(QString::fromUtf8((mm))));
     ui->tblWidget_baseInfo->setItem(3,0,new QTableWidgetItem(QString::fromUtf8("网址")));
-    ui->tblWidget_baseInfo->setItem(3,1,new QTableWidgetItem(QString::fromUtf8("http://www.baidu.com")));
+    str = configIniWrite->value("about/web").toString();
+    ba = str.toLatin1();
+    mm = ba.data();
+    ui->tblWidget_baseInfo->setItem(3,1,new QTableWidgetItem(QString::fromUtf8(mm)));
 
     ui->tblWidget_devInfo->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("型号")));    
     ui->tblWidget_devInfo->setItem(1,0,new QTableWidgetItem(QString::fromUtf8("模式")));
@@ -35,6 +52,8 @@ about::about(QWidget *parent, Posix_QextSerialPort *serial) :
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
     ui->pushButton->hide();
+
+    delete configIniWrite;
 
 }
 

@@ -1,4 +1,5 @@
 #include "remoteeth.h"
+#include <QSettings>
 #include "ui_remoteeth.h"
 
 RemoteEth::RemoteEth(QWidget *parent) :
@@ -7,6 +8,10 @@ RemoteEth::RemoteEth(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
+
+    QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+
+
     pKeyBoard = new keyBoard;
 
     pTimer = new QTimer(this);
@@ -20,10 +25,12 @@ RemoteEth::RemoteEth(QWidget *parent) :
     bGateWayFlag = false;
     bNetPortFlag = false;
 
-    ui->btn_IP->setText(QString("10.0.0.20"));
-    ui->btn_netmask->setText(QString("255.255.255.0"));
-    ui->btn_gateway->setText(QString("10.0.0.5"));
-    ui->btn_netport->setText(QString("49405"));
+    ui->btn_IP->setText(configIniWrite->value("eth/ip").toString());
+    ui->btn_netmask->setText(configIniWrite->value("eth/netMask").toString());
+    ui->btn_gateway->setText(configIniWrite->value("eth/gateWay").toString());
+    ui->btn_netport->setText(configIniWrite->value("eth/port").toString());
+
+
 }
 
 RemoteEth::~RemoteEth()
@@ -36,11 +43,14 @@ void RemoteEth::onTimeOut()
     if(bIPFlag)
     {
         if(pKeyBoard->editFlag)
-        {
+        {            
             ui->btn_IP->setText(pKeyBoard->str);
+            QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+            configIniWrite->setValue("/eth/ip", pKeyBoard->str);
+            delete configIniWrite;
         }
         else
-        {
+        {            
             bIPFlag = false;
         }
     }
@@ -49,6 +59,10 @@ void RemoteEth::onTimeOut()
         if(pKeyBoard->editFlag)
         {
             ui->btn_netmask->setText(pKeyBoard->str);
+
+            QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+            configIniWrite->setValue("/eth/netMask", pKeyBoard->str);
+            delete configIniWrite;
         }
         else
         {
@@ -60,6 +74,10 @@ void RemoteEth::onTimeOut()
         if(pKeyBoard->editFlag)
         {
             ui->btn_gateway->setText(pKeyBoard->str);
+
+            QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+            configIniWrite->setValue("/eth/gateWay", pKeyBoard->str);
+            delete configIniWrite;
         }
         else
         {
@@ -71,6 +89,10 @@ void RemoteEth::onTimeOut()
         if(pKeyBoard->editFlag)
         {
             ui->btn_netport->setText(pKeyBoard->str);
+
+            QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+            configIniWrite->setValue("/eth/port", pKeyBoard->str);
+            delete configIniWrite;
         }
         else
         {

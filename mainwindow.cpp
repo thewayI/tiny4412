@@ -7,6 +7,57 @@ mainWindow::mainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
+
+    QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+
+    if(!configIniWrite->contains("about/company"))
+    {
+        configIniWrite->setValue("/about/company", "北京莱森泰克科技有限公司");
+    }
+
+    if(!configIniWrite->contains("about/addr"))
+    {
+        configIniWrite->setValue("/about/addr", "北京市通州区通州北关...");
+    }
+
+    if(!configIniWrite->contains("about/contact"))
+    {
+        configIniWrite->setValue("/about/contact", "010-88888888");
+    }
+
+    if(!configIniWrite->contains("about/web"))
+    {
+        configIniWrite->setValue("/about/web", "www.baidu.com");
+    }
+
+    if(!configIniWrite->contains("private/passwd"))
+    {
+        configIniWrite->setValue("/private/passwd", "12345678");
+    }
+
+    if(!configIniWrite->contains("eth/ip"))
+    {
+        configIniWrite->setValue("/eth/ip", "192.168.0.101");
+    }
+
+    if(!configIniWrite->contains("eth/netMask"))
+    {
+        configIniWrite->setValue("/eth/netMask", "255.255.255.0");
+    }
+
+    if(!configIniWrite->contains("eth/gateWay"))
+    {
+        configIniWrite->setValue("/eth/gateWay", "192.168.0.1");
+    }
+
+    if(!configIniWrite->contains("eth/port"))
+    {
+        configIniWrite->setValue("/eth/port", "1234");
+    }
+
+    delete configIniWrite;
+
+
     QString portName = "/dev/ttySAC2";   //获取串口名
     pSerialDev = new Posix_QextSerialPort(portName, QextSerialBase::Polling);
     pSerialDev->open(QIODevice::ReadWrite);
@@ -146,26 +197,6 @@ mainWindow::mainWindow(QWidget *parent) :
 
     //zdren for debug
     testloop = 0;
-
-    QSettings *configIniWrite = new QSettings("hahaya.ini", QSettings::IniFormat);
-    //向ini文件中写入内容,setValue函数的两个参数是键值对
-    //向ini文件的第一个节写入内容,ip节下的第一个参数
-    configIniWrite->setValue("/ip/first", "192.168.0.1");
-    if(configIniWrite->contains("ip/thrid"))
-    {
-        configIniWrite->setValue("ip/123", "127.2.1.1");
-    }
-    else
-    {
-        configIniWrite->setValue("ip/thrid", "127.3.0.1");
-    }
-    //向ini文件的第一个节写入内容,ip节下的第二个参数
-    configIniWrite->setValue("ip/second", "127.0.0.1");
-    //向ini文件的第二个节写入内容,port节下的第一个参数
-    configIniWrite->setValue("port/open", "2222");
-    //写入完成后删除指针
-    delete configIniWrite;
-
 }
 
 mainWindow::~mainWindow()
