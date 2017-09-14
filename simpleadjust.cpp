@@ -14,6 +14,10 @@ SimpleAdjust::SimpleAdjust(QWidget *parent, Posix_QextSerialPort *serial) :
     mExceptValueFloat = 0;
     point = false;
 
+    pKeyBoard = new keyBoard;
+
+    pKeyBoard->close();
+
     //creator a timer
     pTimer1 = new QTimer(this);
     pTimer1->setInterval(100);
@@ -24,6 +28,14 @@ SimpleAdjust::SimpleAdjust(QWidget *parent, Posix_QextSerialPort *serial) :
     ui->lineEdit_max->setText(QString("0.1500"));
     ui->lineEdit_min->setText(QString("0.0050"));
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
+
+    ui->lineEdit_max->hide();
+    ui->lineEdit_min->hide();
+    ui->label->hide();
+    ui->label_2->hide();
+    ui->lineEdit_except->hide();
+
+    bAdjust = false;
 }
 
 SimpleAdjust::~SimpleAdjust()
@@ -49,7 +61,20 @@ void SimpleAdjust::onTimeOut()
         // display data
         ui->lineEdit_current->setText(strTemp);
     }
+    if(bAdjust)
+    {
+        if(pKeyBoard->editFlag)
+        {
+            ui->btn_ok_3->setText(pKeyBoard->str);
+        }
+        else
+        {
+            ui->lineEdit_except->setText(pKeyBoard->str);
+            bAdjust = false;
+        }
+    }
 
+#if 0
     //get the maximum range
     strTemp = QString("");
     sendSerialCommand(pSerial, CMD_GET_MAXIMUM, &strTemp);
@@ -68,6 +93,7 @@ void SimpleAdjust::onTimeOut()
         ui->lineEdit_min->setText((strTemp.right(strTemp.length() - QString("1 R- ").length())).left(strTemp.length() - QString("1 R+ ").length() - QString("\r\n").length()));
 
     }
+#endif
 }
 
 void SimpleAdjust::on_btn_num_clr_clicked()
@@ -273,4 +299,16 @@ void SimpleAdjust::on_btn_ok_2_clicked()
     //8. send #*?
     //sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
     //str = str.right(str.length() - QString("1 ").length());
+
+    bAdjust = false;
+    this->close();
+}
+
+void SimpleAdjust::on_btn_ok_3_clicked()
+{
+    bAdjust = true;
+    pKeyBoard->str = QString("");
+    pKeyBoard->editFlag = true;
+    pKeyBoard->show();
+    pKeyBoard->move(800, 400);
 }

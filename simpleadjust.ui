@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
-    <height>700</height>
+    <width>350</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -189,7 +189,7 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>250</y>
+     <y>400</y>
      <width>240</width>
      <height>40</height>
     </rect>
@@ -198,11 +198,20 @@
   <widget class="QLineEdit" name="lineEdit_current">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>430</y>
+     <x>60</x>
+     <y>60</y>
      <width>240</width>
      <height>40</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_min">
@@ -229,7 +238,7 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>200</y>
+     <y>370</y>
      <width>151</width>
      <height>40</height>
     </rect>
@@ -254,11 +263,14 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>380</y>
+     <x>60</x>
+     <y>10</y>
      <width>151</width>
      <height>40</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>当前值</string>
@@ -267,11 +279,14 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>480</y>
+     <x>60</x>
+     <y>110</y>
      <width>151</width>
      <height>40</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>期望值</string>
@@ -295,12 +310,12 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>900</width>
-     <height>700</height>
+     <width>350</width>
+     <height>300</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);</string>
+    <string notr="true">background-color: rgb(2, 72, 152);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -308,19 +323,50 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <zorder>btn_ok_2</zorder>
   </widget>
   <widget class="QPushButton" name="btn_ok_2">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>610</y>
-     <width>231</width>
+     <x>180</x>
+     <y>230</y>
+     <width>121</width>
      <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border:2px solid rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+border-top-left-radius:6px;
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+</string>
+   </property>
    <property name="text">
     <string>校准</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_ok_3">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>150</y>
+     <width>240</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgb(255, 255, 255);
+background-color: rgb(64, 101, 178);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <zorder>frame</zorder>
@@ -347,6 +393,7 @@
   <zorder>label_4</zorder>
   <zorder>btn_ok</zorder>
   <zorder>btn_ok_2</zorder>
+  <zorder>btn_ok_3</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -22,8 +22,7 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
 
     ui->tblwidget_adjustItem->setItem(3,0,new QTableWidgetItem(QString::fromUtf8("满量程")));
 
-    ui->tblwidget_adjustItem->setItem(4,0,new QTableWidgetItem(QString::fromUtf8("高程修正")));
-    ui->tblwidget_adjustItem->setItem(4,1,new QTableWidgetItem(QString::fromUtf8("1.000000")));
+    ui->tblwidget_adjustItem->setItem(4,0,new QTableWidgetItem(QString::fromUtf8("最小值")));
 
     ui->tblwidget_adjustTitle->item(0,0)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 
@@ -39,7 +38,7 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     //ui->tblwidget_adjustItem->item(3,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
     ui->tblwidget_adjustItem->item(4,0)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 
-    ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    //ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 
     ui->btn_adjustOk->hide();
     ui->cmb_adjust->hide();
@@ -113,24 +112,27 @@ void adjust::onTimeOut()
     QString str = QString("");
     QString strTemp = QString("");
     u_int32_t loop = 0;
+
+    if(btime)
+    {
+        if(pKeyBoard->editFlag)
+        {
+            ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(pKeyBoard->str));
+            ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+        }
+        else
+        {
+            sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+            sendSerialCommandArg(pSerial, CMD_SET_CALIBRATION_DATE, pKeyBoard->str, &strTemp);
+            sendSerialCommand(pSerial, CMD_SAVE_ALL_DATA, &strTemp);
+            btime = false;
+        }
+    }
+#if 0
     switch(ui->cmb_adjust->currentIndex())
     {
     case 3:
-        if(btime)
-        {
-            if(pKeyBoard->editFlag)
-            {
-                ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(pKeyBoard->str));
-                ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-            }
-            else
-            {
-                sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
-                sendSerialCommandArg(pSerial, CMD_SET_CALIBRATION_DATE, pKeyBoard->str, &strTemp);
-                sendSerialCommand(pSerial, CMD_SAVE_ALL_DATA, &strTemp);
-                btime = false;
-            }
-        }
+
         break;
     case 4:
         if(badjust)
@@ -142,7 +144,7 @@ void adjust::onTimeOut()
     default:
         break;
     }
-
+#endif
     //get id
     str = QString("");
     sendSerialCommand(pSerial, CMD_GET_ID, &str);
@@ -158,19 +160,22 @@ void adjust::onTimeOut()
         ui->tblwidget_adjustItem->item(0,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
     }
 
-    //get the date of calibration
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_CALIBRATION_DATE, &str);
+    if(!btime)
+    {
+        //get the date of calibration
+        str = QString("");
+        sendSerialCommand(pSerial, CMD_GET_CALIBRATION_DATE, &str);
 
-    if(str.length() == 0)
-    {
-        ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(QString::fromUtf8("2017-08-24")));
-        ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    }
-    else
-    {
-        ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem((str.right(str.length() - QString("1 DC ").length())).left(6)));
-        ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+        if(str.length() == 0)
+        {
+            ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(QString::fromUtf8("2017-08-24")));
+            ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+        }
+        else
+        {
+            ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem((str.right(str.length() - QString("1 DC ").length())).left(6)));
+            ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+        }
     }
     //get zero correction value
     str = QString("");
@@ -199,6 +204,21 @@ void adjust::onTimeOut()
         ui->tblwidget_adjustItem->setItem(3,1,new QTableWidgetItem(QString::fromUtf8("1.000000")));
         ui->tblwidget_adjustItem->item(3,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
     }
+    //get the minimum range
+    str = QString("");
+    sendSerialCommand(pSerial, CMD_GET_MINIMUM, &str);
+    if(str.length() != 0)
+    {
+       ui->tblwidget_adjustItem->setItem(4,1,new QTableWidgetItem((str.right(str.length() - QString("1 R- ").length())).left(str.length() - QString("1 R- ").length() - QString("\r\n").length())));
+       ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    }
+    else
+    {
+        ui->tblwidget_adjustItem->setItem(4,1,new QTableWidgetItem(QString::fromUtf8("0.000000")));
+        ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    }
+
+#if 0
 
     str = QString("");
     sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
@@ -224,6 +244,7 @@ void adjust::onTimeOut()
         }
 
     }
+#endif
 }
 
 void adjust::on_btn_adjustclose_clicked()
@@ -383,5 +404,14 @@ void adjust::on_btn_adjustAuto_2_clicked()
 {
     pSimple->pTimer1->start();
     pSimple->show();
-    pSimple->move((QApplication::desktop()->width() - pSimple->width())/2,(QApplication::desktop()->height() - pSimple->height())/2);
+    pSimple->move(800, 100);
+}
+
+void adjust::on_btn_adjustAuto_4_clicked()
+{
+    btime = true;
+    pKeyBoard->str = QString("");
+    pKeyBoard->editFlag = true;
+    pKeyBoard->show();
+    pKeyBoard->move(800, 400);
 }

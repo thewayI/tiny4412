@@ -48,6 +48,8 @@ private slots:
 
     void on_btn_adjustAuto_2_clicked();
 
+    void on_btn_adjustAuto_4_clicked();
+
 private:
     Ui::adjust *ui;
 public:

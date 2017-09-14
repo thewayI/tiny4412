@@ -6,6 +6,7 @@
 
 #include "posix_qextserialport.h"
 #include "commandList.h"
+#include "keyboard.h"
 namespace Ui {
 class SimpleAdjust;
 }
@@ -49,17 +50,21 @@ private slots:
 
     void on_btn_ok_2_clicked();
 
+    void on_btn_ok_3_clicked();
+
 private:
     Ui::SimpleAdjust *ui;
 
 public:
     double mExceptVal;
+    bool bAdjust;
     int mExceptValueInt;
     int mExceptValueFloat;
 
     int mcount;
     bool point;
 
+    keyBoard *pKeyBoard;
     QTimer *pTimer1;
     Posix_QextSerialPort *pSerial;
 };
