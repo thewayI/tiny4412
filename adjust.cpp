@@ -70,6 +70,8 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     ui->btn_adjustclose->hide();
     ui->cmb_adjust->hide();
     ui->btn_adjustOk->hide();
+
+    //ui->frame_2->hide();
 }
 
 adjust::~adjust()

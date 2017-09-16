@@ -39,8 +39,8 @@
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(253, 251, 252);
-border:2px solid rgb(255, 255, 255);
-background-color: rgba(5, 4, 250, 20);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
@@ -585,8 +585,8 @@ border-bottom-right-radius:45px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(253, 251, 252);
-border:2px solid rgb(255, 255, 255);
-background-color: rgba(5, 4, 250, 20);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
@@ -775,8 +775,7 @@ color: rgb(255, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);
-</string>
+     <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>

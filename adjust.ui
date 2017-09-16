@@ -637,11 +637,11 @@ border-bottom-right-radius:6px;
   <zorder>btn_adjustAuto</zorder>
   <zorder>label_10</zorder>
   <zorder>btn_configureMachine_2</zorder>
-  <zorder>btn_adjustAuto_2</zorder>
   <zorder>btn_adjustAuto_3</zorder>
   <zorder>btn_adjustAuto_4</zorder>
   <zorder>btn_adjustAuto_5</zorder>
   <zorder>pushButton_38</zorder>
+  <zorder>btn_adjustAuto_2</zorder>
  </widget>
  <resources/>
  <connections/>

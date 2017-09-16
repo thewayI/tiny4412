@@ -305,25 +305,6 @@ border-bottom-right-radius:6px;</string>
     <string>OK</string>
    </property>
   </widget>
-  <widget class="QFrame" name="frame">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>350</width>
-     <height>300</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(2, 72, 152);</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btn_ok_2">
    <property name="geometry">
     <rect>
@@ -369,31 +350,6 @@ border-bottom-right-radius:6px;</string>
     <string/>
    </property>
   </widget>
-  <zorder>frame</zorder>
-  <zorder>btn_num_1</zorder>
-  <zorder>btn_num_2</zorder>
-  <zorder>btn_num_3</zorder>
-  <zorder>btn_num_clr</zorder>
-  <zorder>btn_num_4</zorder>
-  <zorder>btn_num_6</zorder>
-  <zorder>btn_num_0</zorder>
-  <zorder>btn_num_5</zorder>
-  <zorder>btn_num_7</zorder>
-  <zorder>btn_num_9</zorder>
-  <zorder>btn_num_Point</zorder>
-  <zorder>btn_num_8</zorder>
-  <zorder>label_simple</zorder>
-  <zorder>lineEdit_max</zorder>
-  <zorder>lineEdit_current</zorder>
-  <zorder>lineEdit_min</zorder>
-  <zorder>lineEdit_except</zorder>
-  <zorder>label</zorder>
-  <zorder>label_2</zorder>
-  <zorder>label_3</zorder>
-  <zorder>label_4</zorder>
-  <zorder>btn_ok</zorder>
-  <zorder>btn_ok_2</zorder>
-  <zorder>btn_ok_3</zorder>
  </widget>
  <resources/>
  <connections/>
