@@ -40,8 +40,15 @@ manu::~manu()
 
 void manu::on_btn_configureSensor_clicked()
 {
-    pAdjust->pTimer2->start();
-    pAdjust->show();
+    if(pLock->bLockFlag)
+    {
+        QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请解除锁定"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    }
+    else
+    {
+        pAdjust->pTimer2->start();
+        pAdjust->show();
+    }
 }
 
 void manu::on_btn_about_clicked()
@@ -77,6 +84,7 @@ void manu::on_btn_configureETH_clicked()
 
 void manu::on_btn_leakTest_clicked()
 {
+    pLeakTest->pTimer->start();
     pLeakTest->show();
 }
 

@@ -26,6 +26,8 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_btn_configureMachine_2_clicked();
+
 private:
     Ui::leakTest *ui;
 
@@ -33,6 +35,7 @@ public:
     Posix_QextSerialPort *pSerial;
     QTimer *pTimer;
 
+    bool btimeStartFlag;
     double m_timer;
     double m_basePressure;
     double m_currentPressure;

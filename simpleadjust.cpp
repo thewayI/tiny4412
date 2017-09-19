@@ -25,15 +25,9 @@ SimpleAdjust::SimpleAdjust(QWidget *parent, Posix_QextSerialPort *serial) :
 
 
     ui->lineEdit_current->setText(QString("0.1000"));
-    ui->lineEdit_max->setText(QString("0.1500"));
-    ui->lineEdit_min->setText(QString("0.0050"));
+
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
 
-    ui->lineEdit_max->hide();
-    ui->lineEdit_min->hide();
-    ui->label->hide();
-    ui->label_2->hide();
-    ui->lineEdit_except->hide();
 
     bAdjust = false;
 }
@@ -45,11 +39,7 @@ SimpleAdjust::~SimpleAdjust()
 
 void SimpleAdjust::onTimeOut()
 {
-
-    QString str;
     QString strTemp = QString("");
-    str.sprintf("%d.%d", mExceptValueInt, mExceptValueFloat);
-    ui->lineEdit_except->setText(str);
 
     //get current pressure
     sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &strTemp);
@@ -69,198 +59,10 @@ void SimpleAdjust::onTimeOut()
         }
         else
         {
-            ui->lineEdit_except->setText(pKeyBoard->str);
             bAdjust = false;
         }
     }
-
-#if 0
-    //get the maximum range
-    strTemp = QString("");
-    sendSerialCommand(pSerial, CMD_GET_MAXIMUM, &strTemp);
-    if(strTemp.length() != 0)
-    {
-        //qDebug("strTemp = %s\n", qPrintable(strTemp));
-        ui->lineEdit_max->setText((strTemp.right(strTemp.length() - QString("1 R+ ").length())).left(strTemp.length() - QString("1 R+ ").length() - QString("\r\n").length()));
-
-    }
-    //get the minimum range
-    strTemp = QString("");
-    sendSerialCommand(pSerial, CMD_GET_MINIMUM, &strTemp);
-    if(strTemp.length() != 0)
-    {
-        //qDebug("strTemp = %s\n", qPrintable(strTemp));
-        ui->lineEdit_min->setText((strTemp.right(strTemp.length() - QString("1 R- ").length())).left(strTemp.length() - QString("1 R+ ").length() - QString("\r\n").length()));
-
-    }
-#endif
 }
-
-void SimpleAdjust::on_btn_num_clr_clicked()
-{
-    mExceptValueFloat = 0;
-    mExceptValueInt = 0;
-    point = false;
-}
-
-void SimpleAdjust::on_btn_num_0_clicked()
-{
-    if(point)
-    {
-        mExceptValueFloat *= 10;
-        mcount++;
-    }
-    else
-    {
-        mExceptValueInt *= 10;
-    }
-}
-
-void SimpleAdjust::on_btn_num_Point_clicked()
-{
-    point = true;
-}
-
-void SimpleAdjust::on_btn_num_1_clicked()
-{
-    if(point)
-    {
-        mExceptValueFloat *= 10;
-        mExceptValueFloat += 1;
-        mcount++;
-    }
-    else
-    {
-        mExceptValueInt *= 10;
-        mExceptValueInt += 1;
-    }
-}
-
-void SimpleAdjust::on_btn_num_2_clicked()
-{
-    if(point)
-    {
-        mExceptValueFloat *= 10;
-        mExceptValueFloat += 2;
-        mcount++;
-    }
-    else
-    {
-        mExceptValueInt *= 10;
-        mExceptValueInt += 2;
-    }
-}
-
-void SimpleAdjust::on_btn_num_3_clicked()
-{
-    if(point)
-    {
-        mExceptValueFloat *= 10;
-        mExceptValueFloat += 3;
-        mcount++;
-    }
-    else
-    {
-        mExceptValueInt *= 10;
-        mExceptValueInt += 3;
-    }
-}
-
-void SimpleAdjust::on_btn_num_4_clicked()
-{
-    if(point)
-    {
-        mExceptValueFloat *= 10;
-        mExceptValueFloat += 4;
-        mcount++;
-    }
-    else
-    {
-        mExceptValueInt *= 10;
-        mExceptValueInt += 4;
-    }
-}
-
-void SimpleAdjust::on_btn_num_5_clicked()
-{
-    if(point)
-    {
-        mExceptValueFloat *= 10;
-        mExceptValueFloat += 5;
-        mcount++;
-    }
-    else
-    {
-        mExceptValueInt *= 10;
-        mExceptValueInt += 5;
-    }
-}
-
-void SimpleAdjust::on_btn_num_6_clicked()
-{
-    if(point)
-    {
-        mExceptValueFloat *= 10;
-        mExceptValueFloat += 6;
-        mcount++;
-    }
-    else
-    {
-        mExceptValueInt *= 10;
-        mExceptValueInt += 6;
-    }
-}
-
-void SimpleAdjust::on_btn_num_7_clicked()
-{
-    if(point)
-    {
-        mExceptValueFloat *= 10;
-        mExceptValueFloat += 7;
-        mcount++;
-    }
-    else
-    {
-        mExceptValueInt *= 10;
-        mExceptValueInt += 7;
-    }
-}
-
-void SimpleAdjust::on_btn_num_8_clicked()
-{
-    if(point)
-    {
-        mExceptValueFloat *= 10;
-        mExceptValueFloat += 8;
-        mcount++;
-    }
-    else
-    {
-        mExceptValueInt *= 10;
-        mExceptValueInt += 8;
-    }
-}
-
-void SimpleAdjust::on_btn_num_9_clicked()
-{
-    if(point)
-    {
-        mExceptValueFloat *= 10;
-        mExceptValueFloat += 9;
-        mcount++;
-    }
-    else
-    {
-        mExceptValueInt *= 10;
-        mExceptValueInt += 9;
-    }
-}
-
-void SimpleAdjust::on_btn_ok_clicked()
-{
-    pTimer1->stop();
-    this->close();
- }
 
 void SimpleAdjust::on_btn_ok_2_clicked()
 {
@@ -284,7 +86,7 @@ void SimpleAdjust::on_btn_ok_2_clicked()
     pressure = str.toDouble();
 
     //ui->lineEdit_except->text().toDouble()
-    pressureTemp = ui->lineEdit_except->text().toDouble() / pressure;
+    pressureTemp = ui->btn_ok_3->text().toDouble() / pressure;
 
     strTemp = QString::number(pressureTemp, 'f', 6);
 
@@ -301,7 +103,7 @@ void SimpleAdjust::on_btn_ok_2_clicked()
     //str = str.right(str.length() - QString("1 ").length());
 
     bAdjust = false;
-    this->close();
+    //this->close();
 }
 
 void SimpleAdjust::on_btn_ok_3_clicked()
@@ -310,5 +112,11 @@ void SimpleAdjust::on_btn_ok_3_clicked()
     pKeyBoard->str = QString("");
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(800, 400);
+    pKeyBoard->move(0, 500);
+}
+
+void SimpleAdjust::on_btn_ok_4_clicked()
+{
+    pTimer1->stop();
+    this->close();
 }

@@ -92,13 +92,14 @@
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);
 border:2px solid rgb(255, 255, 255);
-background-color: rgba(5, 4, 250, 20);
+background-color: rgb(60, 116, 179);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
-border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;</string>
+QAbstractItemView::item { min-height: 70px; min-width: 290px;}</string>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
    </property>
    <item>
     <property name="text">
@@ -126,10 +127,10 @@ border-bottom-right-radius:6px;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:2px solid rgb(255, 255, 255);
+    <string notr="true">border-top-left-radius:6px;
 color: rgb(255, 255, 255);
-background-color: rgba(5, 4, 250, 20);
-border-top-left-radius:6px;
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;</string>
@@ -174,10 +175,10 @@ border-bottom-right-radius:6px;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:2px solid rgb(255, 255, 255);
+    <string notr="true">border-top-left-radius:6px;
 color: rgb(255, 255, 255);
-background-color: rgba(5, 4, 250, 20);
-border-top-left-radius:6px;
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;</string>
@@ -202,16 +203,17 @@ border-bottom-right-radius:6px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);
 border:2px solid rgb(255, 255, 255);
-background-color: rgba(5, 4, 250, 20);
+background-color: rgb(60, 116, 179);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
-border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;</string>
+QAbstractItemView::item { min-height: 70px; min-width: 290px;}</string>
    </property>
    <property name="currentIndex">
     <number>2</number>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
    </property>
    <item>
     <property name="text">
@@ -250,16 +252,17 @@ border-bottom-right-radius:6px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);
 border:2px solid rgb(255, 255, 255);
-background-color: rgba(5, 4, 250, 20);
+background-color: rgb(60, 116, 179);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
-border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;</string>
+QAbstractItemView::item { min-height: 70px; min-width: 290px;}</string>
    </property>
    <property name="currentIndex">
     <number>2</number>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
    </property>
    <item>
     <property name="text">
@@ -297,10 +300,10 @@ border-bottom-right-radius:6px;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:2px solid rgb(255, 255, 255);
+    <string notr="true">border-top-left-radius:6px;
 color: rgb(255, 255, 255);
-background-color: rgba(5, 4, 250, 20);
-border-top-left-radius:6px;
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;</string>
@@ -325,13 +328,20 @@ border-bottom-right-radius:6px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);
 border:2px solid rgb(255, 255, 255);
-background-color: rgba(5, 4, 250, 20);
+background-color: rgb(60, 116, 179);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
-border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;</string>
+QAbstractItemView::item { min-height: 70px; min-width: 290px;}</string>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
    </property>
    <item>
     <property name="text">
@@ -360,16 +370,20 @@ border-bottom-right-radius:6px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);
 border:2px solid rgb(255, 255, 255);
-background-color: rgba(5, 4, 250, 20);
+background-color: rgb(60, 116, 179);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
-border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;</string>
+QAbstractItemView::item { min-height: 70px; min-width: 290px;}</string>
    </property>
    <property name="currentIndex">
     <number>0</number>
+   </property>
+   <property name="maxVisibleItems">
+    <number>10</number>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
    </property>
    <item>
     <property name="text">
@@ -419,16 +433,17 @@ border-bottom-right-radius:6px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);
 border:2px solid rgb(255, 255, 255);
-background-color: rgba(5, 4, 250, 20);
+background-color: rgb(60, 116, 179);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
-border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;</string>
+QAbstractItemView::item { min-height: 70px; min-width: 290px;}</string>
    </property>
    <property name="currentIndex">
     <number>1</number>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
    </property>
    <item>
     <property name="text">
@@ -478,7 +493,7 @@ border-bottom-right-radius:6px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
-background-color: rgb(99, 115, 187);
+background-color: rgba(99, 115, 187,75);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;
@@ -502,12 +517,12 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(253, 252, 254);
-background-color: rgba(34, 44, 125,80);
+background-color: rgba(05, 02, 04,50);
 </string>
    </property>
    <property name="text">
@@ -519,7 +534,7 @@ background-color: rgba(34, 44, 125,80);
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>49</width>
+     <width>41</width>
      <height>49</height>
     </rect>
    </property>
@@ -540,7 +555,7 @@ background-color: rgba(34, 44, 125,80);
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);</string>
+    <string notr="true">border-image: url(:/new/prefix1/image/1.png);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>

@@ -14,6 +14,7 @@
 #include "posix_qextserialport.h"
 #include "commandList.h"
 #include "keyboard.h"
+#include "doubleadjust.h"
 namespace Ui {
 class adjust;
 }
@@ -50,12 +51,17 @@ private slots:
 
     void on_btn_adjustAuto_4_clicked();
 
+    void on_btn_adjustAuto_5_clicked();
+
+    void on_btn_adjustAuto_3_clicked();
+
 private:
     Ui::adjust *ui;
 public:
     SimpleAdjust *pSimple;
     keyBoard     *pKeyBoard;
     login *pLogin;
+    doubleAdjust *pDouble;
     QString str;
     bool btime;
     bool badjust;

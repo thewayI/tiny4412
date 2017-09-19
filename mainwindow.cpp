@@ -34,6 +34,10 @@ mainWindow::mainWindow(QWidget *parent) :
     {
         configIniWrite->setValue("/private/passwd", "12345678");
     }
+    if(!configIniWrite->contains("private/lockFlag"))
+    {
+        configIniWrite->setValue("/private/lockFlag", "true");
+    }
 
     if(!configIniWrite->contains("eth/ip"))
     {

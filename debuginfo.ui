@@ -62,12 +62,12 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(253, 252, 254);
-background-color: rgba(34, 44, 125,80);
+background-color: rgba(05, 02, 04,50);
 </string>
    </property>
    <property name="text">
@@ -90,7 +90,7 @@ background-color: rgba(34, 44, 125,80);
    </property>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
-background-color: rgb(99, 115, 187);
+background-color: rgba(99, 115, 187,75);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;
@@ -138,7 +138,7 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
-background-color: rgb(99, 115, 187);
+background-color: rgba(99, 115, 187,75);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;

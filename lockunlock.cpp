@@ -1,4 +1,5 @@
 #include "lockunlock.h"
+#include <QMessageBox>
 #include "ui_lockunlock.h"
 
 lockUnLock::lockUnLock(QWidget *parent) :
@@ -14,6 +15,30 @@ lockUnLock::lockUnLock(QWidget *parent) :
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
     pTimer->start();
 
+    QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    QString lockFlag=configIniWrite->value("/private/lockFlag").toString();
+
+    m_QStringPasswd = QString("");
+    if(lockFlag == QString("true"))
+    {
+        bLockFlag = true;
+        bclickFlag = true;
+        ui->btn_change->hide();
+        ui->btn_change_2->hide();
+        ui->btn_unlock->setText(QString::fromUtf8("解锁"));
+        ui->btn_unlock->move(800, 350);
+        ui->btn_unlock_2->move(380, 350);
+    }
+    else
+    {
+        bLockFlag = false;
+        bclickFlag = false;
+        ui->btn_change->show();
+        ui->btn_change_2->show();
+        ui->btn_unlock->setText(QString::fromUtf8("锁定"));
+        ui->btn_unlock->move(800, 250);
+        ui->btn_unlock_2->move(380, 250);
+    }
 
     bunlockEditFlag = false;
     bchangeEditFlag = false;
@@ -27,80 +52,146 @@ lockUnLock::~lockUnLock()
 
 void lockUnLock::onTimeOut()
 {
-#if 0
+    int loop = 0;
+    QString strTemp = QString("");
+    ui->btn_unlock_2->setText(QString(""));
+#if 1
     if(bunlockEditFlag)
     {
         if(pKeyBoard->editFlag)
         {
-            ui->lineEdit_unlock->setText(pKeyBoard->str);
+            m_QStringPasswd = pKeyBoard->str;
+            for(loop = 0; loop < pKeyBoard->str.length(); loop++)
+            {
+                strTemp = ui->btn_unlock_2->text();
+                strTemp.append(QString("*"));
+                ui->btn_unlock_2->setText(strTemp);
+                ui->btn_unlock->setEnabled(false);
+                ui->btn_configureMachine_2->setEnabled(false);
+            }
+
         }
         else
         {
+            for(loop = 0; loop < m_QStringPasswd.length(); loop++)
+            {
+                strTemp = ui->btn_unlock_2->text();
+                strTemp.append(QString("*"));
+                ui->btn_unlock_2->setText(strTemp);
+            }
             bunlockEditFlag = false;
+            ui->btn_unlock->setEnabled(true);
+            ui->btn_configureMachine_2->setEnabled(true);
+        }
+    }
+    else
+    {
+        strTemp = QString("");
+        ui->btn_unlock_2->setText(strTemp);
+        for(loop = 0; loop < m_QStringPasswd.length(); loop++)
+        {
+            strTemp = ui->btn_unlock_2->text();
+            strTemp.append(QString("*"));
+            ui->btn_unlock_2->setText(strTemp);
         }
     }
     if(bchangeEditFlag)
     {
         if(pKeyBoard->editFlag)
         {
-            ui->lineEdit_change->setText(pKeyBoard->str);
+            ui->btn_change_2->setText(pKeyBoard->str);
+            ui->btn_change->setEnabled(false);
+            ui->btn_configureMachine_2->setEnabled(false);
         }
         else
         {
+            ui->btn_change->setEnabled(true);
             bchangeEditFlag = false;
+            ui->btn_configureMachine_2->setEnabled(true);
         }
     }
 #endif
 }
 
-bool lockUnLock::eventFilter(QObject *watched, QEvent *event)
-{
-#if 0
-     if (watched==ui->lineEdit_unlock)         //首先判断控件(这里指 lineEdit1)
-     {
-          if (event->type()==QEvent::MouseButtonPress)     //然后再判断控件的具体事件 (这里指获得焦点事件)
-          {
-               pKeyBoard->show();
-               pKeyBoard->move(700, 400);
-               pKeyBoard->editFlag = true;
-               bunlockEditFlag = true;
-                qDebug("enter lineedit1");
-          }
-          else if (event->type()==QEvent::FocusOut)    // 这里指 lineEdit1 控件的失去焦点事件
-          {
-              qDebug("exit lineedit1");
-          }
-     }
-     if (watched==ui->lineEdit_change)           //这里来处理 lineEdit2 , 和处理lineEdit1 是一样的
-     {
-          if (event->type()==QEvent::FocusIn)
-         {
-              pKeyBoard->show();
-              pKeyBoard->move(700, 400);
-              pKeyBoard->editFlag = true;
-              bchangeEditFlag = true;
-              qDebug("enter lineedit2");
-          }
-         else if (event->type()==QEvent::FocusOut)
-         {
-qDebug("exit lineedit2");
-         }
-     }
- return QWidget::eventFilter(watched,event);     // 最后将事件交给上层对话框
-#endif
-}
 
 void lockUnLock::on_btn_unlock_clicked()
 {
-    this->close();
+    QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    QString passwd=configIniWrite->value("/private/passwd").toString();
+
+    if(bclickFlag)
+    {
+        bclickFlag = false;
+        if(passwd == m_QStringPasswd)
+        {
+            bLockFlag = false;
+            ui->btn_change->show();
+            ui->btn_change_2->show();
+            ui->btn_unlock->setText(QString::fromUtf8("锁定"));
+            configIniWrite->setValue("/private/lockFlag", "false");
+            ui->btn_unlock->move(800, 250);
+            ui->btn_unlock_2->move(380, 250);
+        }
+        else
+        {
+            QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("密码错误"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+        }
+
+    }
+    else
+    {
+        bclickFlag = true;
+
+        if(passwd == m_QStringPasswd)
+        {
+            bLockFlag = true;
+            ui->btn_change->hide();
+            ui->btn_change_2->hide();
+            ui->btn_unlock->setText(QString::fromUtf8("解锁"));
+            configIniWrite->setValue("/private/lockFlag", "true");
+            ui->btn_unlock->move(800, 350);
+            ui->btn_unlock_2->move(380, 350);
+        }
+        else
+        {
+            QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("密码错误"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+        }
+    }
+    delete configIniWrite;
+
 }
 
 void lockUnLock::on_btn_configureMachine_2_clicked()
 {
+    m_QStringPasswd = QString("");
     this->close();
 }
 
 void lockUnLock::on_btn_unlock_2_clicked()
 {
+    bunlockEditFlag = true;
+    bchangeEditFlag = false;
+    m_QStringPasswd = QString("");
+    pKeyBoard->str = QString("");
+    pKeyBoard->editFlag = true;
+    pKeyBoard->show();
+    pKeyBoard->move(0, 500);
+}
 
+void lockUnLock::on_btn_change_2_clicked()
+{
+    bunlockEditFlag = false;
+    bchangeEditFlag = true;
+    pKeyBoard->str = QString("");
+    pKeyBoard->editFlag = true;
+    pKeyBoard->show();
+    pKeyBoard->move(0, 500);
+}
+
+void lockUnLock::on_btn_change_clicked()
+{
+    QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    configIniWrite->setValue("/private/passwd", ui->btn_change_2->text());
+    delete configIniWrite;
+    ui->btn_change_2->setText(QString(""));
 }

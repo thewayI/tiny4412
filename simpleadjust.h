@@ -22,35 +22,11 @@ public:
 private slots:
     void onTimeOut();
 
-    void on_btn_num_clr_clicked();
-
-    void on_btn_num_0_clicked();
-
-    void on_btn_num_Point_clicked();
-
-    void on_btn_num_1_clicked();
-
-    void on_btn_num_2_clicked();
-
-    void on_btn_num_3_clicked();
-
-    void on_btn_num_4_clicked();
-
-    void on_btn_num_5_clicked();
-
-    void on_btn_num_6_clicked();
-
-    void on_btn_num_7_clicked();
-
-    void on_btn_num_8_clicked();
-
-    void on_btn_num_9_clicked();
-
-    void on_btn_ok_clicked();
-
     void on_btn_ok_2_clicked();
 
     void on_btn_ok_3_clicked();
+
+    void on_btn_ok_4_clicked();
 
 private:
     Ui::SimpleAdjust *ui;

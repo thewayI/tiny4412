@@ -90,300 +90,302 @@ void unitChange::on_pushButton_38_clicked()
 
 void unitChange::setAllbuttonEnable(void)
 {
+#if 1
    ui->pushButton_7->setEnabled(true);
    ui->pushButton_7->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                     "color: rgb(255, 255, 255);\n"
+                                                     "border:2px solid rgba(255, 255, 255,70);\n"
+                                                     "background-color: rgba(255, 255, 255, 20);\n"
+                                                     "border-top-right-radius:6px;\n"
+                                                     "border-bottom-left-radius:6px;\n"
+                                                     "border-bottom-right-radius:6px;"));
    ui->pushButton_28->setEnabled(true);
    ui->pushButton_28->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_25->setEnabled(true);
    ui->pushButton_25->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_14->setEnabled(true);
    ui->pushButton_14->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton->setEnabled(true);
    ui->pushButton->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                   "color: rgb(255, 255, 255);\n"
+                                                   "border:2px solid rgba(255, 255, 255,70);\n"
+                                                   "background-color: rgba(255, 255, 255, 20);\n"
+                                                   "border-top-right-radius:6px;\n"
+                                                   "border-bottom-left-radius:6px;\n"
+                                                   "border-bottom-right-radius:6px;"));
 
    ui->pushButton_16->setEnabled(true);
    ui->pushButton_16->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_30->setEnabled(true);
    ui->pushButton_30->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_37->setEnabled(true);
    ui->pushButton_37->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_8->setEnabled(true);
    ui->pushButton_8->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                     "color: rgb(255, 255, 255);\n"
+                                                     "border:2px solid rgba(255, 255, 255,70);\n"
+                                                     "background-color: rgba(255, 255, 255, 20);\n"
+                                                     "border-top-right-radius:6px;\n"
+                                                     "border-bottom-left-radius:6px;\n"
+                                                     "border-bottom-right-radius:6px;"));
    ui->pushButton_3->setEnabled(true);
    ui->pushButton_3->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                     "color: rgb(255, 255, 255);\n"
+                                                     "border:2px solid rgba(255, 255, 255,70);\n"
+                                                     "background-color: rgba(255, 255, 255, 20);\n"
+                                                     "border-top-right-radius:6px;\n"
+                                                     "border-bottom-left-radius:6px;\n"
+                                                     "border-bottom-right-radius:6px;"));
    ui->pushButton_32->setEnabled(true);
    ui->pushButton_32->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_24->setEnabled(true);
    ui->pushButton_24->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_2->setEnabled(true);
    ui->pushButton_2->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                     "color: rgb(255, 255, 255);\n"
+                                                     "border:2px solid rgba(255, 255, 255,70);\n"
+                                                     "background-color: rgba(255, 255, 255, 20);\n"
+                                                     "border-top-right-radius:6px;\n"
+                                                     "border-bottom-left-radius:6px;\n"
+                                                     "border-bottom-right-radius:6px;"));
    ui->pushButton_15->setEnabled(true);
    ui->pushButton_15->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_9->setEnabled(true);
    ui->pushButton_9->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                     "color: rgb(255, 255, 255);\n"
+                                                     "border:2px solid rgba(255, 255, 255,70);\n"
+                                                     "background-color: rgba(255, 255, 255, 20);\n"
+                                                     "border-top-right-radius:6px;\n"
+                                                     "border-bottom-left-radius:6px;\n"
+                                                     "border-bottom-right-radius:6px;"));
    ui->pushButton_34->setEnabled(true);
    ui->pushButton_34->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_13->setEnabled(true);
    ui->pushButton_13->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
 
    ui->pushButton_18->setEnabled(true);
    ui->pushButton_18->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_4->setEnabled(true);
    ui->pushButton_4->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                     "color: rgb(255, 255, 255);\n"
+                                                     "border:2px solid rgba(255, 255, 255,70);\n"
+                                                     "background-color: rgba(255, 255, 255, 20);\n"
+                                                     "border-top-right-radius:6px;\n"
+                                                     "border-bottom-left-radius:6px;\n"
+                                                     "border-bottom-right-radius:6px;"));
 
    ui->pushButton_12->setEnabled(true);
    ui->pushButton_12->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
 
    ui->pushButton_19->setEnabled(true);
    ui->pushButton_19->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_11->setEnabled(true);
    ui->pushButton_11->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_10->setEnabled(true);
    ui->pushButton_10->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_17->setEnabled(true);
    ui->pushButton_17->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_23->setEnabled(true);
    ui->pushButton_23->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
 
    ui->pushButton_36->setEnabled(true);
    ui->pushButton_36->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_5->setEnabled(true);
    ui->pushButton_5->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                     "color: rgb(255, 255, 255);\n"
+                                                     "border:2px solid rgba(255, 255, 255,70);\n"
+                                                     "background-color: rgba(255, 255, 255, 20);\n"
+                                                     "border-top-right-radius:6px;\n"
+                                                     "border-bottom-left-radius:6px;\n"
+                                                     "border-bottom-right-radius:6px;"));
    ui->pushButton_20->setEnabled(true);
    ui->pushButton_20->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_21->setEnabled(true);
    ui->pushButton_21->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_29->setEnabled(true);
    ui->pushButton_29->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_35->setEnabled(true);
    ui->pushButton_35->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_26->setEnabled(true);
    ui->pushButton_26->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_6->setEnabled(true);
    ui->pushButton_6->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                     "color: rgb(255, 255, 255);\n"
+                                                     "border:2px solid rgba(255, 255, 255,70);\n"
+                                                     "background-color: rgba(255, 255, 255, 20);\n"
+                                                     "border-top-right-radius:6px;\n"
+                                                     "border-bottom-left-radius:6px;\n"
+                                                     "border-bottom-right-radius:6px;"));
    ui->pushButton_31->setEnabled(true);
    ui->pushButton_31->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_33->setEnabled(true);
    ui->pushButton_33->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
    ui->pushButton_27->setEnabled(true);
    ui->pushButton_27->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-"color: rgb(255, 255, 255);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(64, 101, 178);\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;"));
+                                                      "color: rgb(255, 255, 255);\n"
+                                                      "border:2px solid rgba(255, 255, 255,70);\n"
+                                                      "background-color: rgba(255, 255, 255, 20);\n"
+                                                      "border-top-right-radius:6px;\n"
+                                                      "border-bottom-left-radius:6px;\n"
+                                                      "border-bottom-right-radius:6px;"));
 
+#endif
    ui->pushButton_38->setEnabled(true);
    ui->pushButton_39->setEnabled(true);
 }
@@ -411,6 +413,7 @@ void unitChange::on_pushButton_clicked()
     ui->pushButton->setEnabled(false);
     ui->pushButton->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+"background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -426,6 +429,7 @@ void unitChange::on_pushButton_5_clicked()
     ui->pushButton_5->setEnabled(false);
     ui->pushButton_5->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                      "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -441,6 +445,7 @@ void unitChange::on_pushButton_4_clicked()
     ui->pushButton_4->setEnabled(false);
     ui->pushButton_4->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                      "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -456,6 +461,7 @@ void unitChange::on_pushButton_20_clicked()
     ui->pushButton_20->setEnabled(false);
     ui->pushButton_20->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -471,6 +477,7 @@ void unitChange::on_pushButton_24_clicked()
     ui->pushButton_24->setEnabled(false);
     ui->pushButton_24->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -486,6 +493,7 @@ void unitChange::on_pushButton_19_clicked()
     ui->pushButton_19->setEnabled(false);
     ui->pushButton_19->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -501,6 +509,7 @@ void unitChange::on_pushButton_3_clicked()
     ui->pushButton_3->setEnabled(false);
     ui->pushButton_3->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                      "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -516,6 +525,7 @@ void unitChange::on_pushButton_2_clicked()
     ui->pushButton_2->setEnabled(false);
     ui->pushButton_2->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                      "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -531,6 +541,7 @@ void unitChange::on_pushButton_6_clicked()
     ui->pushButton_6->setEnabled(false);
     ui->pushButton_6->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                      "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -546,6 +557,7 @@ void unitChange::on_pushButton_21_clicked()
     ui->pushButton_21->setEnabled(false);
     ui->pushButton_21->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -561,6 +573,7 @@ void unitChange::on_pushButton_23_clicked()
     ui->pushButton_23->setEnabled(false);
     ui->pushButton_23->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -577,6 +590,7 @@ void unitChange::on_pushButton_8_clicked()
     ui->pushButton_8->setEnabled(false);
     ui->pushButton_8->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                      "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -592,6 +606,7 @@ void unitChange::on_pushButton_12_clicked()
     ui->pushButton_12->setEnabled(false);
     ui->pushButton_12->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -607,6 +622,7 @@ void unitChange::on_pushButton_7_clicked()
     ui->pushButton_7->setEnabled(false);
     ui->pushButton_7->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                      "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -623,6 +639,7 @@ void unitChange::on_pushButton_26_clicked()
     ui->pushButton_26->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border-top-left-radius:6px;\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
 "border-bottom-right-radius:6px;\n"
@@ -637,6 +654,7 @@ void unitChange::on_pushButton_30_clicked()
     ui->pushButton_30->setEnabled(false);
     ui->pushButton_30->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -652,6 +670,7 @@ void unitChange::on_pushButton_25_clicked()
     ui->pushButton_25->setEnabled(false);
     ui->pushButton_25->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -667,6 +686,7 @@ void unitChange::on_pushButton_10_clicked()
     ui->pushButton_10->setEnabled(false);
     ui->pushButton_10->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -682,6 +702,7 @@ void unitChange::on_pushButton_9_clicked()
     ui->pushButton_9->setEnabled(false);
     ui->pushButton_9->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                      "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -697,6 +718,7 @@ void unitChange::on_pushButton_11_clicked()
     ui->pushButton_11->setEnabled(false);
     ui->pushButton_11->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -712,6 +734,7 @@ void unitChange::on_pushButton_28_clicked()
     ui->pushButton_28->setEnabled(false);
     ui->pushButton_28->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -727,6 +750,7 @@ void unitChange::on_pushButton_27_clicked()
     ui->pushButton_27->setEnabled(false);
     ui->pushButton_27->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -742,6 +766,7 @@ void unitChange::on_pushButton_29_clicked()
     ui->pushButton_29->setEnabled(false);
     ui->pushButton_29->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -757,6 +782,7 @@ void unitChange::on_pushButton_14_clicked()
     ui->pushButton_14->setEnabled(false);
     ui->pushButton_14->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -772,6 +798,7 @@ void unitChange::on_pushButton_18_clicked()
     ui->pushButton_18->setEnabled(false);
     ui->pushButton_18->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -787,6 +814,7 @@ void unitChange::on_pushButton_13_clicked()
     ui->pushButton_13->setEnabled(false);
     ui->pushButton_13->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -802,6 +830,7 @@ void unitChange::on_pushButton_32_clicked()
     ui->pushButton_32->setEnabled(false);
     ui->pushButton_32->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -817,6 +846,7 @@ void unitChange::on_pushButton_36_clicked()
     ui->pushButton_36->setEnabled(false);
     ui->pushButton_36->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -832,6 +862,7 @@ void unitChange::on_pushButton_31_clicked()
     ui->pushButton_31->setEnabled(false);
     ui->pushButton_31->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -847,6 +878,7 @@ void unitChange::on_pushButton_16_clicked()
     ui->pushButton_16->setEnabled(false);
     ui->pushButton_16->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -868,6 +900,7 @@ void unitChange::on_pushButton_17_clicked()
     ui->pushButton_17->setEnabled(false);
     ui->pushButton_17->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -883,6 +916,7 @@ void unitChange::on_pushButton_34_clicked()
     ui->pushButton_34->setEnabled(false);
     ui->pushButton_34->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -898,6 +932,7 @@ void unitChange::on_pushButton_33_clicked()
     ui->pushButton_33->setEnabled(false);
     ui->pushButton_33->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"
@@ -913,6 +948,7 @@ void unitChange::on_pushButton_35_clicked()
     ui->pushButton_35->setEnabled(false);
     ui->pushButton_35->setStyleSheet(QString::fromUtf8("border:2px solid rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);\n"
+                                                       "background-color: rgba(5, 2, 4, 40);\n"
 "border-top-left-radius:6px;\n"
 "border-top-right-radius:6px;\n"
 "border-bottom-left-radius:6px;\n"

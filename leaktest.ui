@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>200</y>
+     <y>170</y>
      <width>1280</width>
      <height>118</height>
     </rect>
@@ -40,8 +40,8 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>380</y>
+     <x>400</x>
+     <y>360</y>
      <width>71</width>
      <height>71</height>
     </rect>
@@ -50,14 +50,14 @@
     <string notr="true">color: rgb(253, 251, 252);</string>
    </property>
    <property name="text">
-    <string>单位</string>
+    <string>时间</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>480</y>
+     <x>400</x>
+     <y>460</y>
      <width>71</width>
      <height>71</height>
     </rect>
@@ -72,31 +72,58 @@
   <widget class="QLineEdit" name="lineEdit_time">
    <property name="geometry">
     <rect>
-     <x>630</x>
-     <y>380</y>
+     <x>570</x>
+     <y>360</y>
      <width>261</width>
      <height>61</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_D_value">
    <property name="geometry">
     <rect>
-     <x>630</x>
-     <y>490</y>
+     <x>570</x>
+     <y>470</y>
      <width>261</width>
      <height>61</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>970</x>
-     <y>490</y>
-     <width>120</width>
-     <height>60</height>
+     <x>370</x>
+     <y>640</y>
+     <width>200</width>
+     <height>70</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>开始</string>
@@ -105,11 +132,20 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>970</x>
-     <y>580</y>
-     <width>120</width>
-     <height>60</height>
+     <x>810</x>
+     <y>640</y>
+     <width>200</width>
+     <height>70</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 0);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>停止</string>
@@ -125,7 +161,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);</string>
+    <string notr="true">border-image: url(:/new/prefix1/image/1.png);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -134,14 +170,85 @@
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>41</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/menu泄露测试.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>90</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 252, 254);
+background-color: rgba(05, 02, 04,50);
+</string>
+   </property>
+   <property name="text">
+    <string>       泄漏测试</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_configureMachine_2">
+   <property name="geometry">
+    <rect>
+     <x>1110</x>
+     <y>20</y>
+     <width>117</width>
+     <height>49</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+background-color: rgba(99, 115, 187,75);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>返  回</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
   <zorder>frame</zorder>
   <zorder>label_view</zorder>
+  <zorder>label_9</zorder>
   <zorder>label_3</zorder>
   <zorder>label_4</zorder>
   <zorder>lineEdit_time</zorder>
   <zorder>lineEdit_D_value</zorder>
   <zorder>pushButton</zorder>
   <zorder>pushButton_2</zorder>
+  <zorder>label_10</zorder>
+  <zorder>btn_configureMachine_2</zorder>
  </widget>
  <resources/>
  <connections/>

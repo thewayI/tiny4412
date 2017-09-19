@@ -13,7 +13,6 @@ channelTest::channelTest(QWidget *parent, Posix_QextSerialPort *serial) :
     pTimer = new QTimer(this);
     pTimer->setInterval(100);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeout()));
-    pTimer->start();
 
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
 

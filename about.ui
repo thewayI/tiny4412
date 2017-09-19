@@ -205,12 +205,12 @@ gridline-color: rgba(0, 0, 0, 255);</string>
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(253, 252, 254);
-background-color: rgba(34, 44, 125,80);
+background-color: rgba(5, 2, 4,75);
 </string>
    </property>
    <property name="text">
@@ -233,7 +233,7 @@ background-color: rgba(34, 44, 125,80);
    </property>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
-background-color: rgb(99, 115, 187);
+background-color: rgba(99, 115, 187,75);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;
@@ -256,7 +256,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(37, 42, 136);</string>
+    <string notr="true">background-color: rgba(8, 38, 78, 50);</string>
    </property>
    <property name="text">
     <string/>
@@ -272,7 +272,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(37, 42, 136);</string>
+    <string notr="true">background-color: rgba(8, 38, 78, 50);</string>
    </property>
    <property name="text">
     <string/>
@@ -288,7 +288,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(37, 42, 136);</string>
+    <string notr="true">background-color: rgba(8, 38, 78, 50);</string>
    </property>
    <property name="text">
     <string/>
@@ -304,7 +304,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(37, 42, 136);</string>
+    <string notr="true">background-color: rgba(8, 38, 78, 50);</string>
    </property>
    <property name="text">
     <string/>
@@ -320,7 +320,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(37, 42, 136);</string>
+    <string notr="true">background-color: rgba(8, 38, 78, 50);</string>
    </property>
    <property name="text">
     <string/>
@@ -336,7 +336,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(37, 42, 136);</string>
+    <string notr="true">background-color: rgba(8, 38, 78, 50);</string>
    </property>
    <property name="text">
     <string/>
@@ -352,7 +352,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(37, 42, 136);</string>
+    <string notr="true">background-color: rgba(8, 38, 78, 50);</string>
    </property>
    <property name="text">
     <string/>
@@ -368,7 +368,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(37, 42, 136);</string>
+    <string notr="true">background-color: rgba(8, 38, 78, 50);</string>
    </property>
    <property name="text">
     <string/>
@@ -384,8 +384,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);
-</string>
+    <string notr="true">border-image: url(:/new/prefix1/image/1.png);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>

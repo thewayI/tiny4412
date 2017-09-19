@@ -44,6 +44,7 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     ui->cmb_adjust->hide();
 
     pSimple = new SimpleAdjust(this, pSerial);
+    pDouble = new doubleAdjust(this, pSerial);
     pKeyBoard = new keyBoard;
 
 
@@ -55,6 +56,7 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     //pTimer2->start();
     pLogin->close();
     pSimple->close();
+    pDouble->close();
     pKeyBoard->close();
 
     ui->btn_adjustUnit->setEnabled(false);
@@ -406,7 +408,7 @@ void adjust::on_btn_adjustAuto_2_clicked()
 {
     pSimple->pTimer1->start();
     pSimple->show();
-    pSimple->move(800, 100);
+    pSimple->move(0, 0);
 }
 
 void adjust::on_btn_adjustAuto_4_clicked()
@@ -415,5 +417,22 @@ void adjust::on_btn_adjustAuto_4_clicked()
     pKeyBoard->str = QString("");
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(800, 400);
+    pKeyBoard->move(0, 500);
+}
+
+void adjust::on_btn_adjustAuto_5_clicked()
+{
+    QString str = QString("");
+    //1. send #*PW    disbale passwd
+    sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+    //2. send #*SW\n1\r
+    sendSerialCommand(pSerial, CMD_SWITCH_CAL, &str);
+    //3. send #*SAVE  save enviment
+    sendSerialCommand(pSerial, CMD_SAVE_ALL_DATA, &str);
+}
+
+void adjust::on_btn_adjustAuto_3_clicked()
+{
+    pDouble->pTimer1->start();
+    pDouble->show();
 }

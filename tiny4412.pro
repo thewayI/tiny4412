@@ -33,7 +33,8 @@ SOURCES += main.cpp\
     manu.cpp \
     debuginfo.cpp \
     lockunlock.cpp \
-    leaktest.cpp
+    leaktest.cpp \
+    doubleadjust.cpp
 
 HEADERS  += mainwindow.h \
     unitchange.h \
@@ -55,7 +56,8 @@ HEADERS  += mainwindow.h \
     manu.h \
     debuginfo.h \
     lockunlock.h \
-    leaktest.h
+    leaktest.h \
+    doubleadjust.h
 
 FORMS    += mainwindow.ui \
     unitchange.ui \
@@ -74,7 +76,8 @@ FORMS    += mainwindow.ui \
     manu.ui \
     debuginfo.ui \
     lockunlock.ui \
-    leaktest.ui
+    leaktest.ui \
+    doubleadjust.ui
 
 RESOURCES += \
     image.qrc

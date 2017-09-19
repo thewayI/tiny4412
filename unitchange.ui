@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QPushButton" name="pushButton_7">
    <property name="geometry">
     <rect>
@@ -514,7 +517,7 @@ border-bottom-right-radius:6px;</string>
     <string notr="true">border-top-left-radius:6px;
 color: rgb(255, 255, 255);
 border:2px solid rgba(255, 255, 255,70);
-background-color: rgba(255, 255, 255, 20);
+background-color: rgba(255, 255, 255,0);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;</string>
@@ -642,7 +645,7 @@ border-bottom-right-radius:6px;</string>
    </property>
    <property name="font">
     <font>
-     <pointsize>6</pointsize>
+     <pointsize>9</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -1149,12 +1152,12 @@ border-bottom-right-radius:6px;</string>
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(253, 252, 254);
-background-color: rgba(34, 44, 125,80);
+background-color: rgba(05, 02, 04,50);
 </string>
    </property>
    <property name="text">
@@ -1177,7 +1180,7 @@ background-color: rgba(34, 44, 125,80);
    </property>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
-background-color: rgba(99, 115, 187,30);
+background-color: rgba(99, 115, 187,75);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;
@@ -1195,7 +1198,7 @@ color: rgb(255, 255, 255);</string>
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>49</width>
+     <width>41</width>
      <height>49</height>
     </rect>
    </property>

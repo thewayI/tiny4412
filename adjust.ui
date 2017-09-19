@@ -14,6 +14,9 @@
    <string>Form</string>
   </property>
   <widget class="QTableWidget" name="tblwidget_adjustItem">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -44,14 +47,20 @@ gridline-color: rgb(255, 255, 255);</string>
    <property name="autoScroll">
     <bool>true</bool>
    </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="tabKeyNavigation">
+    <bool>false</bool>
+   </property>
    <property name="showDropIndicator" stdset="0">
     <bool>false</bool>
    </property>
    <property name="dragEnabled">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="dragDropOverwriteMode">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="gridStyle">
     <enum>Qt::DotLine</enum>
@@ -280,8 +289,8 @@ gridline-color: rgb(255, 255, 255);</string>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
 color: rgb(255, 255, 255);
-border:2px solid rgb(255, 255, 255);
-background-color: rgb(64, 101, 178);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;</string>
@@ -303,6 +312,15 @@ border-bottom-right-radius:6px;</string>
     <font>
      <pointsize>7</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>确定</string>
@@ -402,7 +420,7 @@ border-bottom-right-radius:6px;</string>
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);</string>
+    <string notr="true">border-image: url(:/new/prefix1/image/1.png);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -448,7 +466,7 @@ border-bottom-right-radius:6px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
-background-color: rgb(99, 115, 187);
+background-color: rgba(99, 115, 187,75);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;
@@ -465,19 +483,19 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-10</y>
+     <y>0</y>
      <width>1280</width>
      <height>90</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(253, 252, 254);
-background-color: rgba(34, 44, 125,80);
+background-color: rgba(5, 2, 4,75);
 </string>
    </property>
    <property name="text">
@@ -501,8 +519,8 @@ background-color: rgba(34, 44, 125,80);
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
 color: rgb(255, 255, 255);
-border:2px solid rgb(255, 255, 255);
-background-color: rgb(64, 101, 178);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;</string>
@@ -528,8 +546,8 @@ border-bottom-right-radius:6px;</string>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
 color: rgb(255, 255, 255);
-border:2px solid rgb(255, 255, 255);
-background-color: rgb(64, 101, 178);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;</string>
@@ -555,8 +573,8 @@ border-bottom-right-radius:6px;</string>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
 color: rgb(255, 255, 255);
-border:2px solid rgb(255, 255, 255);
-background-color: rgb(64, 101, 178);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;</string>
@@ -582,8 +600,8 @@ border-bottom-right-radius:6px;</string>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
 color: rgb(255, 255, 255);
-border:2px solid rgb(255, 255, 255);
-background-color: rgb(64, 101, 178);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;</string>
@@ -607,13 +625,13 @@ border-bottom-right-radius:6px;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:2px solid rgb(255, 255, 255);
+    <string notr="true">border-top-left-radius:6px;
 color: rgb(255, 255, 255);
-border-top-left-radius:6px;
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;
-</string>
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>确定</string>

@@ -71,23 +71,21 @@ void Serial::on_Startsmsbtn_clicked()
     pSerial->setTimeout(TIME_OUT);
 
     ui->Startsmsbtn->setEnabled(false);
-    ui->Startsmsbtn->setStyleSheet(QString::fromUtf8("color: rgb(253, 251, 252);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgba(5, 4, 250, 20);\n"
-"border-top-left-radius:6px;\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;\n"
-""));
+    ui->Startsmsbtn->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
+                                                     "color: rgb(255, 255, 255);\n"
+                                                     "border:2px solid rgba(255, 255, 255,70);\n"
+                                                     "background-color: rgba(255, 255, 255, 0);\n"
+                                                     "border-top-right-radius:6px;\n"
+                                                     "border-bottom-left-radius:6px;\n"
+                                                     "border-bottom-right-radius:6px;"));
     ui->Stopsmsbtn->setEnabled(true);
-    ui->Stopsmsbtn->setStyleSheet(QString::fromUtf8("color: rgb(253, 251, 252);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(33, 30, 122);\n"
-"border-top-left-radius:6px;\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;\n"
-""));
+    ui->Stopsmsbtn->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
+                                                    "color: rgb(255, 255, 255);\n"
+                                                    "border:2px solid rgba(255, 255, 255,70);\n"
+                                                    "background-color: rgba(255, 255, 255, 20);\n"
+                                                    "border-top-right-radius:6px;\n"
+                                                    "border-bottom-left-radius:6px;\n"
+                                                    "border-bottom-right-radius:6px;"));
 
 }
 
@@ -110,23 +108,21 @@ void Serial::on_Stopsmsbtn_clicked()
     setComboBoxEnabled(true);
 
     ui->Stopsmsbtn->setEnabled(false);
-    ui->Stopsmsbtn->setStyleSheet(QString::fromUtf8("color: rgb(253, 251, 252);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgba(5, 4, 250, 20);\n"
-"border-top-left-radius:6px;\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;\n"
-""));
+    ui->Stopsmsbtn->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
+                                                    "color: rgb(255, 255, 255);\n"
+                                                    "border:2px solid rgba(255, 255, 255,70);\n"
+                                                    "background-color: rgba(255, 255, 255, 20);\n"
+                                                    "border-top-right-radius:6px;\n"
+                                                    "border-bottom-left-radius:6px;\n"
+                                                    "border-bottom-right-radius:6px;"));
     ui->Startsmsbtn->setEnabled(true);
-    ui->Startsmsbtn->setStyleSheet(QString::fromUtf8("color: rgb(253, 251, 252);\n"
-"border:2px solid rgb(255, 255, 255);\n"
-"background-color: rgb(33, 30, 122);\n"
-"border-top-left-radius:6px;\n"
-"border-top-right-radius:6px;\n"
-"border-bottom-left-radius:6px;\n"
-"border-bottom-right-radius:6px;\n"
-""));
+    ui->Startsmsbtn->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
+                                                     "color: rgb(255, 255, 255);\n"
+                                                     "border:2px solid rgba(255, 255, 255,70);\n"
+                                                     "background-color: rgba(255, 255, 255, 0);\n"
+                                                     "border-top-right-radius:6px;\n"
+                                                     "border-bottom-left-radius:6px;\n"
+                                                     "border-bottom-right-radius:6px;"));
 
 }
 

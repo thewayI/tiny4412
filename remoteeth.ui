@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="btn_IP">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>110</y>
+     <x>240</x>
+     <y>220</y>
      <width>350</width>
      <height>70</height>
     </rect>
@@ -29,12 +29,12 @@
    </property>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
-background-color: rgb(62, 102, 180);
 color: rgb(255, 255, 255);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;
-border:2px solid rgb(255, 255, 255);</string>
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>PushButton</string>
@@ -43,8 +43,8 @@ border:2px solid rgb(255, 255, 255);</string>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>110</y>
+     <x>60</x>
+     <y>220</y>
      <width>150</width>
      <height>70</height>
     </rect>
@@ -64,8 +64,8 @@ border:2px solid rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="btn_netmask">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>280</y>
+     <x>240</x>
+     <y>390</y>
      <width>350</width>
      <height>70</height>
     </rect>
@@ -77,12 +77,12 @@ border:2px solid rgb(255, 255, 255);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
-background-color: rgb(62, 102, 180);
 color: rgb(255, 255, 255);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;
-border:2px solid rgb(255, 255, 255);</string>
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>PushButton</string>
@@ -91,8 +91,8 @@ border:2px solid rgb(255, 255, 255);</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>280</y>
+     <x>60</x>
+     <y>390</y>
      <width>150</width>
      <height>70</height>
     </rect>
@@ -112,8 +112,8 @@ border:2px solid rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="btn_gateway">
    <property name="geometry">
     <rect>
-     <x>820</x>
-     <y>120</y>
+     <x>810</x>
+     <y>230</y>
      <width>350</width>
      <height>70</height>
     </rect>
@@ -125,12 +125,12 @@ border:2px solid rgb(255, 255, 255);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
-background-color: rgb(62, 102, 180);
 color: rgb(255, 255, 255);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;
-border:2px solid rgb(255, 255, 255);</string>
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>PushButton</string>
@@ -139,8 +139,8 @@ border:2px solid rgb(255, 255, 255);</string>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>120</y>
+     <x>670</x>
+     <y>230</y>
      <width>150</width>
      <height>70</height>
     </rect>
@@ -160,8 +160,8 @@ border:2px solid rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="btn_netport">
    <property name="geometry">
     <rect>
-     <x>820</x>
-     <y>290</y>
+     <x>810</x>
+     <y>400</y>
      <width>350</width>
      <height>70</height>
     </rect>
@@ -173,12 +173,12 @@ border:2px solid rgb(255, 255, 255);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
-background-color: rgb(62, 102, 180);
 color: rgb(255, 255, 255);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;
-border:2px solid rgb(255, 255, 255);</string>
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>PushButton</string>
@@ -187,8 +187,8 @@ border:2px solid rgb(255, 255, 255);</string>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>290</y>
+     <x>670</x>
+     <y>400</y>
      <width>150</width>
      <height>70</height>
     </rect>
@@ -209,7 +209,7 @@ border:2px solid rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>580</x>
-     <y>610</y>
+     <y>630</y>
      <width>200</width>
      <height>70</height>
     </rect>
@@ -220,37 +220,16 @@ border:2px solid rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(253, 251, 252);
-border:2px solid rgb(255, 255, 255);
-border-top-left-radius:6px;
-background-color: rgb(33, 30, 122);
+    <string notr="true">border-top-left-radius:6px;
+color: rgb(255, 255, 255);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;
-</string>
+border-bottom-right-radius:6px;</string>
    </property>
    <property name="text">
     <string>确定</string>
-   </property>
-  </widget>
-  <widget class="QFrame" name="frame">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>680</y>
-     <width>1280</width>
-     <height>800</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);
-</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
    </property>
   </widget>
   <widget class="QLabel" name="label_12">
@@ -280,12 +259,12 @@ border-bottom-right-radius:6px;
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(253, 252, 254);
-background-color: rgba(34, 44, 125,80);
+background-color: rgba(05, 02, 04,50);
 </string>
    </property>
    <property name="text">
@@ -308,7 +287,7 @@ background-color: rgba(34, 44, 125,80);
    </property>
    <property name="styleSheet">
     <string notr="true">border-top-left-radius:6px;
-background-color: rgb(99, 115, 187);
+background-color: rgba(99, 115, 187,75);
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;
@@ -331,7 +310,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);
+    <string notr="true">border-image: url(:/new/prefix1/image/1.png);
 </string>
    </property>
    <property name="frameShape">
@@ -352,7 +331,6 @@ color: rgb(255, 255, 255);</string>
   <zorder>btn_netport</zorder>
   <zorder>label_4</zorder>
   <zorder>ok</zorder>
-  <zorder>frame</zorder>
   <zorder>label_12</zorder>
   <zorder>btn_configureMachine_2</zorder>
  </widget>

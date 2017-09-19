@@ -30,6 +30,8 @@ RemoteEth::RemoteEth(QWidget *parent) :
     ui->btn_gateway->setText(configIniWrite->value("eth/gateWay").toString());
     ui->btn_netport->setText(configIniWrite->value("eth/port").toString());
 
+    delete configIniWrite;
+
 
 }
 
@@ -112,7 +114,7 @@ void RemoteEth::on_btn_IP_clicked()
     bIPFlag = true;
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(800, 240);
+    pKeyBoard->move(0, 500);
 }
 
 void RemoteEth::on_btn_netmask_clicked()
@@ -121,7 +123,7 @@ void RemoteEth::on_btn_netmask_clicked()
     bNetMaskFlag = true;
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(800, 240);
+    pKeyBoard->move(0, 500);
 }
 
 void RemoteEth::on_btn_gateway_clicked()
@@ -130,7 +132,7 @@ void RemoteEth::on_btn_gateway_clicked()
     bGateWayFlag = true;
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(800, 240);
+    pKeyBoard->move(0, 500);
 }
 
 void RemoteEth::on_btn_netport_clicked()
@@ -139,7 +141,7 @@ void RemoteEth::on_btn_netport_clicked()
     bNetPortFlag = true;
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(800, 240);
+    pKeyBoard->move(0, 500);
 }
 
 void RemoteEth::on_btn_configureMachine_2_clicked()

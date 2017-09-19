@@ -591,7 +591,11 @@ border-top-left-radius:6px;
 border-top-right-radius:6px;
 border-bottom-left-radius:6px;
 border-bottom-right-radius:6px;
+QAbstractItemView::item { height: 70px; width: 240px;}
 </string>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
     </property>
     <item>
      <property name="text">
@@ -754,12 +758,13 @@ border-bottom-right-radius:6px;
     </property>
     <property name="font">
      <font>
-      <pointsize>15</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgba(34, 44, 125,80);
-color: rgb(255, 255, 255);</string>
+     <string notr="true">color: rgb(253, 252, 254);
+background-color: rgba(05, 02, 04,50);
+</string>
     </property>
     <property name="text">
      <string>       首页</string>
@@ -775,7 +780,7 @@ color: rgb(255, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/image/1.png);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>

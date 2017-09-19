@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "keyboard.h"
+#include <QSettings>
 #include <QTimer>
 
 namespace Ui {
@@ -18,7 +19,6 @@ public:
     ~lockUnLock();
 
 private slots:
-    bool eventFilter(QObject *,QEvent *);
 
     void on_btn_unlock_clicked();
 
@@ -28,6 +28,10 @@ private slots:
 
     void on_btn_unlock_2_clicked();
 
+    void on_btn_change_2_clicked();
+
+    void on_btn_change_clicked();
+
 private:
     Ui::lockUnLock *ui;
 
@@ -35,8 +39,12 @@ public:
     keyBoard *pKeyBoard;
     QTimer * pTimer;
 
+    QString m_QStringPasswd;
+    QString m_QStringChange;
     bool bunlockEditFlag;
     bool bchangeEditFlag;
+    bool bclickFlag;
+    bool bLockFlag;
 };
 
 #endif // LOCKUNLOCK_H
