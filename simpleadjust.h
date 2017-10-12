@@ -2,6 +2,7 @@
 #define SIMPLEADJUST_H
 
 #include <QWidget>
+#include <QSettings>
 #include <qtimer.h>
 
 #include "posix_qextserialport.h"

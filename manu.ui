@@ -583,7 +583,7 @@ background-color: rgba(05, 02, 04,50);
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);</string>
+    <string notr="true">border-image: url(:/new/prefix1/image/1.png);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>

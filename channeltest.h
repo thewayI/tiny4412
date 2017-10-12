@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QTimer>
+#include <QSettings>
 #include "keyboard.h"
 #include "commandList.h"
 #include "posix_qextserialport.h"

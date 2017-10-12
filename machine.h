@@ -2,6 +2,7 @@
 #define MACHINE_H
 
 #include <QWidget>
+#include <QTimer>
 #include "commandList.h"
 namespace Ui {
 class Machine;
@@ -18,8 +19,27 @@ public:
 private slots:
     void on_btn_default_clicked();
 
+    void on_btn_default_2_clicked();
+
+    void on_btn_configureMachine_2_clicked();
+
+    void on_btn_default_7_clicked();
+
+    void on_btn_default_5_clicked();
+
+    void on_btn_default_4_clicked();
+
+    void on_btn_default_6_clicked();
+
+    void on_btn_default_3_clicked();
+
+    void onTimeOut();
+
 private:
     Ui::Machine *ui;
+
+public:
+    QTimer *pTimer;
 };
 
 #endif // MACHINE_H

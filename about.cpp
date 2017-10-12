@@ -122,6 +122,31 @@ void about::onTimeOut(void)
         //ui->lineEdit_min->setText((str.right(str.length() - QString("1 R- ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length()));
         ui->tblWidget_devInfo_2->setItem(1,1,new QTableWidgetItem(((str.right(str.length() - QString("1 R- ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length()))));
     }
+
+    switch(g32styleMode)
+    {
+    case 0:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    case 1:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
+        break;
+    case 2:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
+        break;
+    case 3:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
+        break;
+    case 4:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
+        break;
+    case 5:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
+        break;
+    default:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    }
 }
 
 void about::on_btn_configureMachine_2_clicked()

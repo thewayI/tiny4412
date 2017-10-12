@@ -17,12 +17,44 @@ leakTest::leakTest(QWidget *parent, Posix_QextSerialPort *serial) :
     pTimer->setInterval(10);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
+    pTimer1 = new QTimer(this);
+    pTimer1->setInterval(1000);
+    connect(pTimer1, SIGNAL(timeout()), this, SLOT(onTimeOut1()));
+
     ui->pushButton_2->setEnabled(false);
 }
 
 leakTest::~leakTest()
 {
     delete ui;
+}
+
+void leakTest::onTimeOut1(void)
+{
+    switch(g32styleMode)
+    {
+    case 0:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    case 1:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
+        break;
+    case 2:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
+        break;
+    case 3:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
+        break;
+    case 4:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
+        break;
+    case 5:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
+        break;
+    default:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    }
 }
 
 void leakTest::onTimeOut(void)
@@ -52,7 +84,6 @@ void leakTest::onTimeOut(void)
         str = QString::number(m_timer, 'f', 2);
         ui->lineEdit_time->setText(str);
     }
-
 }
 
 void leakTest::on_pushButton_clicked()
@@ -112,6 +143,7 @@ void leakTest::on_pushButton_2_clicked()
 
 void leakTest::on_btn_configureMachine_2_clicked()
 {
+    pTimer1->stop();
     pTimer->stop();
     this->close();
 }

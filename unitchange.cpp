@@ -76,6 +76,11 @@ unitChange::unitChange(QWidget *parent, Posix_QextSerialPort *serial) :
     }
     conversiontoPSI = gSconver[m32UnitState].coefficient;
     unitName = gSconver[m32UnitState].name;
+
+    pTimer = new QTimer(this);
+    pTimer->setInterval(1000);
+    connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
+
 }
 
 unitChange::~unitChange()
@@ -83,8 +88,37 @@ unitChange::~unitChange()
     delete ui;
 }
 
+void unitChange::onTimeOut()
+{
+    switch(g32styleMode)
+    {
+    case 0:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    case 1:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
+        break;
+    case 2:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
+        break;
+    case 3:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
+        break;
+    case 4:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
+        break;
+    case 5:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
+        break;
+    default:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    }
+}
+
 void unitChange::on_pushButton_38_clicked()
 {
+    pTimer->stop();
     this->close();
 }
 
@@ -958,10 +992,12 @@ void unitChange::on_pushButton_35_clicked()
 
 void unitChange::on_btn_configureMachine_2_clicked()
 {
+    pTimer->stop();
     this->close();
 }
 
 void unitChange::on_pushButton_39_clicked()
 {
+    pTimer->stop();
     this->close();
 }

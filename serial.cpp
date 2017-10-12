@@ -16,7 +16,6 @@ Serial::Serial(QWidget *parent, Posix_QextSerialPort *serial) :
     pTimer->setInterval(1000);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
-    pTimer->start();
     ui->Stopsmsbtn->setEnabled(false);
 
 }
@@ -28,19 +27,30 @@ Serial::~Serial()
 
 void Serial::onTimeOut()
 {
-#if 0
-    if(pSerial->isOpen())
+    switch(g32styleMode)
     {
-    QByteArray temp = pSerial->readAll();
-
-    QString strsms=QString(temp);
-    //ui->lineEdit_serialView->clear();
-    //ui->lineEdit_serialView->setText(strsms);
-
-    QString qStrCmd = "hello";
-    pSerial->write(qStrCmd.toAscii());
+    case 0:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    case 1:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
+        break;
+    case 2:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
+        break;
+    case 3:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
+        break;
+    case 4:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
+        break;
+    case 5:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
+        break;
+    default:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
     }
-#endif
 }
 
 
@@ -128,5 +138,6 @@ void Serial::on_Stopsmsbtn_clicked()
 
 void Serial::on_btn_configureMachine_2_clicked()
 {
+    pTimer->stop();
     this->close();
 }

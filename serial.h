@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <qtimer.h>
+#include <QSettings>
 #include "posix_qextserialport.h"
 #include "commandList.h"
 #define TIME_OUT 10

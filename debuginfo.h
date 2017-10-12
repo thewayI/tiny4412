@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QTimer>
+#include <QSettings>
+
+#include "commandList.h"
 
 namespace Ui {
 class debugInfo;

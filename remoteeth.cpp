@@ -15,10 +15,9 @@ RemoteEth::RemoteEth(QWidget *parent) :
     pKeyBoard = new keyBoard;
 
     pTimer = new QTimer(this);
-    pTimer->setInterval(100);
+    pTimer->setInterval(1000);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
-    pTimer->start();
 
     bIPFlag = false;
     bNetMaskFlag = false;
@@ -100,6 +99,31 @@ void RemoteEth::onTimeOut()
         {
             bNetPortFlag = false;
         }
+    }
+
+    switch(g32styleMode)
+    {
+    case 0:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    case 1:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
+        break;
+    case 2:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
+        break;
+    case 3:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
+        break;
+    case 4:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
+        break;
+    case 5:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
+        break;
+    default:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
     }
 }
 

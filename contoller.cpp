@@ -10,10 +10,10 @@ Contoller::Contoller(QWidget *parent, Posix_QextSerialPort *serial) :
     ui->setupUi(this);
 
     pTimer = new QTimer(this);
-    pTimer->setInterval(100);
+    pTimer->setInterval(1000);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
-    pTimer->start();
+    //pTimer->start();
 
     ui->btn_ctrlvariable->hide();
 

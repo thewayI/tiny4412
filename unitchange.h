@@ -2,7 +2,9 @@
 #define UNITCHANGE_H
 
 #include <QWidget>
+#include <QSettings>
 #include <QString>
+#include <QTimer>
 #include "commandList.h"
 #include "posix_qextserialport.h"
 
@@ -108,6 +110,8 @@ private slots:
 
     void on_pushButton_39_clicked();
 
+    void onTimeOut();
+
 private:
     Ui::unitChange *ui;
 
@@ -116,6 +120,7 @@ public :
     double conversiontoPSI;
     double baseConver;
     QString unitName;
+    QTimer *pTimer;
     Posix_QextSerialPort *pSerial;
 };
 #define CONVERSION_COUNT    36

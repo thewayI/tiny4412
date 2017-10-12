@@ -38,6 +38,7 @@ public:
 private slots:
     void onHostTimeout();
     void onTimeOut();
+    void onTimeOut1();
     void on_btn_manu_clicked();
     void show_manu();
     void showSubConfigureMenu();
@@ -100,6 +101,7 @@ private:
 
 public :
     QTimer *pTimer;
+    QTimer *pTimer1;
     QTimer *pTimerHost;
     int m32ButtonClick;
     int m32ButtonClickRemote;

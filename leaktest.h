@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTimer>
 #include <QString>
+#include <QSettings>
 #include "commandList.h"
 #include "posix_qextserialport.h"
 
@@ -23,6 +24,7 @@ private slots:
     void on_pushButton_clicked();
 
     void onTimeOut(void);
+    void onTimeOut1(void);
 
     void on_pushButton_2_clicked();
 
@@ -34,6 +36,7 @@ private:
 public:
     Posix_QextSerialPort *pSerial;
     QTimer *pTimer;
+    QTimer *pTimer1;
 
     bool btimeStartFlag;
     double m_timer;

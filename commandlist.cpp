@@ -90,7 +90,7 @@ unsigned int getResponseCharCnt(unsigned char cmdIdx)
     }
     return 0;
 }
-#define __DEBUG__
+//#define __DEBUG__
 
 QString sendSerialMessage(Posix_QextSerialPort *pSerial, QString cmd)
 {

@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+u_int32_t g32styleMode = 0;
+
+
 mainWindow::mainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::mainWindow)
@@ -59,8 +62,14 @@ mainWindow::mainWindow(QWidget *parent) :
         configIniWrite->setValue("/eth/port", "1234");
     }
 
-    delete configIniWrite;
+    if(!configIniWrite->contains("style/mode"))
+    {
+        configIniWrite->setValue("style/mode", "0");
+    }
 
+    g32styleMode = configIniWrite->value("style/mode").toInt();
+
+    delete configIniWrite;
 
     QString portName = "/dev/ttySAC2";   //获取串口名
     pSerialDev = new Posix_QextSerialPort(portName, QextSerialBase::Polling);
@@ -135,12 +144,16 @@ mainWindow::mainWindow(QWidget *parent) :
     pTimer = new QTimer(this);
     pTimer->setInterval(200);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
-    pTimer->start();
+
+    pTimer1 = new QTimer(this);
+    pTimer1->setInterval(1000);
+    connect(pTimer1, SIGNAL(timeout()), this, SLOT(onTimeOut1()));
+
 
     pTimerHost = new QTimer(this);
     pTimerHost->setInterval(100);
     connect(pTimerHost, SIGNAL(timeout()), this, SLOT(onHostTimeout()));
-    pTimerHost->start();
+
 
     ui->btn_unitChange->setText(tr("MPa A"));
     ui->dsb_step->setSingleStep(0.0005); // 步长
@@ -201,6 +214,10 @@ mainWindow::mainWindow(QWidget *parent) :
 
     //zdren for debug
     testloop = 0;
+
+    pTimer->start();
+    pTimer1->start();
+    pTimerHost->start();
 }
 
 mainWindow::~mainWindow()
@@ -279,8 +296,44 @@ void mainWindow::onTimeOut()
     //send a basic query pressure readings
 
     ui->btn_unitChange->setText(pUnit->unitName);
-    //ui->lcdNumber->display(pUnit->conversiontoPSI);
+}
 
+void mainWindow::onTimeOut1(void)
+{
+    if(pManu->bShowFlag)
+    {
+        pTimer->stop();
+        pTimerHost->stop();
+    }
+    else
+    {
+        pTimer->start();
+        pTimerHost->start();
+    }
+    switch(g32styleMode)
+    {
+    case 0:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    case 1:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
+        break;
+    case 2:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
+        break;
+    case 3:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
+        break;
+    case 4:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
+        break;
+    case 5:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
+        break;
+    default:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    }
 }
 
 void mainWindow::close_manu()
@@ -376,6 +429,8 @@ void mainWindow::on_btn_manu_clicked()
         m32ButtonClick &= ~0x01;
     }
 #endif
+    pManu->bShowFlag = true;
+    pManu->pTimer->start();
     pManu->show();
 }
 
@@ -591,6 +646,7 @@ void mainWindow::on_btn_remoteETH_clicked()
 
 void mainWindow::on_btn_unitChange_clicked()
 {
+    pUnit->pTimer->start();
     pUnit->show();
 }
 

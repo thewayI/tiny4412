@@ -115,7 +115,6 @@ void adjust::onTimeOut()
 {
     QString str = QString("");
     QString strTemp = QString("");
-    u_int32_t loop = 0;
 
     if(btime)
     {
@@ -132,23 +131,7 @@ void adjust::onTimeOut()
             btime = false;
         }
     }
-#if 0
-    switch(ui->cmb_adjust->currentIndex())
-    {
-    case 3:
 
-        break;
-    case 4:
-        if(badjust)
-        {
-            ui->tblwidget_adjustItem->setItem(4,1,new QTableWidgetItem(pKeyBoard->str));
-            ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-        }
-        break;
-    default:
-        break;
-    }
-#endif
     //get id
     str = QString("");
     sendSerialCommand(pSerial, CMD_GET_ID, &str);
@@ -222,33 +205,30 @@ void adjust::onTimeOut()
         ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
     }
 
-#if 0
-
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &str);
-    if(str.length() != 0)
+    switch(g32styleMode)
     {
-        //get the valid pressure
-        str = str.right(str.length() - QString("1 ").length());
-        ui->edit_adjustView->setText(str);
+    case 0:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    case 1:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
+        break;
+    case 2:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
+        break;
+    case 3:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
+        break;
+    case 4:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
+        break;
+    case 5:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
+        break;
+    default:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
     }
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_UNIT_CODE, &str);
-    if(str.length() != 0)
-    {
-        //get the valid uni code
-        str = str.right(str.length() - QString("1 U ").length());
-        for(loop = 0 ;loop < 40; loop++)
-        {
-            if(str.toInt() == gUnitChange[loop].code)
-            {
-                ui->btn_adjustUnit->setText(gUnitChange[loop].unitInfo);
-                break;
-            }
-        }
-
-    }
-#endif
 }
 
 void adjust::on_btn_adjustclose_clicked()

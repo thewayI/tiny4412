@@ -10,9 +10,9 @@ debugInfo::debugInfo(QWidget *parent) :
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
 
     pTimer = new QTimer(this);
-    pTimer->setInterval(100);
+    pTimer->setInterval(1000);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
-    pTimer->start();
+    //pTimer->start();
     beditFlag = false;
     appendInfo = QString("");
 
@@ -81,11 +81,35 @@ void debugInfo::onTimeOut()
         ui->edit_debugInfo->setTextCursor(cursor);
     }
 
-
+    switch(g32styleMode)
+    {
+    case 0:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    case 1:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
+        break;
+    case 2:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
+        break;
+    case 3:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
+        break;
+    case 4:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
+        break;
+    case 5:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
+        break;
+    default:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    }
 }
 
 void debugInfo::on_btn_configureMachine_2_clicked()
 {
+    pTimer->stop();
     this->close();
 }
 

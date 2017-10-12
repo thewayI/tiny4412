@@ -35,6 +35,7 @@ private:
 public:
     Posix_QextSerialPort *pSerialDev;
     Posix_QextSerialPort *pSerialHost;
+    QTimer *pTimer;
 
     configure *pConfigure;
     about *pAbout;
@@ -48,6 +49,8 @@ public:
     lockUnLock *pLock;
     leakTest   *pLeakTest;
 
+    bool bShowFlag;
+
 private slots:
     void on_btn_configureSensor_clicked();
     void on_btn_about_clicked();
@@ -59,6 +62,7 @@ private slots:
     void on_btn_leakTest_clicked();
     void on_btn_lockUnlock_clicked();
     void on_btn_configureMachine_2_clicked();
+    void onTimeOut();
 };
 
 #endif // MANU_H
