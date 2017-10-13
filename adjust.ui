@@ -428,11 +428,6 @@ border-bottom-right-radius:6px;</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <zorder>btn_adjustAuto</zorder>
-   <zorder>label_9</zorder>
-   <zorder>btn_configureMachine_2</zorder>
-   <zorder>label_10</zorder>
-   <zorder>tblwidget_adjustTitle</zorder>
   </widget>
   <widget class="QLabel" name="label_10">
    <property name="geometry">
@@ -640,18 +635,18 @@ border-bottom-right-radius:6px;</string>
     <bool>true</bool>
    </property>
   </widget>
+  <zorder>edit_adjustView</zorder>
+  <zorder>btn_adjustUnlock</zorder>
+  <zorder>btn_adjustUnit</zorder>
+  <zorder>btn_adjustAir</zorder>
+  <zorder>btn_adjustMeasure</zorder>
+  <zorder>cmb_adjust</zorder>
+  <zorder>btn_adjustclose</zorder>
   <zorder>frame</zorder>
   <zorder>label_9</zorder>
   <zorder>tblwidget_adjustItem</zorder>
-  <zorder>btn_adjustUnit</zorder>
-  <zorder>btn_adjustMeasure</zorder>
-  <zorder>btn_adjustAir</zorder>
-  <zorder>edit_adjustView</zorder>
   <zorder>tblwidget_adjustTitle</zorder>
   <zorder>btn_adjustOk</zorder>
-  <zorder>btn_adjustUnlock</zorder>
-  <zorder>btn_adjustclose</zorder>
-  <zorder>cmb_adjust</zorder>
   <zorder>btn_adjustAuto</zorder>
   <zorder>label_10</zorder>
   <zorder>btn_configureMachine_2</zorder>

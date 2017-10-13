@@ -467,6 +467,7 @@ gridline-color: rgba(0, 0, 0, 255);</string>
    <column/>
    <column/>
   </widget>
+  <zorder>pushButton</zorder>
   <zorder>frame</zorder>
   <zorder>label</zorder>
   <zorder>label_4</zorder>
@@ -477,7 +478,6 @@ gridline-color: rgba(0, 0, 0, 255);</string>
   <zorder>label_6</zorder>
   <zorder>label_5</zorder>
   <zorder>label_9</zorder>
-  <zorder>pushButton</zorder>
   <zorder>tblWidget_baseInfo</zorder>
   <zorder>tblWidget_devInfo</zorder>
   <zorder>label_10</zorder>

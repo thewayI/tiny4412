@@ -789,39 +789,39 @@ background-color: rgba(05, 02, 04,50);
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
-   <zorder>frame</zorder>
-   <zorder>label</zorder>
-   <zorder>label_test</zorder>
-   <zorder>btn_unitChange</zorder>
-   <zorder>btn_manu</zorder>
-   <zorder>btn_serial</zorder>
-   <zorder>btn_procedure</zorder>
-   <zorder>btn_remote</zorder>
-   <zorder>btn_air</zorder>
-   <zorder>btn_standby</zorder>
-   <zorder>btn_measure</zorder>
-   <zorder>btn_configure</zorder>
-   <zorder>btn_control</zorder>
-   <zorder>btn_configureChan</zorder>
-   <zorder>btn_configureSensor</zorder>
-   <zorder>btn_configureControl</zorder>
-   <zorder>btn_about</zorder>
-   <zorder>btn_remoteMachine</zorder>
-   <zorder>btn_remoteETH</zorder>
-   <zorder>btn_remoteSerial</zorder>
-   <zorder>dsb_step</zorder>
    <zorder>label_step</zorder>
+   <zorder>dsb_step</zorder>
+   <zorder>btn_configureControl</zorder>
+   <zorder>dsb_range</zorder>
+   <zorder>btn_configureChan</zorder>
+   <zorder>btn_configure</zorder>
+   <zorder>btn_air</zorder>
+   <zorder>btn_control</zorder>
+   <zorder>btn_controlsetpoint</zorder>
+   <zorder>btn_remote</zorder>
+   <zorder>btn_configureSensor</zorder>
+   <zorder>btn_remoteMachine</zorder>
+   <zorder>btn_about</zorder>
    <zorder>label_setpoint</zorder>
    <zorder>dsb_setpoint</zorder>
-   <zorder>label_range</zorder>
-   <zorder>dsb_range</zorder>
-   <zorder>btn_controlsetpoint</zorder>
+   <zorder>btn_serial</zorder>
+   <zorder>btn_procedure</zorder>
    <zorder>btn_controlstep</zorder>
+   <zorder>btn_remoteETH</zorder>
+   <zorder>btn_measure</zorder>
+   <zorder>btn_standby</zorder>
    <zorder>btn_controlrange</zorder>
+   <zorder>btn_remoteSerial</zorder>
+   <zorder>label_range</zorder>
+   <zorder>btn_test_3</zorder>
+   <zorder>btn_test_2</zorder>
+   <zorder>label_test</zorder>
+   <zorder>frame</zorder>
+   <zorder>label</zorder>
+   <zorder>btn_unitChange</zorder>
+   <zorder>btn_manu</zorder>
    <zorder>cmb_accuracy</zorder>
    <zorder>label_step_2</zorder>
-   <zorder>btn_test_2</zorder>
-   <zorder>btn_test_3</zorder>
    <zorder>btn_test</zorder>
    <zorder>label_view</zorder>
    <zorder>label_3</zorder>
