@@ -21,6 +21,8 @@ leakTest::leakTest(QWidget *parent, Posix_QextSerialPort *serial) :
     pTimer1->setInterval(1000);
     connect(pTimer1, SIGNAL(timeout()), this, SLOT(onTimeOut1()));
 
+    ui->label_view->setText(QString("0.000000"));
+    ui->lineEdit_time->setText(QString("0.00"));
     ui->pushButton_2->setEnabled(false);
 }
 
@@ -145,5 +147,7 @@ void leakTest::on_btn_configureMachine_2_clicked()
 {
     pTimer1->stop();
     pTimer->stop();
+    ui->label_view->setText(QString("0.000000"));
+    ui->lineEdit_time->setText(QString("0.00"));
     this->close();
 }
