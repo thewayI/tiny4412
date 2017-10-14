@@ -33,6 +33,10 @@ private slots:
 
     void on_btn_default_3_clicked();
 
+    void on_horizontalSlider_sliderMoved(int position);
+
+    void on_horizontalSlider_valueChanged(int value);
+
 private:
     Ui::Machine *ui;
 

@@ -16,19 +16,22 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>220</y>
-     <width>80</width>
-     <height>40</height>
+     <x>140</x>
+     <y>680</y>
+     <width>141</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>7</pointsize>
+     <pointsize>10</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(253, 251, 252);</string>
+   </property>
    <property name="text">
-    <string>Emulation Mode</string>
+    <string>屏幕亮度</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_default">
@@ -133,25 +136,6 @@
     </property>
    </item>
   </widget>
-  <widget class="QFrame" name="frame">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1280</width>
-     <height>800</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/1.png);</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btn_default_2">
    <property name="geometry">
     <rect>
@@ -185,7 +169,7 @@ border-bottom-right-radius:12px;
    <property name="geometry">
     <rect>
      <x>920</x>
-     <y>520</y>
+     <y>480</y>
      <width>250</width>
      <height>130</height>
     </rect>
@@ -214,7 +198,7 @@ border-bottom-right-radius:12px;
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>530</y>
+     <y>490</y>
      <width>250</width>
      <height>130</height>
     </rect>
@@ -271,7 +255,7 @@ border-bottom-right-radius:12px;</string>
    <property name="geometry">
     <rect>
      <x>530</x>
-     <y>530</y>
+     <y>490</y>
      <width>250</width>
      <height>130</height>
     </rect>
@@ -393,12 +377,50 @@ background-color: rgba(05, 02, 04,50);
     <string>       显示设置</string>
    </property>
   </widget>
-  <zorder>btn_default</zorder>
-  <zorder>label</zorder>
-  <zorder>comboBox_chanFunc</zorder>
-  <zorder>label_8</zorder>
+  <widget class="QSlider" name="horizontalSlider">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>678</y>
+     <width>771</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>10</number>
+   </property>
+   <property name="maximum">
+    <number>127</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>800</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/image/1.png);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <zorder>label</zorder>
+  </widget>
   <zorder>comboBox_chanFunc_4</zorder>
+  <zorder>label_8</zorder>
+  <zorder>btn_default</zorder>
   <zorder>frame</zorder>
+  <zorder>comboBox_chanFunc</zorder>
   <zorder>label_2</zorder>
   <zorder>btn_default_2</zorder>
   <zorder>btn_default_3</zorder>
@@ -408,6 +430,8 @@ background-color: rgba(05, 02, 04,50);
   <zorder>btn_default_7</zorder>
   <zorder>btn_configureMachine_2</zorder>
   <zorder>label_11</zorder>
+  <zorder>horizontalSlider</zorder>
+  <zorder>label</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -3,6 +3,7 @@
 
 #include <QSettings>
 #include <QMessageBox>
+#include <QProcess>
 #include "QString"
 #include "commandList.h"
 #include "posix_qextserialport.h"

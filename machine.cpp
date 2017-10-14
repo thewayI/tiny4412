@@ -6,7 +6,7 @@ Machine::Machine(QWidget *parent) :
     ui(new Ui::Machine)
 {
     ui->setupUi(this);
-    ui->label->setText(QString("Emulation\nMode"));
+    //ui->label->setText(QString("Emulation\nMode"));
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
 
     switch(g32styleMode)
@@ -50,12 +50,20 @@ void Machine::on_btn_default_clicked()
 void Machine::on_btn_default_2_clicked()
 {
     QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    QProcess *poc = new QProcess;
+    QMessageBox::StandardButton replay;
 
-    configIniWrite->setValue("style/mode", "0");
-    g32styleMode = 0;
+    replay = QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请重启完成主题修改"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    if(replay == QMessageBox::Yes)
+    {
+        configIniWrite->setValue("style/mode", "0");
+        g32styleMode = 0;
+        delete configIniWrite;
+        poc->start("/restart.sh");
 
-    delete configIniWrite;
-    QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请重启完成主题修改"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    }
+    else
+        delete configIniWrite;
 }
 
 void Machine::on_btn_configureMachine_2_clicked()
@@ -66,54 +74,119 @@ void Machine::on_btn_configureMachine_2_clicked()
 void Machine::on_btn_default_7_clicked()
 {
     QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    QProcess *poc = new QProcess;
+    QMessageBox::StandardButton replay;
 
-    configIniWrite->setValue("style/mode", "2");
-    g32styleMode = 2;
+    replay = QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请重启完成主题修改"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    if(replay == QMessageBox::Yes)
+    {
+        configIniWrite->setValue("style/mode", "2");
+        g32styleMode = 2;
+        delete configIniWrite;
+        poc->start("/restart.sh");
+    }
+    else
+        delete configIniWrite;
 
-    delete configIniWrite;
-    QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请重启完成主题修改"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
 }
 
 void Machine::on_btn_default_5_clicked()
 {
     QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    QProcess *poc = new QProcess;
+    QMessageBox::StandardButton replay;
 
-    configIniWrite->setValue("style/mode", "3");
-    g32styleMode = 3;
 
-    delete configIniWrite;
-    QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请重启完成主题修改"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    replay = QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请重启完成主题修改"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    if(replay == QMessageBox::Yes)
+    {
+        configIniWrite->setValue("style/mode", "3");
+        g32styleMode = 3;
+
+        delete configIniWrite;
+        poc->start("/restart.sh");
+    }
+    else
+        delete configIniWrite;
+
 }
 
 void Machine::on_btn_default_4_clicked()
 {
     QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    QProcess *poc = new QProcess;
+    QMessageBox::StandardButton replay;
 
-    configIniWrite->setValue("style/mode", "4");
-    g32styleMode = 4;
 
-    delete configIniWrite;
-    QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请重启完成主题修改"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    replay = QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请重启完成主题修改"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    if(replay == QMessageBox::Yes)
+    {
+        configIniWrite->setValue("style/mode", "4");
+        g32styleMode = 4;
+
+        delete configIniWrite;
+        poc->start("/restart.sh");
+    }
+    else
+        delete configIniWrite;
 }
 
 void Machine::on_btn_default_6_clicked()
 {
     QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    QProcess *poc = new QProcess;
+    QMessageBox::StandardButton replay;
 
-    configIniWrite->setValue("style/mode", "5");
-    g32styleMode = 5;
+    replay = QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请重启完成主题修改"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    if(replay == QMessageBox::Yes)
+    {
+        configIniWrite->setValue("style/mode", "5");
+        g32styleMode = 5;
 
-    delete configIniWrite;
-    QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请重启完成主题修改"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+        delete configIniWrite;
+        poc->start("/restart.sh");
+    }
+    else
+        delete configIniWrite;
 }
 
 void Machine::on_btn_default_3_clicked()
 {
     QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    QProcess *poc = new QProcess;
+    QMessageBox::StandardButton replay;
 
-    configIniWrite->setValue("style/mode", "1");
-    g32styleMode = 1;
+    replay = QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请重启完成主题修改"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    if(replay == QMessageBox::Yes)
+    {
+        configIniWrite->setValue("style/mode", "1");
+        g32styleMode = 1;
 
-    delete configIniWrite;
-    QMessageBox::information(NULL, QString::fromUtf8("提示信息"), QString::fromUtf8("请重启完成主题修改"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+        delete configIniWrite;
+        poc->start("/restart.sh");
+    }
+    else
+        delete configIniWrite;
+}
+
+void Machine::on_horizontalSlider_sliderMoved(int position)
+{
+    QProcess *poc = new QProcess;
+    QString commandProgram = "./light.sh";
+    QStringList args;
+    int value = ui->horizontalSlider->value();
+    args.append(QString::number(value, 10));
+
+    poc->start(commandProgram, args);
+}
+
+void Machine::on_horizontalSlider_valueChanged(int value)
+{
+    QProcess *poc = new QProcess;
+    QString commandProgram = "./light.sh";
+    QStringList args;
+    int value1 = ui->horizontalSlider->value();
+    args.append(QString::number(value1, 10));
+
+    poc->start(commandProgram, args);
 }
