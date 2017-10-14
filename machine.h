@@ -33,8 +33,6 @@ private slots:
 
     void on_btn_default_3_clicked();
 
-    void onTimeOut();
-
 private:
     Ui::Machine *ui;
 

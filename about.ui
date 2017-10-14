@@ -47,6 +47,9 @@
      <pointsize>7</pointsize>
     </font>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(0, 0, 0,0);
 color: rgb(255, 255, 255);
@@ -61,6 +64,9 @@ gridline-color: rgba(0, 0, 0, 255);</string>
    <property name="autoScroll">
     <bool>true</bool>
    </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
    <property name="showDropIndicator" stdset="0">
     <bool>false</bool>
    </property>
@@ -68,6 +74,9 @@ gridline-color: rgba(0, 0, 0, 255);</string>
     <bool>true</bool>
    </property>
    <property name="dragDropOverwriteMode">
+    <bool>true</bool>
+   </property>
+   <property name="showGrid">
     <bool>true</bool>
    </property>
    <property name="gridStyle">
@@ -118,6 +127,9 @@ gridline-color: rgba(0, 0, 0, 255);</string>
      <pointsize>7</pointsize>
     </font>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(0, 0, 0,0);
 color: rgb(255, 255, 255);
@@ -131,6 +143,9 @@ gridline-color: rgba(0, 0, 0, 255);</string>
    </property>
    <property name="autoScroll">
     <bool>true</bool>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
    </property>
    <property name="showDropIndicator" stdset="0">
     <bool>false</bool>
@@ -220,10 +235,10 @@ background-color: rgba(5, 2, 4,75);
   <widget class="QPushButton" name="btn_configureMachine_2">
    <property name="geometry">
     <rect>
-     <x>1110</x>
-     <y>20</y>
-     <width>117</width>
-     <height>49</height>
+     <x>1066</x>
+     <y>15</y>
+     <width>180</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="font">
@@ -407,6 +422,9 @@ color: rgb(255, 255, 255);</string>
      <pointsize>7</pointsize>
     </font>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(0, 0, 0,0);
 color: rgb(255, 255, 255);
@@ -420,6 +438,9 @@ gridline-color: rgba(0, 0, 0, 255);</string>
    </property>
    <property name="autoScroll">
     <bool>true</bool>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
    </property>
    <property name="showDropIndicator" stdset="0">
     <bool>false</bool>

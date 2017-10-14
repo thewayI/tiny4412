@@ -27,55 +27,6 @@ doubleAdjust::doubleAdjust(QWidget *parent, Posix_QextSerialPort *serial) :
     secondExcept = 0.0;
 
 
-    this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
-}
-
-doubleAdjust::~doubleAdjust()
-{
-    delete ui;
-}
-
-void doubleAdjust::onTimeOut()
-{
-    QString str;
-    QString strsms;
-
-    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &strsms);
-
-    if(strsms.length() != 0)
-    {
-        //get the valid pressure
-        str = strsms.right(strsms.length() - QString("1 ").length());
-        ui->lineEdit_current->setText(str);
-    }
-    if(bEditFirstEXcept)
-    {
-        if(pKeyBoard->editFlag)
-        {
-            ui->btn_ok_3->setText(pKeyBoard->str);
-        }
-        else
-        {
-            bEditFirstEXcept = false;
-            firstExcept = ui->btn_ok_3->text().toDouble();
-            firstCurrent = ui->lineEdit_current->text().toDouble();
-        }
-    }
-
-    if(bEditSecondEXcept)
-    {
-        if(pKeyBoard->editFlag)
-        {
-            ui->btn_ok_5->setText(pKeyBoard->str);
-        }
-        else
-        {
-            bEditSecondEXcept = false;
-            secondExcept = ui->btn_ok_5->text().toDouble();
-            secondCurrent = ui->lineEdit_current->text().toDouble();
-        }
-    }
-
     switch(g32styleMode)
     {
     case 0:
@@ -99,6 +50,58 @@ void doubleAdjust::onTimeOut()
     default:
         ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
         break;
+    }
+
+    this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
+}
+
+doubleAdjust::~doubleAdjust()
+{
+    delete ui;
+}
+
+void doubleAdjust::onTimeOut()
+{
+    QString str;
+    QString strsms;
+
+    if(g8ConnectFlag)
+    {
+        sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &strsms);
+
+        if(strsms.length() != 0)
+        {
+            //get the valid pressure
+            str = strsms.right(strsms.length() - QString("1 ").length());
+            ui->lineEdit_current->setText(str);
+        }
+        if(bEditFirstEXcept)
+        {
+            if(pKeyBoard->editFlag)
+            {
+                ui->btn_ok_3->setText(pKeyBoard->str);
+            }
+            else
+            {
+                bEditFirstEXcept = false;
+                firstExcept = ui->btn_ok_3->text().toDouble();
+                firstCurrent = ui->lineEdit_current->text().toDouble();
+            }
+        }
+
+        if(bEditSecondEXcept)
+        {
+            if(pKeyBoard->editFlag)
+            {
+                ui->btn_ok_5->setText(pKeyBoard->str);
+            }
+            else
+            {
+                bEditSecondEXcept = false;
+                secondExcept = ui->btn_ok_5->text().toDouble();
+                secondCurrent = ui->lineEdit_current->text().toDouble();
+            }
+        }
     }
 }
 

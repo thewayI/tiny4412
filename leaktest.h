@@ -24,7 +24,6 @@ private slots:
     void on_pushButton_clicked();
 
     void onTimeOut(void);
-    void onTimeOut1(void);
 
     void on_pushButton_2_clicked();
 
@@ -36,7 +35,6 @@ private:
 public:
     Posix_QextSerialPort *pSerial;
     QTimer *pTimer;
-    QTimer *pTimer1;
 
     bool btimeStartFlag;
     double m_timer;

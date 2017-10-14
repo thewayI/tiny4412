@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 u_int32_t g32styleMode = 0;
+bool      g8ConnectFlag = true;
 
 
 mainWindow::mainWindow(QWidget *parent) :
@@ -70,6 +71,30 @@ mainWindow::mainWindow(QWidget *parent) :
     g32styleMode = configIniWrite->value("style/mode").toInt();
 
     delete configIniWrite;
+    switch(g32styleMode)
+    {
+    case 0:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    case 1:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
+        break;
+    case 2:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
+        break;
+    case 3:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
+        break;
+    case 4:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
+        break;
+    case 5:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
+        break;
+    default:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    }
 
     QString portName = "/dev/ttySAC2";   //获取串口名
     pSerialDev = new Posix_QextSerialPort(portName, QextSerialBase::Polling);
@@ -93,7 +118,7 @@ mainWindow::mainWindow(QWidget *parent) :
 
     portName = "/dev/ttySAC3";   //获取串口名
     pSerialHost = new Posix_QextSerialPort(portName, QextSerialBase::Polling);
-#if 0
+#if 1
     pSerialHost->open(QIODevice::ReadWrite);
     //设置波特率
     pSerialHost->setBaudRate((BaudRateType)(BAUD9600));
@@ -110,50 +135,36 @@ mainWindow::mainWindow(QWidget *parent) :
     pSerialHost->setFlowControl(FLOW_OFF);
     //设置延时
     pSerialHost->setTimeout(TIME_OUT);
-#endif
-#if 1
-    //qDebug("serial");
+
     pUnit      = new unitChange(this, pSerialDev);
-    //qDebug("pUnit");
+
     pConfigure = new configure(this, pSerialDev);
-    //qDebug("pConfigure");
+
     pAbout     = new about(this, pSerialDev);
-    //qDebug("pAbout");
+
     pAdjust = new adjust(this, pSerialDev);
-    //qDebug("pAdjust");
+
     pSerialUI  = new Serial(this, pSerialHost);
-    //pController= new Contoller(this, pSerialDev);
-    //qDebug("pSerialUI");
     pMachine   = new Machine;
-    //qDebug("pMachine");
     pRemoteETH = new RemoteEth;
     pManu      = new manu(this, pSerialDev, pSerialHost);
-    //qDebug("pRemoteETH");
     pUnit->close();
     pConfigure->close();
     pAbout->close();
     pAdjust->close();
     pSerialUI->close();
-    //pController->close();
     pMachine->close();
     pRemoteETH->close();
     pManu->close();
-    //pAdjust    = new adjust;
 #endif
     //creator a timer
     pTimer = new QTimer(this);
     pTimer->setInterval(200);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
-    pTimer1 = new QTimer(this);
-    pTimer1->setInterval(1000);
-    connect(pTimer1, SIGNAL(timeout()), this, SLOT(onTimeOut1()));
-
-
     pTimerHost = new QTimer(this);
     pTimerHost->setInterval(100);
     connect(pTimerHost, SIGNAL(timeout()), this, SLOT(onHostTimeout()));
-
 
     ui->btn_unitChange->setText(tr("MPa A"));
     ui->dsb_step->setSingleStep(0.0005); // 步长
@@ -216,8 +227,8 @@ mainWindow::mainWindow(QWidget *parent) :
     testloop = 0;
 
     pTimer->start();
-    pTimer1->start();
     pTimerHost->start();
+    qDebug("Initial Done");
 }
 
 mainWindow::~mainWindow()
@@ -281,6 +292,7 @@ void mainWindow::onTimeOut()
 
     if(strsms.length() != 0)
     {
+        g8ConnectFlag = true;
         //get the valid pressure
         str = strsms.right(strsms.length() - QString("1 ").length());
         testData = str.toDouble();
@@ -291,49 +303,12 @@ void mainWindow::onTimeOut()
     }
     else
     {
+        g8ConnectFlag = false;
         ui->label_view->setText(QString("-----------"));
     }
     //send a basic query pressure readings
 
     ui->btn_unitChange->setText(pUnit->unitName);
-}
-
-void mainWindow::onTimeOut1(void)
-{
-    if(pManu->bShowFlag)
-    {
-        pTimer->stop();
-        pTimerHost->stop();
-    }
-    else
-    {
-        pTimer->start();
-        pTimerHost->start();
-    }
-    switch(g32styleMode)
-    {
-    case 0:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
-        break;
-    case 1:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
-        break;
-    case 2:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
-        break;
-    case 3:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
-        break;
-    case 4:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
-        break;
-    case 5:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
-        break;
-    default:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
-        break;
-    }
 }
 
 void mainWindow::close_manu()
@@ -430,7 +405,6 @@ void mainWindow::on_btn_manu_clicked()
     }
 #endif
     pManu->bShowFlag = true;
-    pManu->pTimer->start();
     pManu->show();
 }
 
@@ -646,7 +620,7 @@ void mainWindow::on_btn_remoteETH_clicked()
 
 void mainWindow::on_btn_unitChange_clicked()
 {
-    pUnit->pTimer->start();
+    //pUnit->pTimer->start();
     pUnit->show();
 }
 

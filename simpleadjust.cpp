@@ -29,40 +29,6 @@ SimpleAdjust::SimpleAdjust(QWidget *parent, Posix_QextSerialPort *serial) :
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
 
 
-    bAdjust = false;
-}
-
-SimpleAdjust::~SimpleAdjust()
-{
-    delete ui;
-}
-
-void SimpleAdjust::onTimeOut()
-{
-    QString strTemp = QString("");
-
-    //get current pressure
-    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &strTemp);
-
-    if(strTemp.length() != 0)
-    {
-        //get the valid pressure
-        strTemp = strTemp.right(strTemp.length() - QString("1 ").length());
-        // display data
-        ui->lineEdit_current->setText(strTemp);
-    }
-    if(bAdjust)
-    {
-        if(pKeyBoard->editFlag)
-        {
-            ui->btn_ok_3->setText(pKeyBoard->str);
-        }
-        else
-        {
-            bAdjust = false;
-        }
-    }
-
     switch(g32styleMode)
     {
     case 0:
@@ -86,6 +52,42 @@ void SimpleAdjust::onTimeOut()
     default:
         ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
         break;
+    }
+
+    bAdjust = false;
+}
+
+SimpleAdjust::~SimpleAdjust()
+{
+    delete ui;
+}
+
+void SimpleAdjust::onTimeOut()
+{
+    QString strTemp = QString("");
+    if(g8ConnectFlag)
+    {
+        //get current pressure
+        sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &strTemp);
+
+        if(strTemp.length() != 0)
+        {
+            //get the valid pressure
+            strTemp = strTemp.right(strTemp.length() - QString("1 ").length());
+            // display data
+            ui->lineEdit_current->setText(strTemp);
+        }
+        if(bAdjust)
+        {
+            if(pKeyBoard->editFlag)
+            {
+                ui->btn_ok_3->setText(pKeyBoard->str);
+            }
+            else
+            {
+                bAdjust = false;
+            }
+        }
     }
 }
 

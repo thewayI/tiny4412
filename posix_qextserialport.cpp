@@ -205,29 +205,7 @@ void Posix_QextSerialPort::setBaudRate(BaudRateType baudRate)
 {
     LOCK_MUTEX();
     if (Settings.BaudRate!=baudRate) {
-        switch (baudRate) {
-            case BAUD14400:
-                Settings.BaudRate=BAUD9600;
-                break;
-
-            case BAUD56000:
-                Settings.BaudRate=BAUD38400;
-                break;
-
-            case BAUD76800:
-
-#ifndef B76800
-                Settings.BaudRate=BAUD57600;
-#else
-                Settings.BaudRate=baudRate;
-#endif
-                break;
-
-            case BAUD128000:
-            case BAUD256000:
-                Settings.BaudRate=BAUD115200;
-                break;
-
+        switch (baudRate) {   
             default:
                 Settings.BaudRate=baudRate;
                 break;
@@ -235,159 +213,8 @@ void Posix_QextSerialPort::setBaudRate(BaudRateType baudRate)
     }
     if (isOpen()) {
         switch (baudRate) {
-
-            /*50 baud*/
-            case BAUD50:
-                TTY_PORTABILITY_WARNING("Posix_QextSerialPort Portability Warning: Windows does not support 50 baud operation.");
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B50;
-#else
-                cfsetispeed(&Posix_CommConfig, B50);
-                cfsetospeed(&Posix_CommConfig, B50);
-#endif
-                break;
-
-            /*75 baud*/
-            case BAUD75:
-                TTY_PORTABILITY_WARNING("Posix_QextSerialPort Portability Warning: Windows does not support 75 baud operation.");
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B75;
-#else
-                cfsetispeed(&Posix_CommConfig, B75);
-                cfsetospeed(&Posix_CommConfig, B75);
-#endif
-                break;
-
-            /*110 baud*/
-            case BAUD110:
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B110;
-#else
-                cfsetispeed(&Posix_CommConfig, B110);
-                cfsetospeed(&Posix_CommConfig, B110);
-#endif
-                break;
-
-            /*134.5 baud*/
-            case BAUD134:
-                TTY_PORTABILITY_WARNING("Posix_QextSerialPort Portability Warning: Windows does not support 134.5 baud operation.");
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B134;
-#else
-                cfsetispeed(&Posix_CommConfig, B134);
-                cfsetospeed(&Posix_CommConfig, B134);
-#endif
-                break;
-
-            /*150 baud*/
-            case BAUD150:
-                TTY_PORTABILITY_WARNING("Posix_QextSerialPort Portability Warning: Windows does not support 150 baud operation.");
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B150;
-#else
-                cfsetispeed(&Posix_CommConfig, B150);
-                cfsetospeed(&Posix_CommConfig, B150);
-#endif
-                break;
-
-            /*200 baud*/
-            case BAUD200:
-                TTY_PORTABILITY_WARNING("Posix_QextSerialPort Portability Warning: Windows does not support 200 baud operation.");
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B200;
-#else
-                cfsetispeed(&Posix_CommConfig, B200);
-                cfsetospeed(&Posix_CommConfig, B200);
-#endif
-                break;
-
-            /*300 baud*/
-            case BAUD300:
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B300;
-#else
-                cfsetispeed(&Posix_CommConfig, B300);
-                cfsetospeed(&Posix_CommConfig, B300);
-#endif
-                break;
-
-            /*600 baud*/
-            case BAUD600:
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B600;
-#else
-                cfsetispeed(&Posix_CommConfig, B600);
-                cfsetospeed(&Posix_CommConfig, B600);
-#endif
-                break;
-
-            /*1200 baud*/
-            case BAUD1200:
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B1200;
-#else
-                cfsetispeed(&Posix_CommConfig, B1200);
-                cfsetospeed(&Posix_CommConfig, B1200);
-#endif
-                break;
-
-            /*1800 baud*/
-            case BAUD1800:
-                TTY_PORTABILITY_WARNING("Posix_QextSerialPort Portability Warning: Windows and IRIX do not support 1800 baud operation.");
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B1800;
-#else
-                cfsetispeed(&Posix_CommConfig, B1800);
-                cfsetospeed(&Posix_CommConfig, B1800);
-#endif
-                break;
-
-            /*2400 baud*/
-            case BAUD2400:
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B2400;
-#else
-                cfsetispeed(&Posix_CommConfig, B2400);
-                cfsetospeed(&Posix_CommConfig, B2400);
-#endif
-                break;
-
-            /*4800 baud*/
-            case BAUD4800:
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B4800;
-#else
-                cfsetispeed(&Posix_CommConfig, B4800);
-                cfsetospeed(&Posix_CommConfig, B4800);
-#endif
-                break;
-
             /*9600 baud*/
             case BAUD9600:
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B9600;
-#else
-                cfsetispeed(&Posix_CommConfig, B9600);
-                cfsetospeed(&Posix_CommConfig, B9600);
-#endif
-                break;
-
-            /*14400 baud*/
-            case BAUD14400:
-                TTY_WARNING("Posix_QextSerialPort: POSIX does not support 14400 baud operation.  Switching to 9600 baud.");
 #ifdef CBAUD
                 Posix_CommConfig.c_cflag&=(~CBAUD);
                 Posix_CommConfig.c_cflag|=B9600;
@@ -419,18 +246,6 @@ void Posix_QextSerialPort::setBaudRate(BaudRateType baudRate)
 #endif
                 break;
 
-            /*56000 baud*/
-            case BAUD56000:
-                TTY_WARNING("Posix_QextSerialPort: POSIX does not support 56000 baud operation.  Switching to 38400 baud.");
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B38400;
-#else
-                cfsetispeed(&Posix_CommConfig, B38400);
-                cfsetospeed(&Posix_CommConfig, B38400);
-#endif
-                break;
-
             /*57600 baud*/
             case BAUD57600:
 #ifdef CBAUD
@@ -440,30 +255,6 @@ void Posix_QextSerialPort::setBaudRate(BaudRateType baudRate)
                 cfsetispeed(&Posix_CommConfig, B57600);
                 cfsetospeed(&Posix_CommConfig, B57600);
 #endif
-                break;
-
-            /*76800 baud*/
-            case BAUD76800:
-                TTY_PORTABILITY_WARNING("Posix_QextSerialPort Portability Warning: Windows and some POSIX systems do not support 76800 baud operation.");
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-
-#ifdef B76800
-                Posix_CommConfig.c_cflag|=B76800;
-#else
-                TTY_WARNING("Posix_QextSerialPort: Posix_QextSerialPort was compiled without 76800 baud support.  Switching to 57600 baud.");
-                Posix_CommConfig.c_cflag|=B57600;
-#endif //B76800
-#else  //CBAUD
-#ifdef B76800
-                cfsetispeed(&Posix_CommConfig, B76800);
-                cfsetospeed(&Posix_CommConfig, B76800);
-#else
-                TTY_WARNING("Posix_QextSerialPort: Posix_QextSerialPort was compiled without 76800 baud support.  Switching to 57600 baud.");
-                cfsetispeed(&Posix_CommConfig, B57600);
-                cfsetospeed(&Posix_CommConfig, B57600);
-#endif //B76800
-#endif //CBAUD
                 break;
 
             /*115200 baud*/
@@ -477,29 +268,6 @@ void Posix_QextSerialPort::setBaudRate(BaudRateType baudRate)
 #endif
                 break;
 
-            /*128000 baud*/
-            case BAUD128000:
-                TTY_WARNING("Posix_QextSerialPort: POSIX does not support 128000 baud operation.  Switching to 115200 baud.");
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B115200;
-#else
-                cfsetispeed(&Posix_CommConfig, B115200);
-                cfsetospeed(&Posix_CommConfig, B115200);
-#endif
-                break;
-
-            /*256000 baud*/
-            case BAUD256000:
-                TTY_WARNING("Posix_QextSerialPort: POSIX does not support 256000 baud operation.  Switching to 115200 baud.");
-#ifdef CBAUD
-                Posix_CommConfig.c_cflag&=(~CBAUD);
-                Posix_CommConfig.c_cflag|=B115200;
-#else
-                cfsetispeed(&Posix_CommConfig, B115200);
-                cfsetospeed(&Posix_CommConfig, B115200);
-#endif
-                break;
         }
         tcsetattr(Posix_File->handle(), TCSAFLUSH, &Posix_CommConfig);
     }

@@ -27,8 +27,6 @@ private slots:
 
     void setComboBoxEnabled(bool status);
 
-    void onTimeOut();
-
     void on_btn_configureMachine_2_clicked();
 
 private:

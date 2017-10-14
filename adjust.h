@@ -45,7 +45,7 @@ private slots:
 
     void on_btn_configureMachine_2_clicked();
 
-    void on_pushButton_38_clicked();
+    //void on_pushButton_38_clicked();
 
     void on_btn_adjustAuto_2_clicked();
 

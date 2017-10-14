@@ -2,6 +2,7 @@
 #define COMMANDLIST_H
 
 #include <QSettings>
+#include <QMessageBox>
 #include "QString"
 #include "commandList.h"
 #include "posix_qextserialport.h"
@@ -140,6 +141,7 @@ typedef struct unit_change{
 #define RECV_RESP_TIMEOUT           30000
 
 extern u_int32_t g32styleMode;
+extern bool      g8ConnectFlag;
 
 extern S_UNIT_CHANGE gUnitChange[40];
 extern S_CMD_LIST gCommandListTbl[CMD_SUPPORT_COUNT];

@@ -20,7 +20,7 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>220</y>
+     <y>270</y>
      <width>701</width>
      <height>351</height>
     </rect>
@@ -29,6 +29,9 @@
     <font>
      <pointsize>7</pointsize>
     </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
    </property>
    <property name="autoFillBackground">
     <bool>true</bool>
@@ -194,7 +197,7 @@ gridline-color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>130</y>
+     <y>180</y>
      <width>701</width>
      <height>90</height>
     </rect>
@@ -203,6 +206,9 @@ gridline-color: rgb(255, 255, 255);</string>
     <font>
      <pointsize>8</pointsize>
     </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(0, 0, 0, 0);
@@ -217,6 +223,9 @@ gridline-color: rgb(255, 255, 255);</string>
    </property>
    <property name="autoScroll">
     <bool>true</bool>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
    </property>
    <property name="showDropIndicator" stdset="0">
     <bool>false</bool>
@@ -276,7 +285,7 @@ gridline-color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>900</x>
-     <y>160</y>
+     <y>120</y>
      <width>211</width>
      <height>50</height>
     </rect>
@@ -448,10 +457,10 @@ border-bottom-right-radius:6px;</string>
   <widget class="QPushButton" name="btn_configureMachine_2">
    <property name="geometry">
     <rect>
-     <x>1110</x>
-     <y>20</y>
-     <width>117</width>
-     <height>49</height>
+     <x>1066</x>
+     <y>15</y>
+     <width>180</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="font">
@@ -501,7 +510,7 @@ background-color: rgba(5, 2, 4,75);
    <property name="geometry">
     <rect>
      <x>900</x>
-     <y>240</y>
+     <y>220</y>
      <width>211</width>
      <height>50</height>
     </rect>
@@ -555,7 +564,7 @@ border-bottom-right-radius:6px;</string>
    <property name="geometry">
     <rect>
      <x>900</x>
-     <y>410</y>
+     <y>430</y>
      <width>211</width>
      <height>50</height>
     </rect>
@@ -582,7 +591,7 @@ border-bottom-right-radius:6px;</string>
    <property name="geometry">
     <rect>
      <x>900</x>
-     <y>490</y>
+     <y>530</y>
      <width>211</width>
      <height>50</height>
     </rect>
@@ -605,36 +614,6 @@ border-bottom-right-radius:6px;</string>
     <string>恢复出厂设置</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_38">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>650</y>
-     <width>292</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-top-left-radius:6px;
-color: rgb(255, 255, 255);
-border:2px solid rgba(255, 255, 255,70);
-background-color: rgba(255, 255, 255, 20);
-border-top-right-radius:6px;
-border-bottom-left-radius:6px;
-border-bottom-right-radius:6px;</string>
-   </property>
-   <property name="text">
-    <string>确定</string>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-  </widget>
   <zorder>edit_adjustView</zorder>
   <zorder>btn_adjustUnlock</zorder>
   <zorder>btn_adjustUnit</zorder>
@@ -653,7 +632,6 @@ border-bottom-right-radius:6px;</string>
   <zorder>btn_adjustAuto_3</zorder>
   <zorder>btn_adjustAuto_4</zorder>
   <zorder>btn_adjustAuto_5</zorder>
-  <zorder>pushButton_38</zorder>
   <zorder>btn_adjustAuto_2</zorder>
  </widget>
  <resources/>

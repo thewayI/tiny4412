@@ -11,7 +11,7 @@ channelTest::channelTest(QWidget *parent, Posix_QextSerialPort *serial) :
     pSerial = serial;
     pKeyBoard = new keyBoard;
     pTimer = new QTimer(this);
-    pTimer->setInterval(1000);
+    pTimer->setInterval(2000);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeout()));
 
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
@@ -19,28 +19,7 @@ channelTest::channelTest(QWidget *parent, Posix_QextSerialPort *serial) :
     str = QString("");
     sendSerialCommand(pSerial, CMD_GET_FLITER, &str);
     ui->pushButton->setText(str.right(str.length() - QString("1 FL ").length()));
-}
 
-channelTest::~channelTest()
-{
-    delete ui;
-}
-
-void channelTest::onTimeout()
-{
-    QString str;
-    QString strResult = QString("");
-    if(bEditFlag)
-    {
-        if(pKeyBoard->editFlag)
-            ui->pushButton->setText(pKeyBoard->str);
-        else
-        {
-            str = QString(" ") + pKeyBoard->str;
-            bEditFlag = false;
-            sendSerialCommandArg(pSerial, CMD_SET_FLITER, str, &strResult);
-        }
-    }
 
     switch(g32styleMode)
     {
@@ -66,7 +45,28 @@ void channelTest::onTimeout()
         ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
         break;
     }
+}
 
+channelTest::~channelTest()
+{
+    delete ui;
+}
+
+void channelTest::onTimeout()
+{
+    QString str;
+    QString strResult = QString("");
+    if(bEditFlag)
+    {
+        if(pKeyBoard->editFlag)
+            ui->pushButton->setText(pKeyBoard->str);
+        else
+        {
+            str = QString(" ") + pKeyBoard->str;
+            bEditFlag = false;
+            sendSerialCommandArg(pSerial, CMD_SET_FLITER, str, &strResult);
+        }
+    }
 }
 
 void channelTest::on_pushButton_clicked()

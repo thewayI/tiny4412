@@ -60,26 +60,6 @@ debugInfo::debugInfo(QWidget *parent) :
  #endif
 
                                                            );
-}
-
-debugInfo::~debugInfo()
-{
-    delete ui;
-}
-
-void debugInfo::onTimeOut()
-{
-    editInfo = ui->edit_debugInfo->toPlainText();
-    if(beditFlag)
-    {
-        editInfo.append("\r\n");
-        editInfo.append(appendInfo);
-        beditFlag = false;
-        ui->edit_debugInfo->setText(editInfo);
-        QTextCursor cursor = ui->edit_debugInfo->textCursor();
-        cursor.movePosition(QTextCursor::End);
-        ui->edit_debugInfo->setTextCursor(cursor);
-    }
 
     switch(g32styleMode)
     {
@@ -105,6 +85,27 @@ void debugInfo::onTimeOut()
         ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
         break;
     }
+}
+
+debugInfo::~debugInfo()
+{
+    delete ui;
+}
+
+void debugInfo::onTimeOut()
+{
+    editInfo = ui->edit_debugInfo->toPlainText();
+    if(beditFlag)
+    {
+        editInfo.append("\r\n");
+        editInfo.append(appendInfo);
+        beditFlag = false;
+        ui->edit_debugInfo->setText(editInfo);
+        QTextCursor cursor = ui->edit_debugInfo->textCursor();
+        cursor.movePosition(QTextCursor::End);
+        ui->edit_debugInfo->setTextCursor(cursor);
+    }
+
 }
 
 void debugInfo::on_btn_configureMachine_2_clicked()

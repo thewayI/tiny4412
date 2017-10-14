@@ -30,22 +30,8 @@ manu::manu(QWidget *parent, Posix_QextSerialPort *pSerialDevice, Posix_QextSeria
     pDebugInfo->close();
     pLock->close();
 
-    pTimer = new QTimer(this);
-    pTimer->setInterval(1000);
-    connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
-
     //ui->btn_configureMachine->setEnabled(true);
     bShowFlag = false;
-}
-
-manu::~manu()
-{
-    delete ui;
-}
-
-void manu::onTimeOut(void)
-{
-
     switch(g32styleMode)
     {
     case 0:
@@ -70,6 +56,11 @@ void manu::onTimeOut(void)
         ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
         break;
     }
+}
+
+manu::~manu()
+{
+    delete ui;
 }
 
 void manu::on_btn_configureSensor_clicked()
@@ -104,13 +95,11 @@ void manu::on_btn_configureChan_clicked()
 
 void manu::on_btn_configureMachine_clicked()
 {
-    pMachine->pTimer->start();
     pMachine->show();
 }
 
 void manu::on_btn_configureSerial_clicked()
 {
-    pSerialUI->pTimer->start();
     pSerialUI->show();
 }
 
@@ -123,7 +112,6 @@ void manu::on_btn_configureETH_clicked()
 void manu::on_btn_leakTest_clicked()
 {
     pLeakTest->pTimer->start();
-    pLeakTest->pTimer1->start();
     pLeakTest->show();
 }
 
@@ -135,7 +123,6 @@ void manu::on_btn_lockUnlock_clicked()
 
 void manu::on_btn_configureMachine_2_clicked()
 {    
-    pTimer->stop();
     bShowFlag = false;
     this->close();
 }

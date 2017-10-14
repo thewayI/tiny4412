@@ -691,22 +691,6 @@ QAbstractItemView::item { height: 70px; width: 240px;}
      <string>read</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_test">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>49</width>
-      <height>49</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/image/icon_home.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_view">
     <property name="geometry">
      <rect>
@@ -767,7 +751,10 @@ background-color: rgba(05, 02, 04,50);
 </string>
     </property>
     <property name="text">
-     <string>       首页</string>
+     <string>首页</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QFrame" name="frame">
@@ -822,7 +809,6 @@ background-color: rgba(05, 02, 04,50);
    <zorder>btn_manu</zorder>
    <zorder>cmb_accuracy</zorder>
    <zorder>label_step_2</zorder>
-   <zorder>btn_test</zorder>
    <zorder>label_view</zorder>
    <zorder>label_3</zorder>
   </widget>

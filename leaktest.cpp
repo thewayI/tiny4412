@@ -17,22 +17,10 @@ leakTest::leakTest(QWidget *parent, Posix_QextSerialPort *serial) :
     pTimer->setInterval(10);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
-    pTimer1 = new QTimer(this);
-    pTimer1->setInterval(1000);
-    connect(pTimer1, SIGNAL(timeout()), this, SLOT(onTimeOut1()));
-
     ui->label_view->setText(QString("0.000000"));
     ui->lineEdit_time->setText(QString("0.00"));
     ui->pushButton_2->setEnabled(false);
-}
 
-leakTest::~leakTest()
-{
-    delete ui;
-}
-
-void leakTest::onTimeOut1(void)
-{
     switch(g32styleMode)
     {
     case 0:
@@ -59,32 +47,40 @@ void leakTest::onTimeOut1(void)
     }
 }
 
+leakTest::~leakTest()
+{
+    delete ui;
+}
+
 void leakTest::onTimeOut(void)
 {
     QString str;
     QString strsms;
 
-    sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &strsms);
-
-    if(strsms.length() != 0)
+    if(g8ConnectFlag)
     {
+        sendSerialCommand(pSerial, CMD_GET_PRESSURE_READING, &strsms);
 
-        //get the valid pressure
-        str = strsms.right(strsms.length() - QString("1 ").length());
-        m_currentPressure = str.toDouble();
+        if(strsms.length() != 0)
+        {
 
-        str = QString::number((m_currentPressure - m_basePressure), 'f', 6);
+            //get the valid pressure
+            str = strsms.right(strsms.length() - QString("1 ").length());
+            m_currentPressure = str.toDouble();
+
+            str = QString::number((m_currentPressure - m_basePressure), 'f', 6);
+            if(btimeStartFlag)
+                ui->lineEdit_D_value->setText(str);
+            str = QString::number(m_currentPressure, 'f', 6);
+            ui->label_view->setText(str);
+        }
+
         if(btimeStartFlag)
-            ui->lineEdit_D_value->setText(str);
-        str = QString::number(m_currentPressure, 'f', 6);
-        ui->label_view->setText(str);
-    }
-
-    if(btimeStartFlag)
-    {
-        m_timer += 0.01;
-        str = QString::number(m_timer, 'f', 2);
-        ui->lineEdit_time->setText(str);
+        {
+            m_timer += 0.01;
+            str = QString::number(m_timer, 'f', 2);
+            ui->lineEdit_time->setText(str);
+        }
     }
 }
 
@@ -145,7 +141,6 @@ void leakTest::on_pushButton_2_clicked()
 
 void leakTest::on_btn_configureMachine_2_clicked()
 {
-    pTimer1->stop();
     pTimer->stop();
     ui->label_view->setText(QString("0.000000"));
     ui->lineEdit_time->setText(QString("0.00"));

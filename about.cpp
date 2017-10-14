@@ -15,6 +15,7 @@ about::about(QWidget *parent, Posix_QextSerialPort *serial) :
     pSerial = serial;
     QString str;
 
+
     QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
     str = configIniWrite->value("about/company").toString();
     QByteArray ba = str.toLatin1();
@@ -42,86 +43,52 @@ about::about(QWidget *parent, Posix_QextSerialPort *serial) :
     ui->tblWidget_devInfo->setItem(1,0,new QTableWidgetItem(QString::fromUtf8("模式")));
     ui->tblWidget_devInfo->setItem(2,0,new QTableWidgetItem(QString::fromUtf8("序列号")));
     ui->tblWidget_devInfo->setItem(3,0,new QTableWidgetItem(QString::fromUtf8("软件版本")));
+    ui->tblWidget_devInfo->setItem(0,1,new QTableWidgetItem());
+    ui->tblWidget_devInfo->setItem(1,1,new QTableWidgetItem());
+    ui->tblWidget_devInfo->setItem(2,1,new QTableWidgetItem());
+    ui->tblWidget_devInfo->setItem(3,1,new QTableWidgetItem());
 
     ui->tblWidget_devInfo_2->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("单位")));
     ui->tblWidget_devInfo_2->setItem(1,0,new QTableWidgetItem(QString::fromUtf8("最小值")));
     ui->tblWidget_devInfo_2->setItem(2,0,new QTableWidgetItem(QString::fromUtf8("最大值")));
+    ui->tblWidget_devInfo_2->setItem(3,0,new QTableWidgetItem());
+    ui->tblWidget_devInfo_2->setItem(0,1,new QTableWidgetItem());
+    ui->tblWidget_devInfo_2->setItem(2,1,new QTableWidgetItem());
+    ui->tblWidget_devInfo_2->setItem(1,1,new QTableWidgetItem());
+    ui->tblWidget_devInfo_2->setItem(3,1,new QTableWidgetItem());
+
+    u_int8_t loop = 0;
+    u_int8_t subLoop = 0;
+
+    for(loop = 0; loop < 4; loop++)
+    {
+        for(subLoop = 0; subLoop < 2; subLoop++)
+        {
+            ui->tblWidget_baseInfo->item(loop, subLoop)->setFlags(ui->tblWidget_baseInfo->item(loop, subLoop)->flags() & (~Qt::ItemIsSelectable));
+        }
+    }
+    for(loop = 0; loop < 4; loop++)
+    {
+        for(subLoop = 0; subLoop < 2; subLoop++)
+        {
+            ui->tblWidget_devInfo->item(loop, subLoop)->setFlags(ui->tblWidget_devInfo->item(loop, subLoop)->flags() & (~Qt::ItemIsSelectable));
+        }
+    }
+    for(loop = 0; loop < 4; loop++)
+    {
+        for(subLoop = 0; subLoop < 2; subLoop++)
+        {
+            ui->tblWidget_devInfo_2->item(loop, subLoop)->setFlags(ui->tblWidget_devInfo_2->item(loop, subLoop)->flags() & (~Qt::ItemIsSelectable));
+        }
+    }
 
     pTimer = new QTimer(this);
-    pTimer->setInterval(1000);
+    pTimer->setInterval(2000);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
     ui->pushButton->hide();
 
     delete configIniWrite;
-
-}
-
-about::~about()
-{
-    delete ui;
-}
-
-void about::on_pushButton_clicked()
-{
-    pTimer->stop();
-    this->close();
-}
-
-void about::onTimeOut(void)
-{
-    QString str = QString("");
-    u_int32_t loop = 0;
-
-    //get id
-    sendSerialCommand(pSerial, CMD_GET_ID, &str);
-
-    if(str.length() == 0)
-    {
-        ui->tblWidget_devInfo->setItem(1,1,new QTableWidgetItem(QString::fromUtf8("6012095")));
-    }
-    else
-    {
-        ui->tblWidget_devInfo->setItem(0,1,new QTableWidgetItem((str.right(str.length() - QString("1 ID Mensor    ").length())).left(8)));
-        ui->tblWidget_devInfo->setItem(1,1,new QTableWidgetItem((str.right(str.length() - QString("1 ID ").length())).left(8)));
-        ui->tblWidget_devInfo->setItem(2,1,new QTableWidgetItem((str.right(str.length() - QString("1 ID Mensor DPT 6000, SN ").length())).left(8)));
-        ui->tblWidget_devInfo->setItem(3,1,new QTableWidgetItem((str.right(str.length() - QString("1 ID Mensor DPT 6000, SN 41000F1F, ").length())).left(5)));
-    }
-
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_UNIT_CODE, &str);
-    if(str.length() != 0)
-    {
-        //get the valid uni code
-        str = str.right(str.length() - QString("1 U ").length());
-        for(loop = 0 ;loop < 40; loop++)
-        {
-            if(str.toInt() == gUnitChange[loop].code)
-            {
-                ui->tblWidget_devInfo_2->setItem(0,1,new QTableWidgetItem((gUnitChange[loop].unitInfo)));
-                break;
-            }
-        }
-    }
-
-    //get the maximum range
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_MAXIMUM, &str);
-    if(str.length() != 0)
-    {
-        //qDebug("strTemp = %s\n", qPrintable(strTemp));
-        //ui->lineEdit_max->setText((str.right(str.length() - QString("1 R+ ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length()));
-        ui->tblWidget_devInfo_2->setItem(2,1,new QTableWidgetItem(((str.right(str.length() - QString("1 R+ ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length()))));
-    }
-    //get the minimum range
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_MINIMUM, &str);
-    if(str.length() != 0)
-    {
-        //qDebug("strTemp = %s\n", qPrintable(strTemp));
-        //ui->lineEdit_min->setText((str.right(str.length() - QString("1 R- ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length()));
-        ui->tblWidget_devInfo_2->setItem(1,1,new QTableWidgetItem(((str.right(str.length() - QString("1 R- ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length()))));
-    }
 
     switch(g32styleMode)
     {
@@ -147,6 +114,78 @@ void about::onTimeOut(void)
         ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
         break;
     }
+
+}
+
+about::~about()
+{
+    delete ui;
+}
+
+void about::on_pushButton_clicked()
+{
+    pTimer->stop();
+    this->close();
+}
+
+void about::onTimeOut(void)
+{
+    QString str = QString("");
+    u_int32_t loop = 0;
+
+    if(g8ConnectFlag)
+    {
+        //get id
+        sendSerialCommand(pSerial, CMD_GET_ID, &str);
+
+        if(str.length() == 0)
+        {
+            ui->tblWidget_devInfo->setItem(1,1,new QTableWidgetItem(QString::fromUtf8("6012095")));
+        }
+        else
+        {
+            ui->tblWidget_devInfo->item(0,1)->setText(((str.right(str.length() - QString("1 ID Mensor    ").length())).left(8)));
+            ui->tblWidget_devInfo->item(1,1)->setText(((str.right(str.length() - QString("1 ID ").length())).left(8)));
+            ui->tblWidget_devInfo->item(2,1)->setText(((str.right(str.length() - QString("1 ID Mensor DPT 6000, SN ").length())).left(8)));
+            ui->tblWidget_devInfo->item(3,1)->setText(((str.right(str.length() - QString("1 ID Mensor DPT 6000, SN 41000F1F, ").length())).left(5)));
+        }
+
+        str = QString("");
+        sendSerialCommand(pSerial, CMD_GET_UNIT_CODE, &str);
+        if(str.length() != 0)
+        {
+            //get the valid uni code
+            str = str.right(str.length() - QString("1 U ").length());
+            for(loop = 0 ;loop < 40; loop++)
+            {
+                if(str.toInt() == gUnitChange[loop].code)
+                {
+                    ui->tblWidget_devInfo_2->item(0,1)->setText((gUnitChange[loop].unitInfo));
+                    break;
+                }
+            }
+        }
+
+        //get the maximum range
+        str = QString("");
+        sendSerialCommand(pSerial, CMD_GET_MAXIMUM, &str);
+        if(str.length() != 0)
+        {
+            //qDebug("strTemp = %s\n", qPrintable(strTemp));
+            //ui->lineEdit_max->setText((str.right(str.length() - QString("1 R+ ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length()));
+            ui->tblWidget_devInfo_2->item(2,1)->setText((((str.right(str.length() - QString("1 R+ ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length()))));
+        }
+        //get the minimum range
+        str = QString("");
+        sendSerialCommand(pSerial, CMD_GET_MINIMUM, &str);
+        if(str.length() != 0)
+        {
+            //qDebug("strTemp = %s\n", qPrintable(strTemp));
+            //ui->lineEdit_min->setText((str.right(str.length() - QString("1 R- ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length()));
+            ui->tblWidget_devInfo_2->item(1,1)->setText((((str.right(str.length() - QString("1 R- ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length()))));
+        }
+    }
+
 }
 
 void about::on_btn_configureMachine_2_clicked()

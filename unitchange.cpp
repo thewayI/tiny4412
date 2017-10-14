@@ -23,7 +23,7 @@ S_CONVER_PSI gSconver[] = {
     {18,51.71508, QString("mmHg@0°C")},
     {19,5.171508, QString("cmHg@0°C")},
     {20,51.71508, QString("Torr")},
-    {21,6.894757, QString("Kpa")},
+    {21,6.894757, QString("kPa")},
     {22,6894.757, QString("Pa")},
     {23,68947.57, QString("Dynes/cm2")},
     {24,70.30697, QString("g/cm2")},
@@ -35,7 +35,7 @@ S_CONVER_PSI gSconver[] = {
     //{30,, QString("% Full Scale")},
     {31,51715.08, QString("microns Hg @ 0°C")},
     {32,0.0005, QString("tsi")},
-    {34,68.94757, QString("HPa")},
+    {34,68.94757, QString("hPa")},
     {35,0.006894757, QString("MPa")},
     //{35,, QString("")},
 };
@@ -77,19 +77,6 @@ unitChange::unitChange(QWidget *parent, Posix_QextSerialPort *serial) :
     conversiontoPSI = gSconver[m32UnitState].coefficient;
     unitName = gSconver[m32UnitState].name;
 
-    pTimer = new QTimer(this);
-    pTimer->setInterval(1000);
-    connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
-
-}
-
-unitChange::~unitChange()
-{
-    delete ui;
-}
-
-void unitChange::onTimeOut()
-{
     switch(g32styleMode)
     {
     case 0:
@@ -114,11 +101,18 @@ void unitChange::onTimeOut()
         ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
         break;
     }
+
+    ui->pushButton_37->hide();
+
+}
+
+unitChange::~unitChange()
+{
+    delete ui;
 }
 
 void unitChange::on_pushButton_38_clicked()
 {
-    pTimer->stop();
     this->close();
 }
 
@@ -992,12 +986,15 @@ void unitChange::on_pushButton_35_clicked()
 
 void unitChange::on_btn_configureMachine_2_clicked()
 {
-    pTimer->stop();
     this->close();
 }
 
 void unitChange::on_pushButton_39_clicked()
 {
-    pTimer->stop();
     this->close();
+}
+
+void unitChange::on_pushButton_37_clicked()
+{
+
 }

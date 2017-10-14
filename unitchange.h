@@ -110,7 +110,7 @@ private slots:
 
     void on_pushButton_39_clicked();
 
-    void onTimeOut();
+    void on_pushButton_37_clicked();
 
 private:
     Ui::unitChange *ui;
@@ -120,7 +120,6 @@ public :
     double conversiontoPSI;
     double baseConver;
     QString unitName;
-    QTimer *pTimer;
     Posix_QextSerialPort *pSerial;
 };
 #define CONVERSION_COUNT    36

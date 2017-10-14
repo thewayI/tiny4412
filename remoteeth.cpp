@@ -31,7 +31,32 @@ RemoteEth::RemoteEth(QWidget *parent) :
 
     delete configIniWrite;
 
+    ui->ok->hide();
 
+    switch(g32styleMode)
+    {
+    case 0:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    case 1:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
+        break;
+    case 2:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
+        break;
+    case 3:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
+        break;
+    case 4:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
+        break;
+    case 5:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
+        break;
+    default:
+        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    }
 }
 
 RemoteEth::~RemoteEth()
@@ -99,31 +124,6 @@ void RemoteEth::onTimeOut()
         {
             bNetPortFlag = false;
         }
-    }
-
-    switch(g32styleMode)
-    {
-    case 0:
-        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
-        break;
-    case 1:
-        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
-        break;
-    case 2:
-        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
-        break;
-    case 3:
-        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
-        break;
-    case 4:
-        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
-        break;
-    case 5:
-        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
-        break;
-    default:
-        ui->frame_2->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
-        break;
     }
 }
 

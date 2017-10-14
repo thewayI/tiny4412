@@ -212,10 +212,10 @@ background-color: rgba(05, 02, 04,50);
   <widget class="QPushButton" name="btn_configureMachine_2">
    <property name="geometry">
     <rect>
-     <x>1110</x>
-     <y>20</y>
-     <width>117</width>
-     <height>49</height>
+     <x>1066</x>
+     <y>15</y>
+     <width>180</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="font">

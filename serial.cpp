@@ -12,21 +12,9 @@ Serial::Serial(QWidget *parent, Posix_QextSerialPort *serial) :
     pSerial = serial;
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
 
-    pTimer = new QTimer(this);
-    pTimer->setInterval(1000);
-    connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
-
+    ui->Stopsmsbtn->hide();
     ui->Stopsmsbtn->setEnabled(false);
 
-}
-
-Serial::~Serial()
-{
-    delete ui;
-}
-
-void Serial::onTimeOut()
-{
     switch(g32styleMode)
     {
     case 0:
@@ -51,12 +39,19 @@ void Serial::onTimeOut()
         ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
         break;
     }
+
 }
 
+Serial::~Serial()
+{
+    delete ui;
+}
 
 void Serial::on_Startsmsbtn_clicked()
 {
     //这里QextSerialBase::QueryMode应该使用QextSerialBase::Polling
+
+    pSerial->close();
 
     if(pSerial->open(QIODevice::ReadWrite)){
         //ui->statusBar->setText(tr("open success"));
@@ -80,22 +75,22 @@ void Serial::on_Startsmsbtn_clicked()
     //设置延时
     pSerial->setTimeout(TIME_OUT);
 
-    ui->Startsmsbtn->setEnabled(false);
-    ui->Startsmsbtn->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-                                                     "color: rgb(255, 255, 255);\n"
-                                                     "border:2px solid rgba(255, 255, 255,70);\n"
-                                                     "background-color: rgba(255, 255, 255, 0);\n"
-                                                     "border-top-right-radius:6px;\n"
-                                                     "border-bottom-left-radius:6px;\n"
-                                                     "border-bottom-right-radius:6px;"));
-    ui->Stopsmsbtn->setEnabled(true);
-    ui->Stopsmsbtn->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
-                                                    "color: rgb(255, 255, 255);\n"
-                                                    "border:2px solid rgba(255, 255, 255,70);\n"
-                                                    "background-color: rgba(255, 255, 255, 20);\n"
-                                                    "border-top-right-radius:6px;\n"
-                                                    "border-bottom-left-radius:6px;\n"
-                                                    "border-bottom-right-radius:6px;"));
+    //ui->Startsmsbtn->setEnabled();
+//    ui->Startsmsbtn->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
+//                                                     "color: rgb(255, 255, 255);\n"
+//                                                     "border:2px solid rgba(255, 255, 255,70);\n"
+//                                                     "background-color: rgba(255, 255, 255, 0);\n"
+//                                                     "border-top-right-radius:6px;\n"
+//                                                     "border-bottom-left-radius:6px;\n"
+//                                                     "border-bottom-right-radius:6px;"));
+//    ui->Stopsmsbtn->setEnabled(true);
+//    ui->Stopsmsbtn->setStyleSheet(QString::fromUtf8("border-top-left-radius:6px;\n"
+//                                                    "color: rgb(255, 255, 255);\n"
+//                                                    "border:2px solid rgba(255, 255, 255,70);\n"
+//                                                    "background-color: rgba(255, 255, 255, 20);\n"
+//                                                    "border-top-right-radius:6px;\n"
+//                                                    "border-bottom-left-radius:6px;\n"
+//                                                    "border-bottom-right-radius:6px;"));
 
 }
 
@@ -138,6 +133,5 @@ void Serial::on_Stopsmsbtn_clicked()
 
 void Serial::on_btn_configureMachine_2_clicked()
 {
-    pTimer->stop();
     this->close();
 }

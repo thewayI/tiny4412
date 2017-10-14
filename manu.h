@@ -35,8 +35,6 @@ private:
 public:
     Posix_QextSerialPort *pSerialDev;
     Posix_QextSerialPort *pSerialHost;
-    QTimer *pTimer;
-
     configure *pConfigure;
     about *pAbout;
     adjust *pAdjust;
@@ -62,7 +60,6 @@ private slots:
     void on_btn_leakTest_clicked();
     void on_btn_lockUnlock_clicked();
     void on_btn_configureMachine_2_clicked();
-    void onTimeOut();
 };
 
 #endif // MANU_H

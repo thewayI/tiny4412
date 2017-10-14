@@ -13,6 +13,7 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
 
     ui->tblwidget_adjustTitle->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("校准日期表")));
+    ui->tblwidget_adjustTitle->item(0, 0)->setFlags(ui->tblwidget_adjustTitle->item(0, 0)->flags() & (~Qt::ItemIsSelectable));
 
     ui->tblwidget_adjustItem->setItem(0,0,new QTableWidgetItem(QString::fromUtf8("序列号")));
 
@@ -40,6 +41,32 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
 
     //ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 
+
+    switch(g32styleMode)
+    {
+    case 0:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    case 1:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
+        break;
+    case 2:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
+        break;
+    case 3:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
+        break;
+    case 4:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
+        break;
+    case 5:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
+        break;
+    default:
+        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
+        break;
+    }
+
     ui->btn_adjustOk->hide();
     ui->cmb_adjust->hide();
 
@@ -50,7 +77,7 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
 
     pLogin  = new login;
     pTimer2 = new QTimer(this);
-    pTimer2->setInterval(1000);
+    pTimer2->setInterval(2000);
     connect(pTimer2, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
     //pTimer2->start();
@@ -72,6 +99,8 @@ adjust::adjust(QWidget *parent, Posix_QextSerialPort *serial) :
     ui->btn_adjustclose->hide();
     ui->cmb_adjust->hide();
     ui->btn_adjustOk->hide();
+
+    ui->btn_adjustAuto->hide();
 
     //ui->frame_2->hide();
 }
@@ -116,118 +145,96 @@ void adjust::onTimeOut()
     QString str = QString("");
     QString strTemp = QString("");
 
-    if(btime)
+    if(g8ConnectFlag)
     {
-        if(pKeyBoard->editFlag)
+        if(btime)
         {
-            ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(pKeyBoard->str));
-            ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+            if(pKeyBoard->editFlag)
+            {
+                ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(pKeyBoard->str));
+                ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+            }
+            else
+            {
+                sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
+                sendSerialCommandArg(pSerial, CMD_SET_CALIBRATION_DATE, pKeyBoard->str, &strTemp);
+                sendSerialCommand(pSerial, CMD_SAVE_ALL_DATA, &strTemp);
+                btime = false;
+            }
         }
-        else
-        {
-            sendSerialCommand(pSerial, CMD_DISABLE_PASSWD, &str);
-            sendSerialCommandArg(pSerial, CMD_SET_CALIBRATION_DATE, pKeyBoard->str, &strTemp);
-            sendSerialCommand(pSerial, CMD_SAVE_ALL_DATA, &strTemp);
-            btime = false;
-        }
-    }
 
-    //get id
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_ID, &str);
-
-    if(str.length() == 0)
-    {
-        ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem(QString::fromUtf8("6012095")));
-        ui->tblwidget_adjustItem->item(0,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    }
-    else
-    {
-        ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem((str.right(str.length() - QString("1 ID Mensor DPT 6000, SN ").length())).left(8)));
-        ui->tblwidget_adjustItem->item(0,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    }
-
-    if(!btime)
-    {
-        //get the date of calibration
+        //get id
         str = QString("");
-        sendSerialCommand(pSerial, CMD_GET_CALIBRATION_DATE, &str);
+        sendSerialCommand(pSerial, CMD_GET_ID, &str);
 
         if(str.length() == 0)
         {
-            ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(QString::fromUtf8("2017-08-24")));
-            ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+            ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem(QString::fromUtf8("6012095")));
+            ui->tblwidget_adjustItem->item(0,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
         }
         else
         {
-            ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem((str.right(str.length() - QString("1 DC ").length())).left(6)));
-            ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+            ui->tblwidget_adjustItem->setItem(0,1,new QTableWidgetItem((str.right(str.length() - QString("1 ID Mensor DPT 6000, SN ").length())).left(8)));
+            ui->tblwidget_adjustItem->item(0,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
         }
-    }
-    //get zero correction value
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_ZERO_CORRECTION, &str);
-    if(str.length() != 0)
-    {
-        ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem((str.right(str.length() - QString("1 ZC ").length())).left(str.length() - QString("1 ZC ").length() - QString("\r\n").length())));
-        ui->tblwidget_adjustItem->item(2,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    }
-    else
-    {
-         ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem(QString::fromUtf8("0.000000")));
-         ui->tblwidget_adjustItem->item(2,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    }
 
-    //get the maximum range
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_MAXIMUM, &str);
-    if(str.length() != 0)
-    {
-        ui->tblwidget_adjustItem->setItem(3,1,new QTableWidgetItem((str.right(str.length() - QString("1 R+ ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length())));
-        ui->tblwidget_adjustItem->item(3,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    }
-    else
-    {
-        ui->tblwidget_adjustItem->setItem(3,1,new QTableWidgetItem(QString::fromUtf8("1.000000")));
-        ui->tblwidget_adjustItem->item(3,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    }
-    //get the minimum range
-    str = QString("");
-    sendSerialCommand(pSerial, CMD_GET_MINIMUM, &str);
-    if(str.length() != 0)
-    {
-       ui->tblwidget_adjustItem->setItem(4,1,new QTableWidgetItem((str.right(str.length() - QString("1 R- ").length())).left(str.length() - QString("1 R- ").length() - QString("\r\n").length())));
-       ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    }
-    else
-    {
-        ui->tblwidget_adjustItem->setItem(4,1,new QTableWidgetItem(QString::fromUtf8("0.000000")));
-        ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    }
+        if(!btime)
+        {
+            //get the date of calibration
+            str = QString("");
+            sendSerialCommand(pSerial, CMD_GET_CALIBRATION_DATE, &str);
 
-    switch(g32styleMode)
-    {
-    case 0:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
-        break;
-    case 1:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_01.png);"));
-        break;
-    case 2:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_02.png);"));
-        break;
-    case 3:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_03.png);"));
-        break;
-    case 4:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_04.png);"));
-        break;
-    case 5:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/bg_05.png);"));
-        break;
-    default:
-        ui->frame->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/image/1.png);"));
-        break;
+            if(str.length() == 0)
+            {
+                ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem(QString::fromUtf8("2017-08-24")));
+                ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+            }
+            else
+            {
+                ui->tblwidget_adjustItem->setItem(1,1,new QTableWidgetItem((str.right(str.length() - QString("1 DC ").length())).left(6)));
+                ui->tblwidget_adjustItem->item(1,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+            }
+        }
+        //get zero correction value
+        str = QString("");
+        sendSerialCommand(pSerial, CMD_GET_ZERO_CORRECTION, &str);
+        if(str.length() != 0)
+        {
+            ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem((str.right(str.length() - QString("1 ZC ").length())).left(str.length() - QString("1 ZC ").length() - QString("\r\n").length())));
+            ui->tblwidget_adjustItem->item(2,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+        }
+        else
+        {
+             ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem(QString::fromUtf8("0.000000")));
+             ui->tblwidget_adjustItem->item(2,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+        }
+
+        //get the maximum range
+        str = QString("");
+        sendSerialCommand(pSerial, CMD_GET_MAXIMUM, &str);
+        if(str.length() != 0)
+        {
+            ui->tblwidget_adjustItem->setItem(3,1,new QTableWidgetItem((str.right(str.length() - QString("1 R+ ").length())).left(str.length() - QString("1 R+ ").length() - QString("\r\n").length())));
+            ui->tblwidget_adjustItem->item(3,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+        }
+        else
+        {
+            ui->tblwidget_adjustItem->setItem(3,1,new QTableWidgetItem(QString::fromUtf8("1.000000")));
+            ui->tblwidget_adjustItem->item(3,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+        }
+        //get the minimum range
+        str = QString("");
+        sendSerialCommand(pSerial, CMD_GET_MINIMUM, &str);
+        if(str.length() != 0)
+        {
+           ui->tblwidget_adjustItem->setItem(4,1,new QTableWidgetItem((str.right(str.length() - QString("1 R- ").length())).left(str.length() - QString("1 R- ").length() - QString("\r\n").length())));
+           ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+        }
+        else
+        {
+            ui->tblwidget_adjustItem->setItem(4,1,new QTableWidgetItem(QString::fromUtf8("0.000000")));
+            ui->tblwidget_adjustItem->item(4,1)->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+        }
     }
 }
 
@@ -378,11 +385,6 @@ void adjust::on_btn_configureMachine_2_clicked()
     this->close();
 }
 
-void adjust::on_pushButton_38_clicked()
-{
-    pTimer2->stop();
-    this->close();
-}
 
 void adjust::on_btn_adjustAuto_2_clicked()
 {

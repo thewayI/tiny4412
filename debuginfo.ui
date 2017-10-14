@@ -28,8 +28,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);
-color: rgb(255, 255, 255);</string>
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(05, 02, 04,20);</string>
    </property>
    <property name="readOnly">
     <bool>true</bool>
@@ -77,10 +77,10 @@ background-color: rgba(05, 02, 04,50);
   <widget class="QPushButton" name="btn_configureMachine_2">
    <property name="geometry">
     <rect>
-     <x>1110</x>
-     <y>20</y>
-     <width>117</width>
-     <height>49</height>
+     <x>1066</x>
+     <y>15</y>
+     <width>180</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="font">
@@ -113,7 +113,7 @@ color: rgb(255, 255, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/new/prefix1/image/bg_05.png);</string>
+    <string notr="true">border-image: url(:/new/prefix1/image/1.png);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -125,10 +125,10 @@ color: rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="btn_configureMachine_3">
    <property name="geometry">
     <rect>
-     <x>920</x>
-     <y>20</y>
-     <width>117</width>
-     <height>49</height>
+     <x>830</x>
+     <y>15</y>
+     <width>180</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="font">

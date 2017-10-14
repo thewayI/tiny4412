@@ -71,28 +71,11 @@ enum NamingConvention
 
 enum BaudRateType 
 {
-    BAUD50,                //POSIX ONLY
-    BAUD75,                //POSIX ONLY
-    BAUD110,
-    BAUD134,               //POSIX ONLY
-    BAUD150,               //POSIX ONLY
-    BAUD200,               //POSIX ONLY
-    BAUD300,
-    BAUD600,
-    BAUD1200,
-    BAUD1800,              //POSIX ONLY
-    BAUD2400,
-    BAUD4800,
     BAUD9600,
-    BAUD14400,             //WINDOWS ONLY
     BAUD19200,
     BAUD38400,
-    BAUD56000,             //WINDOWS ONLY
     BAUD57600,
-    BAUD76800,             //POSIX ONLY
     BAUD115200,
-    BAUD128000,            //WINDOWS ONLY
-    BAUD256000             //WINDOWS ONLY
 };
 
 enum DataBitsType 
