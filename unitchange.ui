@@ -793,7 +793,7 @@ border-bottom-right-radius:6px;</string>
   <widget class="QPushButton" name="pushButton_38">
    <property name="geometry">
     <rect>
-     <x>700</x>
+     <x>980</x>
      <y>650</y>
      <width>242</width>
      <height>77</height>
@@ -1233,6 +1233,7 @@ color: rgb(255, 255, 255);</string>
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
+  <zorder>pushButton_39</zorder>
   <zorder>frame</zorder>
   <zorder>pushButton_7</zorder>
   <zorder>pushButton_28</zorder>
@@ -1252,7 +1253,6 @@ color: rgb(255, 255, 255);</string>
   <zorder>pushButton_9</zorder>
   <zorder>pushButton_34</zorder>
   <zorder>pushButton_13</zorder>
-  <zorder>pushButton_39</zorder>
   <zorder>pushButton_18</zorder>
   <zorder>pushButton_4</zorder>
   <zorder>textEdit_4</zorder>

@@ -141,8 +141,20 @@ typedef struct unit_change{
 #define CMD_SUPPORT_COUNT           30
 #define RECV_RESP_TIMEOUT           30000
 
+#define CHAN_A_PEAK_CHECK           (0x1 << 0)
+#define CHAN_A_RATE_CHECK           (0x1 << 1)
+#define CHAN_A_ADJUST_ZERO_PEAK     (0x1 << 2)
+#define CHAN_A_PRESSURE_PEAK        (0x1 << 3)
+#define CHAN_B_PEAK_CHECK           (0x1 << 4)
+#define CHAN_B_RATE_CHECK           (0x1 << 5)
+#define CHAN_B_ADJUST_ZERO_PEAK     (0x1 << 6)
+#define CHAN_B_PRESSURE_PEAK        (0x1 << 7)
+
 extern u_int32_t g32styleMode;
 extern bool      g8ConnectFlag;
+extern u_int8_t  g8checkSts;
+extern u_int8_t g8Accuracy;
+extern u_int8_t g8ConfigStyle;
 
 extern S_UNIT_CHANGE gUnitChange[40];
 extern S_CMD_LIST gCommandListTbl[CMD_SUPPORT_COUNT];

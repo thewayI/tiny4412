@@ -117,7 +117,7 @@ void doubleAdjust::on_btn_ok_3_clicked()
     pKeyBoard->str = QString("");
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(0, 500);
+    pKeyBoard->move(0, 300);
 }
 
 void doubleAdjust::on_btn_ok_5_clicked()
@@ -126,7 +126,7 @@ void doubleAdjust::on_btn_ok_5_clicked()
     pKeyBoard->str = QString("");
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(0, 500);
+    pKeyBoard->move(0, 300);
 }
 
 void doubleAdjust::on_btn_ok_2_clicked()

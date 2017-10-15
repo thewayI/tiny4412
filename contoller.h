@@ -41,6 +41,8 @@ private slots:
 
     void on_btn_ctrlMAX3_2_clicked();
 
+    void on_btn_configureMachine_2_clicked();
+
 private:
     Ui::Contoller *ui;
 

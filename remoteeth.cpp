@@ -138,7 +138,7 @@ void RemoteEth::on_btn_IP_clicked()
     bIPFlag = true;
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(0, 500);
+    pKeyBoard->move(0, 300);
 }
 
 void RemoteEth::on_btn_netmask_clicked()
@@ -147,7 +147,7 @@ void RemoteEth::on_btn_netmask_clicked()
     bNetMaskFlag = true;
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(0, 500);
+    pKeyBoard->move(0, 300);
 }
 
 void RemoteEth::on_btn_gateway_clicked()
@@ -156,7 +156,7 @@ void RemoteEth::on_btn_gateway_clicked()
     bGateWayFlag = true;
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(0, 500);
+    pKeyBoard->move(0, 300);
 }
 
 void RemoteEth::on_btn_netport_clicked()
@@ -165,7 +165,7 @@ void RemoteEth::on_btn_netport_clicked()
     bNetPortFlag = true;
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(0, 500);
+    pKeyBoard->move(0, 300);
 }
 
 void RemoteEth::on_btn_configureMachine_2_clicked()

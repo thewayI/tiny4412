@@ -200,7 +200,7 @@ void lockUnLock::on_btn_unlock_2_clicked()
     pKeyBoard->str = QString("");
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(0, 500);
+    pKeyBoard->move(0, 300);
 }
 
 void lockUnLock::on_btn_change_2_clicked()
@@ -210,7 +210,7 @@ void lockUnLock::on_btn_change_2_clicked()
     pKeyBoard->str = QString("");
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(0, 500);
+    pKeyBoard->move(0, 300);
 }
 
 void lockUnLock::on_btn_change_clicked()

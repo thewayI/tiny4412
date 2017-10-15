@@ -5,8 +5,6 @@ Contoller::Contoller(QWidget *parent, Posix_QextSerialPort *serial) :
     QWidget(parent),
     ui(new Ui::Contoller)
 {
-    QString strTemp;
-    u_int32_t loop = 0;
     ui->setupUi(this);
 
     pTimer = new QTimer(this);
@@ -17,40 +15,9 @@ Contoller::Contoller(QWidget *parent, Posix_QextSerialPort *serial) :
 
     ui->btn_ctrlvariable->hide();
 
-    pSerial = serial;
-    pKeyboard = new keyBoard;
-    pChanTest = new channelTest(this, pSerial);
-    this->setWindowFlags(this->windowFlags() | Qt::FramelessWindowHint);
-    sendSerialCommand(pSerial, CMD_GET_MINIMUM, &strTemp);
-    ui->btn_ctrlMAX1->setText(strTemp.right(strTemp.length() - QString("1 R+ ").length()));
-    strTemp = QString("");
-    sendSerialCommand(pSerial, CMD_GET_MAXIMUM, &strTemp);
-    ui->btn_ctrlMAX2->setText(strTemp.right(strTemp.length() - QString("1 R- ").length()));
-    strTemp = QString("");
-    sendSerialCommand(pSerial, CMD_GET_UNIT_CODE, &strTemp);
-    strTemp = strTemp.right(strTemp.length() - QString("1 ").length());
-    for(loop = 0; loop < 40; loop++)
-    {
-        if(strTemp.toInt() == gUnitChange[loop].code)
-        {
-            ui->btn_ctrlMAX3->setText(gUnitChange[loop].unitInfo);
-            break;
-        }
-    }
-
     editctrlMax1Flag = false;
     editctrlMax2Flag = false;
     editctrlMax3Flag = false;
-
-    ui->btn_ctrlMAX1->setEnabled(false);
-    ui->btn_ctrlMAX2->setEnabled(false);
-    ui->btn_ctrlMAX3->setEnabled(false);
-
-    ui->btn_ctrlstab1->setEnabled(false);
-    strTemp = QString("");
-    sendSerialCommand(pSerial, CMD_GET_FS_ACCURACY, &strTemp);
-    ui->btn_ctrlstab1->setText(strTemp.right(strTemp.length() - QString("1 FS ").length()));
-
 
     editctrlstab1Flag = false;
     editctrlstab2Flag = false;
@@ -173,38 +140,57 @@ void Contoller::on_btn_ctrlvariable_clicked()
 
 void Contoller::on_btn_ctrlMAX1_2_clicked()
 {
+#if 0
     pKeyboard->str = QString("");
     pKeyboard->editFlag = true;
     editctrlvariableFlag = true;
     pKeyboard->show();
     pKeyboard->move(800, 240);
+#endif
+    QProcess *poc = new QProcess;
+    poc->start("reboot");
 }
 
 void Contoller::on_btn_ctrlMAX1_clicked()
 {
+#if 0
     pKeyboard->str = QString("");
     pKeyboard->editFlag = true;
     editctrlMax1Flag = true;
     pKeyboard->show();
     pKeyboard->move(800, 240);
+#endif
+    QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    configIniWrite->setValue("config/style", "0");
+    delete configIniWrite;
 }
 
 void Contoller::on_btn_ctrlMAX2_clicked()
 {
+#if 0
     pKeyboard->str = QString("");
     pKeyboard->editFlag = true;
     editctrlMax2Flag = true;
     pKeyboard->show();
     pKeyboard->move(800, 240);
+#endif
+    QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    configIniWrite->setValue("config/style", "1");
+    delete configIniWrite;
 }
 
 void Contoller::on_btn_ctrlMAX3_clicked()
 {
+#if 0
     pKeyboard->str = QString("");
     pKeyboard->editFlag = true;
     editctrlMax3Flag = true;
     pKeyboard->show();
     pKeyboard->move(800, 240);
+#endif
+    QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
+    configIniWrite->setValue("config/style", "2");
+    delete configIniWrite;
 }
 
 void Contoller::on_btn_ctrlstab1_clicked()
@@ -233,4 +219,9 @@ void Contoller::on_btn_ctrlMAX3_3_clicked()
 void Contoller::on_btn_ctrlMAX3_2_clicked()
 {
     pChanTest->show();
+}
+
+void Contoller::on_btn_configureMachine_2_clicked()
+{
+    this->close();
 }

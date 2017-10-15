@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "posix_qextserialport.h"
 #include "commandList.h"
+#include "contoller.h"
 #include <QTimer>
 
 namespace Ui {
@@ -24,12 +25,16 @@ private slots:
 
     void on_btn_configureMachine_2_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::about *ui;
 public:
     Posix_QextSerialPort *pSerial;
 
     QTimer *pTimer;
+
+    Contoller *pConfigure;
 };
 
 #endif // ABOUT_H

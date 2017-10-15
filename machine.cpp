@@ -59,7 +59,7 @@ void Machine::on_btn_default_2_clicked()
         configIniWrite->setValue("style/mode", "0");
         g32styleMode = 0;
         delete configIniWrite;
-        poc->start("/restart.sh");
+        poc->start("reboot");
 
     }
     else
@@ -83,7 +83,7 @@ void Machine::on_btn_default_7_clicked()
         configIniWrite->setValue("style/mode", "2");
         g32styleMode = 2;
         delete configIniWrite;
-        poc->start("/restart.sh");
+        poc->start("reboot");
     }
     else
         delete configIniWrite;
@@ -104,7 +104,7 @@ void Machine::on_btn_default_5_clicked()
         g32styleMode = 3;
 
         delete configIniWrite;
-        poc->start("/restart.sh");
+        poc->start("reboot");
     }
     else
         delete configIniWrite;
@@ -125,7 +125,7 @@ void Machine::on_btn_default_4_clicked()
         g32styleMode = 4;
 
         delete configIniWrite;
-        poc->start("/restart.sh");
+        poc->start("reboot");
     }
     else
         delete configIniWrite;
@@ -144,7 +144,7 @@ void Machine::on_btn_default_6_clicked()
         g32styleMode = 5;
 
         delete configIniWrite;
-        poc->start("/restart.sh");
+        poc->start("reboot");
     }
     else
         delete configIniWrite;
@@ -163,7 +163,7 @@ void Machine::on_btn_default_3_clicked()
         g32styleMode = 1;
 
         delete configIniWrite;
-        poc->start("/restart.sh");
+        poc->start("reboot");
     }
     else
         delete configIniWrite;

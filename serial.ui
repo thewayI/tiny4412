@@ -65,12 +65,15 @@ border-bottom-right-radius:6px;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);
-border:2px solid rgb(255, 255, 255);
-background-color: rgb(60, 116, 179);
+    <string notr="true">color: rgb(253, 251, 252);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
-QAbstractItemView::item { min-height: 70px; min-width: 290px;}</string>
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+QAbstractItemView::item { height: 70px; width: 240px;}
+</string>
    </property>
    <item>
     <property name="text">
@@ -103,12 +106,15 @@ QAbstractItemView::item { min-height: 70px; min-width: 290px;}</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);
-border:2px solid rgb(255, 255, 255);
-background-color: rgb(60, 116, 179);
+    <string notr="true">color: rgb(253, 251, 252);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
-QAbstractItemView::item { min-height: 70px; min-width: 290px;}</string>
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+QAbstractItemView::item { height: 70px; width: 240px;}
+</string>
    </property>
    <property name="currentIndex">
     <number>3</number>
@@ -245,12 +251,15 @@ border-bottom-right-radius:6px;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);
-border:2px solid rgb(255, 255, 255);
-background-color: rgb(60, 116, 179);
+    <string notr="true">color: rgb(253, 251, 252);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
-QAbstractItemView::item { min-height: 70px; min-width: 290px;}</string>
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+QAbstractItemView::item { height: 70px; width: 240px;}
+</string>
    </property>
    <property name="currentIndex">
     <number>0</number>
@@ -296,12 +305,15 @@ QAbstractItemView::item { min-height: 70px; min-width: 290px;}</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);
-border:2px solid rgb(255, 255, 255);
-background-color: rgb(60, 116, 179);
+    <string notr="true">color: rgb(253, 251, 252);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
 border-top-left-radius:6px;
 border-top-right-radius:6px;
-QAbstractItemView::item { min-height: 70px; min-width: 290px;}</string>
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+QAbstractItemView::item { height: 70px; width: 240px;}
+</string>
    </property>
    <item>
     <property name="text">

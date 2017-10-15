@@ -139,7 +139,7 @@ void SimpleAdjust::on_btn_ok_3_clicked()
     pKeyBoard->str = QString("");
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(0, 500);
+    pKeyBoard->move(0, 300);
 }
 
 void SimpleAdjust::on_btn_ok_4_clicked()

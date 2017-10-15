@@ -399,7 +399,7 @@ void adjust::on_btn_adjustAuto_4_clicked()
     pKeyBoard->str = QString("");
     pKeyBoard->editFlag = true;
     pKeyBoard->show();
-    pKeyBoard->move(0, 500);
+    pKeyBoard->move(0, 300);
 }
 
 void adjust::on_btn_adjustAuto_5_clicked()

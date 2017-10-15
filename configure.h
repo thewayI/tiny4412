@@ -26,6 +26,22 @@ private slots:
 
     void on_btn_configureMachine_2_clicked();
 
+    void on_checkBox_stateChanged(int arg1);
+
+    void on_checkBox_2_stateChanged(int arg1);
+
+    void on_checkBox_4_stateChanged(int arg1);
+
+    void on_checkBox_3_stateChanged(int arg1);
+
+    void on_cmb_accuracy_currentIndexChanged(int index);
+
+    void on_checkBox_7_stateChanged(int arg1);
+
+    void on_checkBox_6_stateChanged(int arg1);
+
+    void on_checkBox_5_stateChanged(int arg1);
+
 private:
     Ui::configure *ui;
 

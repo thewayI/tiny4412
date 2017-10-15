@@ -45,5 +45,7 @@
         <file>image/未标题-1_03.png</file>
         <file>image/1.png</file>
         <file>image/menu泄露测试.png</file>
+        <file>image/bg_jsj.png</file>
+        <file>image/icon_jsj.png</file>
     </qresource>
 </RCC>

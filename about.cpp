@@ -15,6 +15,8 @@ about::about(QWidget *parent, Posix_QextSerialPort *serial) :
     pSerial = serial;
     QString str;
 
+    pConfigure = new Contoller(this, pSerial);
+    pConfigure->close();
 
     QSettings *configIniWrite = new QSettings("config.ini", QSettings::IniFormat);
     str = configIniWrite->value("about/company").toString();
@@ -192,4 +194,17 @@ void about::on_btn_configureMachine_2_clicked()
 {
     pTimer->stop();
     this->close();
+}
+
+void about::on_pushButton_2_clicked()
+{
+    static u_int8_t m8ClickTimes = 0;
+
+    m8ClickTimes++;
+
+    if(m8ClickTimes > 9)
+    {
+        m8ClickTimes = 0;
+        pConfigure->show();
+    }
 }

@@ -14,13 +14,15 @@ leakTest::leakTest(QWidget *parent, Posix_QextSerialPort *serial) :
     btimeStartFlag =false;
 
     pTimer = new QTimer(this);
-    pTimer->setInterval(10);
+    pTimer->setInterval(100);
     connect(pTimer, SIGNAL(timeout()), this, SLOT(onTimeOut()));
 
     ui->lineEdit_D_value->setText(QString("0.000000"));
     ui->lineEdit_time->setText(QString("0.00"));
     ui->pushButton_2->hide();
     ui->pushButton_2->setEnabled(false);
+
+    ui->label_view->setText(QString("--------------"));
 
     switch(g32styleMode)
     {
@@ -79,7 +81,7 @@ void leakTest::onTimeOut(void)
         if(btimeStartFlag)
         {
             ui->pushButton->setText(QString::fromUtf8("停止"));
-            m_timer += 0.01;
+            m_timer += 0.1;
             str = QString::number(m_timer, 'f', 2);
             ui->lineEdit_time->setText(str);
         }

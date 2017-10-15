@@ -23,10 +23,10 @@
    <widget class="QPushButton" name="btn_unitChange">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>478</y>
-      <width>240</width>
-      <height>70</height>
+      <x>880</x>
+      <y>410</y>
+      <width>191</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
@@ -668,34 +668,54 @@ QAbstractItemView::item { height: 70px; width: 240px;}
    <widget class="QPushButton" name="btn_test_2">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>60</y>
+      <x>560</x>
+      <y>730</y>
       <width>171</width>
-      <height>71</height>
+      <height>60</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(253, 251, 252);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
+border-top-left-radius:6px;
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+</string>
+    </property>
     <property name="text">
-     <string>save</string>
+     <string>重新开始</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_test_3">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>60</y>
+      <x>770</x>
+      <y>730</y>
       <width>171</width>
-      <height>71</height>
+      <height>60</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(253, 251, 252);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
+border-top-left-radius:6px;
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+</string>
+    </property>
     <property name="text">
-     <string>read</string>
+     <string>自动调零</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_view">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>260</y>
+      <y>290</y>
       <width>1280</width>
       <height>118</height>
      </rect>
@@ -718,17 +738,22 @@ QAbstractItemView::item { height: 70px; width: 240px;}
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>478</y>
+      <x>10</x>
+      <y>720</y>
       <width>71</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(253, 251, 252);</string>
     </property>
     <property name="text">
-     <string>单位</string>
+     <string>最小值</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -776,6 +801,147 @@ background-color: rgba(05, 02, 04,50);
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>720</y>
+      <width>71</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(253, 251, 252);</string>
+    </property>
+    <property name="text">
+     <string>最大值</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_min">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>720</y>
+      <width>181</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(253, 251, 252);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_max">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>720</y>
+      <width>191</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(253, 251, 252);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rate">
+    <property name="geometry">
+     <rect>
+      <x>1080</x>
+      <y>720</y>
+      <width>191</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(253, 251, 252);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>720</y>
+      <width>71</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(253, 251, 252);</string>
+    </property>
+    <property name="text">
+     <string>变化率</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_unitChange_2">
+    <property name="geometry">
+     <rect>
+      <x>1080</x>
+      <y>410</y>
+      <width>191</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(253, 251, 252);
+border:2px solid rgba(255, 255, 255,70);
+background-color: rgba(255, 255, 255, 20);
+border-top-left-radius:6px;
+border-top-right-radius:6px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+</string>
+    </property>
+    <property name="text">
+     <string>表压</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>label_step_2</zorder>
+   <zorder>cmb_accuracy</zorder>
    <zorder>label_step</zorder>
    <zorder>dsb_step</zorder>
    <zorder>btn_configureControl</zorder>
@@ -800,17 +966,21 @@ background-color: rgba(05, 02, 04,50);
    <zorder>btn_controlrange</zorder>
    <zorder>btn_remoteSerial</zorder>
    <zorder>label_range</zorder>
-   <zorder>btn_test_3</zorder>
-   <zorder>btn_test_2</zorder>
    <zorder>label_test</zorder>
    <zorder>frame</zorder>
    <zorder>label</zorder>
    <zorder>btn_unitChange</zorder>
    <zorder>btn_manu</zorder>
-   <zorder>cmb_accuracy</zorder>
-   <zorder>label_step_2</zorder>
    <zorder>label_view</zorder>
+   <zorder>btn_test_2</zorder>
+   <zorder>btn_test_3</zorder>
    <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_min</zorder>
+   <zorder>label_max</zorder>
+   <zorder>label_rate</zorder>
+   <zorder>label_5</zorder>
+   <zorder>btn_unitChange_2</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

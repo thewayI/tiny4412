@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 u_int32_t g32styleMode = 0;
+u_int8_t g8ConfigStyle = 0;
 bool      g8ConnectFlag = true;
 
 
@@ -36,7 +37,7 @@ mainWindow::mainWindow(QWidget *parent) :
 
     if(!configIniWrite->contains("private/passwd"))
     {
-        configIniWrite->setValue("/private/passwd", "12345678");
+        configIniWrite->setValue("/private/passwd", "123456");
     }
     if(!configIniWrite->contains("private/lockFlag"))
     {
@@ -68,8 +69,21 @@ mainWindow::mainWindow(QWidget *parent) :
         configIniWrite->setValue("style/mode", "0");
     }
 
-    g32styleMode = configIniWrite->value("style/mode").toInt();
+    if(!configIniWrite->contains("config/style"))
+    {
+        configIniWrite->setValue("config/style", "0");
+    }
+    if(!configIniWrite->contains("config/title"))
+    {
+        configIniWrite->setValue("config/title", "气压计 CP6100");
+    }
 
+    g32styleMode = configIniWrite->value("style/mode").toInt();
+    g8ConfigStyle = configIniWrite->value("config/style").toInt();
+    QString str = configIniWrite->value("config/title").toString();
+    QByteArray ba = str.toLatin1();
+    char *mm = ba.data();
+    ui->label->setText(QString::fromUtf8(mm));
     delete configIniWrite;
     switch(g32styleMode)
     {
@@ -215,8 +229,7 @@ mainWindow::mainWindow(QWidget *parent) :
 
 
     //ui->btn_test->hide();
-    ui->btn_test_2->hide();
-    ui->btn_test_3->hide();
+
     ui->label_test->hide();
     //ui->btn_configureSensor->show();
     //ui->lcdNumber->hide();
@@ -225,6 +238,21 @@ mainWindow::mainWindow(QWidget *parent) :
 
     //zdren for debug
     testloop = 0;
+
+    ui->btn_test_2->hide();
+    ui->btn_test_3->hide();
+    ui->label_3->hide();
+    ui->label_4->hide();
+    ui->label_max->hide();
+    ui->label_min->hide();
+    ui->label_5->hide();
+    ui->label_rate->hide();
+
+    m32MinPress  = 0.0;
+    m32MaxPress  = 0.0;
+    m32PressTemp = 0.0;
+    m32PressDiff = 0.0;
+    m32Rate      = 0.0;
 
     pTimer->start();
     pTimerHost->start();
@@ -297,14 +325,79 @@ void mainWindow::onTimeOut()
         str = strsms.right(strsms.length() - QString("1 ").length());
         testData = str.toDouble();
         testData = testData * pUnit->conversiontoPSI / pUnit->baseConver;
-        str = QString::number(testData, 'f', (ui->cmb_accuracy->currentText().toInt()));
-        ui->label_view->setText(str);
-        testData = str.toDouble();
+        if(m32MinPress > testData)
+        {
+            m32MinPress = testData;
+        }
+        if(m32MaxPress < testData)
+        {
+            m32MaxPress = testData;
+        }
+        m32PressDiff = testData - m32PressTemp;
+        m32PressTemp = testData;
+        str = QString::number(testData, 'f', g8Accuracy);
+        ui->label_view->setText(str);        
     }
     else
     {
         g8ConnectFlag = false;
         ui->label_view->setText(QString("-----------"));
+    }
+
+    if(g8checkSts & CHAN_A_PEAK_CHECK)
+    {
+        ui->btn_test_2->show();
+        ui->label_3->show();
+        ui->label_4->show();
+        ui->label_max->show();
+        ui->label_min->show();
+
+        str = QString::number(m32MinPress, 'f', 6);
+        ui->label_min->setText(str);
+        str = QString::number(m32MaxPress, 'f', 6);
+        ui->label_max->setText(str);
+    }
+    else
+    {
+        ui->btn_test_2->hide();
+        ui->label_3->hide();
+        ui->label_4->hide();
+        ui->label_max->hide();
+        ui->label_min->hide();
+        m32MinPress = 0.0;
+        m32MaxPress = 0.0;
+    }
+    if(g8checkSts & CHAN_A_RATE_CHECK)
+    {
+        ui->label_5->show();
+        ui->label_rate->show();
+        m32PressDiff *= 10;
+        str = QString::number(m32PressDiff, 'f', 4);
+        str.append(QString(" "));
+        str.append(pUnit->unitName);
+        str.append(QString("/s"));
+        ui->label_rate->setText(str);
+    }
+    else
+    {
+        m32PressDiff = 0.0;
+        ui->label_5->hide();
+        ui->label_rate->hide();
+    }
+    if(g8checkSts & CHAN_A_ADJUST_ZERO_PEAK)
+    {
+        ui->btn_test_3->show();
+    }
+    else
+    {
+        ui->btn_test_3->hide();
+    }
+    if(g8checkSts & CHAN_A_PRESSURE_PEAK)
+    {
+
+    }
+    {
+
     }
     //send a basic query pressure readings
 
@@ -726,24 +819,15 @@ void mainWindow::on_btn_test_clicked()
 
 void mainWindow::on_btn_test_2_clicked()
 {
-
-    QString str;
-#ifdef __TEST_ZC_CMD__
-    sendSerialCommand(pSerialDev, CMD_GET_ZERO_CORRECTION, &str);
-#endif
-    //1. send #*ZC?   get current zero
-    sendSerialCommand(pSerialDev, CMD_GET_CORRECTION_MULTIPLIER, &str);
-    str = str.right(str.length() - QString("1 SC ").length());
-    ui->label_test->setText(str);
+    m32MinPress = 0.0;
+    m32MaxPress = 0.0;
 }
 
 void mainWindow::on_btn_test_3_clicked()
 {
-#ifdef __TEST_ZC_CMD__
     QString str;
     double zero = 0.0;
     double zeroTemp = 0.0;
-
     QString strTemp = QString("1 ZC ");
     //1. send #*ZC?   get current zero
     sendSerialCommand(pSerialDev, CMD_GET_ZERO_CORRECTION, &str);
@@ -756,7 +840,7 @@ void mainWindow::on_btn_test_3_clicked()
     sendSerialCommandArg(pSerialDev, CMD_SET_ZERO_CORRECTION, strTemp, &str);
     //4. send #*?     get current pressure
     sendSerialCommand(pSerialDev, CMD_GET_PRESSURE_READING, &str);
-    str = str.right(str.length() - QString("1 ").length());
+    str = str.right(10);
     //ui->edit_adjustView->setText(str);
     zeroTemp = str.toDouble();
     //5. send #*PW    disbale passwd
@@ -769,42 +853,34 @@ void mainWindow::on_btn_test_3_clicked()
     sendSerialCommand(pSerialDev, CMD_SAVE_ALL_DATA, &str);
     //ui->tblwidget_adjustItem->setItem(2,1,new QTableWidgetItem(QString::number(zero - zeroTemp, 'f', 6)));
     //8. send #*?
-    sendSerialCommand(pSerialDev, CMD_GET_PRESSURE_READING, &str);
-    str = str.right(str.length() - QString("1 ").length());
-    //ui->edit_adjustView->setText(str);
-#endif
+//    sendSerialCommand(pSerialDev, CMD_GET_PRESSURE_READING, &str);
+//    str = str.right(10);
+//    ui->edit_adjustView->setText(str);
+}
 
-    QString str = QString("");
-    double pressure = 0.0;
-    double pressureTemp = 0.0;
-    //1. send #*SC? get current span cal
-    QString strTemp = QString("1 SC ");
-    //1. send #*ZC?   get current zero
-    sendSerialCommand(pSerialDev, CMD_GET_CORRECTION_MULTIPLIER, &str);
-
-    //2. send #*PW    disable password
-    sendSerialCommand(pSerialDev, CMD_DISABLE_PASSWD, &str);
-    //3. send #*SC 1  send a new zero
-    strTemp = QString("1");
-    sendSerialCommandArg(pSerialDev, CMD_LOAD_CORRECTION_MULTIPLIER, strTemp, &str);
-    //4. send #*?     get current pressure
-    sendSerialCommand(pSerialDev, CMD_GET_PRESSURE_READING, &str);
-    str = str.right(str.length() - QString("1 ").length());
-    //ui->edit_adjustView->setText(str);
-    pressure = str.toDouble();
-
-    pressureTemp = 2.0 / pressure;
-
-    strTemp = QString::number(pressureTemp, 'f', 6);
-
-    //2. send #*PW    disable password
-    sendSerialCommand(pSerialDev, CMD_DISABLE_PASSWD, &str);
-    //3. send #*SC 1  send a new zero
-    strTemp = QString("1");
-    sendSerialCommandArg(pSerialDev, CMD_LOAD_CORRECTION_MULTIPLIER, strTemp, &str);
-    //7. send #*SAVE  save enviment
-    sendSerialCommand(pSerialDev, CMD_SAVE_ALL_DATA, &str);
-    //8. send #*?
-    sendSerialCommand(pSerialDev, CMD_GET_PRESSURE_READING, &str);
-    str = str.right(str.length() - QString("1 ").length());
+void mainWindow::on_btn_unitChange_2_clicked()
+{
+    static u_int8_t clickFlag = 0;
+    switch(g8ConfigStyle)
+    {
+    case 0:
+        ui->btn_unitChange_2->setText(QString::fromUtf8("表压"));
+        break;
+    case 1:
+        ui->btn_unitChange_2->setText(QString::fromUtf8("绝压"));
+        break;
+    case 2:
+        clickFlag++;
+        if(clickFlag % 2)
+        {
+            ui->btn_unitChange_2->setText(QString::fromUtf8("表压"));
+        }
+        else
+        {
+            ui->btn_unitChange_2->setText(QString::fromUtf8("绝压"));
+        }
+        break;
+    default:
+        break;
+    }
 }

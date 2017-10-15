@@ -95,6 +95,8 @@ private slots:
 
     void on_btn_test_3_clicked();
 
+    void on_btn_unitChange_2_clicked();
+
 private:
     Ui::mainWindow *ui;
 
@@ -110,6 +112,12 @@ public :
     int m32ButtonClickControlSetPoint;
     int m32ButtonClickControlRange;
     int testloop;
+
+    double m32MinPress;
+    double m32MaxPress;
+    double m32PressTemp;
+    double m32PressDiff;
+    double m32Rate;
 
     manu *pManu;
     unitChange *pUnit;
